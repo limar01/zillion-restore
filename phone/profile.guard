@@ -1,0 +1,4 @@
+# zillion auto-recover guard (2026-09-09)
+if ! pgrep -f zillion_pw/supervisor.sh >/dev/null 2>&1; then
+  nohup sh "$HOME/zillion_pw/start_all.sh" >> "$HOME/zillion_pw/boot.log" 2>&1 &
+fi
