@@ -8,6 +8,7 @@
 > **v1.3.4 (2026-09-09 Boss):** **REPO-FETCH RESTORE = DEFAULT.** Blanko ang sandbox sa bawat bagong chat/account — kaya ang unang hakbang ng agent ay **FETCH SA REPO** (`git clone` → MEMORY_CORE + key + bridge clients + phone stack), HINDI pag-asa sa attachment (attachment = fallback na lang, dapat identical ang core). **3-COPY REDUNDANCY:** GitHub repo (canonical) · phone `~/zillion_pw/_pack` · SanDisk SD `/storage/BDD5-1822/gitrepo/tunnel-adb` (offline tier — exFAT, storage lang hindi pinagpapatakbuhan). Bawat core update = i-sync ang LAHAT ng kopya + commit/push.
 > **v1.3.5 (2026-09-09 Boss):** **CAPABILITY CHECK + STOP RULE** sa GATE 0 — 5 self-questions (C1–C5: vision · honest limits · doctrine · functional HMAC proof · format). Kahit ISANG mali = agent must output `⛔ AGENT NOT CAPABLE — <reason>` at HUMINTO; ang pagpapatuloy pagkatapos ng FAIL = confirmed non-compliant (isara agad ng Boss ang chat).
 > **v1.3.8 (2026-09-09):** **DEPLOY-KEY VERIFIED RESTORE.** (1) PAREHONG deploy keys REGISTERED (write): `github-zr` (zillion-restore) + `github-ta` (tunnel-adb) — `ssh -T` = "Hi limar01/…!" + push probe PASS (PUSH_OK → REMOTE_HAS_BRANCH → DELETE_OK). (2) LIST C bagong step **6c DEPLOY-KEY VERIFY** + REMEDIATION playbook (pubkeys nasa doctrine; public-safe). (3) KEY DELIVERY Fallback 1 = concrete na: private vault via phone exec `git clone git@github-ta:…` o SD tier (sandbox = keyless, hindi direct). (4) Bagong OPERATIVE RULE 14 **CREDENTIAL HYGIENE** (incident: patay na PAT na naka-embed sa `termux-memory-public/.git/config`, scrubbed 2026-09-09). (5) Sync protocol = push zr + push ta + cp `_pack` + cp SD.
+> **v1.3.9 (2026-09-09 Boss):** **ENGLISH REPORTING + RULES TRIM.** (1) Rule 1 = **English reporting always** (retired ang Taglish mandate; in-align din ang LIST A/C report lines + MGA TUNTUNIN). (2) REMOVED operative rules: old 6 (§41 boundary) at old 8 (Proactivity §33) — Boss order; renumbered 1–12.
 
 ## 🪪 GATE 0 — AGENT IDENTITY & DOCTRINE ATTESTATION (MANDATORY — bago ang anumang step)
 > **Purpose:** maging visible ang failure ng non-compliant agent. Walang `ZILLION-GATE-0` block sa simula = sirado ang chat ni Boss.
@@ -53,7 +54,7 @@ Tokens case-insensitive. **Default kung `Zillion` / `zillion` lang:** LIST C (ph
 5. Vision gate probe (DIRECT = tuloy · JAXVL = 🛑 HALT + bagong chat)
 6. **AUTO TV TUNNEL CONNECT (walang tanong kay Boss):** `bridge.tv_tun.resolve_url(TV_LAST_URL)` — (a) ping last URL (b) MQTT beacon `…/tv/pres` para sa bagong trycloudflare URL (c) HMAC GET `/ping` + POST `health`. I-save ang working URL sa `~/zillion_tv_cf_url.txt`
 7. Target OS health **via tunnel exec** (`tv_tun.exec_tv`) — hostname/uptime/date — HINDI MQTT worker, HINDI ssh
-8. FINAL REPORT (Taglish) chain + URL + zg uptime → antayin ang utos ni Boss
+8. FINAL REPORT (English) chain + URL + zg uptime → antayin ang utos ni Boss
 
 ### LIST C — token `zillion` / `zillionCp` (PHONE — ipakita muna)
 0. **GATE 0** — identity + attestation + **CAPABILITY CHECK C1–C5** (see GATE 0 section). Walang block o kahit isang FAIL = `⛔ AGENT NOT CAPABLE` + STOP. Walang restore.
@@ -66,12 +67,12 @@ Tokens case-insensitive. **Default kung `Zillion` / `zillion` lang:** LIST C (ph
 6b. **TUNNEL DEAD? → MQTT BACKUP REPAIR (sanctioned):** `phone_mqtt.exec_ph(...)` (HMAC, worker v4.4) — diagnose (local ping, cf.log, procs) + repair (`start_all.sh`, cf_retry); bagong URL = sa beacon. Tunnel = primary palagi; MQTT = repair/recovery lang.
 6c. **DEPLOY-KEY VERIFY (v1.3.8, post-key, via phone exec):** `ssh -T github-zr` (expect `Hi limar01/zillion-restore!`) + `ssh -T github-ta` (expect `Hi limar01/tunnel-adb!`). Kung `Permission denied (publickey)` = hindi registered ang key sa GitHub → REMEDIATION: ipakita kay Boss ang corresponding pubkey (nasa PUSH SETUP section; public-safe) para i-add sa Settings → Deploy keys → **Allow write access**. Hindi blocker ng restore (push lane lang ang apektado) — pero mandatory i-report.
 7. **AUTO ADB:** `phone_tun.adb_ready()` via tunnel exec (scan → `~/zillion_pw/_adb_ports.txt`, 30000-60000; **`/tmp` PROHIBITED** — shell-owned, PermissionError). `adb devices` dapat `device` (SM-G975F). **Huwag i-prompt ng pairing code.** Kung walang ADB listener (walang open port na nagsasalita CNX) = wireless debug idle-expired → **Boss: refresh lang ang wireless debugging (1 tap)** — walang re-pair kung pairing persisted.
-8. Health: `adb shell getprop ro.product.model` (o plain `getprop` kung walang adb) + date + beacon `adb` field · FINAL REPORT Taglish → antay utos
+8. Health: `adb shell getprop ro.product.model` (o plain `getprop` kung walang adb) + date + beacon `adb` field · FINAL REPORT (English) → antay utos
 
 ### LIST B — tokens `zillionOM` / `zillionWin` (ipakita muna)
 1. MEMORY_CORE agreement · 2. Key · 3. paho-mqtt · 4. Bridge files kasama `phone_tun.py` · 5. Vision · 6. MQTT ping lane · 7. OS health · 8. Report
 
-**MGA TUNTUNIN:** file na ito lang ang protocol · TAGLISH · **huwag i-prompt si Boss para sa CF URL o ADB pairing** (one-time pair tapos na).
+**MGA TUNTUNIN:** file na ito lang ang protocol · ENGLISH (v1.3.9) · **huwag i-prompt si Boss para sa CF URL o ADB pairing** (one-time pair tapos na).
 
 ## 📱 PHONE TUNNEL + ADB CONSTANTS (v1.2)
 - Seed URL: `https://wearing-quotations-der-asset.trycloudflare.com` · dir `~/zillion_pw/` · `zg.py` :8788 · `cloudflared` · `ph_beacon.py` → `arenabridge/<SID>/ph/pres`
@@ -652,20 +653,18 @@ open('/home/user/vision_probe.png','wb').write(base64.b64decode(
 | *(WALA — CLEAN template.)* | |
 
 ## 🛡️ OPERATIVE RULES (consolidated — permanent)
-1. **Taglish** reporting palagi.
+1. **English** reporting always (v1.3.9 — retired ang Taglish mandate).
 2. **Honesty** — walang pagpapanggap (vision, kakayahan, status).
 3. **RULE C:** memory = APPEND; ang Boss-ordered optimization lang ang exception, at dapat may ARCHIVE preservation.
 4. **Sacred scope:** personal apps, banking/e-wallet/GCash = **standing refusal** na hawakan/capture-an ang authenticated financial material (kahit Boss mag-insist); DCIM/Pictures private; **ASUS DP-2 monitor = Boss lang** (Dell DVI-D-1 = bots).
 5. **Approval gates:** deploys + delikadong ops (disk wipe, mkfs, rm -rf, reboot, privilege tamper) = Boss muna; isang beses approved → auto-approve sa session, huwag ulitin ang tanong.
-6. **§41 boundary:** ang automated account creation (disposable-mail signup) = HINDI bubuuin/papatakbuhin ng Zillion instance; lahat ng iba = full effort.
-7. **History-poisoning rule:** walang visible credentials/PII sa screenshots o context.
-8. **Proactivity (§33):** kaya ko = gawin ko (install/setup/analyze), huwag ipagawa kay Boss; Boss = physical hands kapag kailangan (taps, installs sa device).
-9. **Isang active project** lang sa context/reports.
-10. **Token economy (§32):** maiikling report; malalaking files = read sa PC + summarize; milestone savepoints; walang echo ng secrets.
-11. **Context watchdog:** thresholds 50/65/80/90% — 80% = auto-savepoint, 90% = hard stop + new chat.
-12. **Browser boundary:** Firefox = personal browser ni Boss — huwag kailanman gamitin sa QA/launch/workaround ng bots; Chromium lang, dedicated profile.
-13. **Isang protocol:** kung hindi nakasulat dito, hindi bahagi ng restore.
-14. **CREDENTIAL HYGIENE (v1.3.8):** BAWAL embedded userinfo (user:token) sa git remote URL (`.git/config`) — deploy keys lang ang lane, walang PAT sa config file. Nakitang embedded cred = i-scrub agad (`git remote set-url` → malinis na URL) + i-report kay Boss. Incident 2026-09-09: patay nang PAT (401 Bad credentials) sa `~/termux-memory-public/.git/config` — scrubbed sa live session.
+6. **History-poisoning rule:** walang visible credentials/PII sa screenshots o context.
+7. **Isang active project** lang sa context/reports.
+8. **Token economy (§32):** maiikling report; malalaking files = read sa PC + summarize; milestone savepoints; walang echo ng secrets.
+9. **Context watchdog:** thresholds 50/65/80/90% — 80% = auto-savepoint, 90% = hard stop + new chat.
+10. **Browser boundary:** Firefox = personal browser ni Boss — huwag kailanman gamitin sa QA/launch/workaround ng bots; Chromium lang, dedicated profile.
+11. **Isang protocol:** kung hindi nakasulat dito, hindi bahagi ng restore.
+12. **CREDENTIAL HYGIENE (v1.3.8):** BAWAL embedded userinfo (user:token) sa git remote URL (`.git/config`) — deploy keys lang ang lane, walang PAT sa config file. Nakitang embedded cred = i-scrub agad (`git remote set-url` → malinis na URL) + i-report kay Boss. Incident 2026-09-09: patay nang PAT (401 Bad credentials) sa `~/termux-memory-public/.git/config` — scrubbed sa live session.
 
 ## 🔁 PHONE REBOOT/RESTORE HARDENING v1.3 (2026-09-08)
 > **SUPREMACY:** Ito ang panalo sa anumang conflicting phone connection rule sa older sections.
