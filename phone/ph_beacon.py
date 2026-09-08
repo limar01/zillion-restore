@@ -1,7 +1,29 @@
 #!/usr/bin/env python3
-# ph_beacon v3 (2026-09-09): F1 fix — last-known-URL retention (never publish empty url),
-# + healthy flag, adb() stderr-clean + exact device match (F9). Retained + self-heal (v2 base).
+# ph_beacon v3 (2026-09-09): F1 fix — last-known-URL retention + healthy flag + adb exact match.
+# v3.1 (2026-09-09): + TRUSTED URL PUBLISH — kapag nagbago ang healthy URL, i-push sa
+# public repo (github-zr deploy key) bilang url.txt. Pre-key discovery ng fresh agent =
+# GitHub (trusted), HINDI MQTT beacon (spoofable pre-key). 
 import os, json, time, hmac, hashlib, uuid, re, subprocess, urllib.request
+
+REPO_DIR = os.path.expanduser("~/zillion_pw/_urlrepo")
+PUSHED = os.path.expanduser("~/zillion_pw/_pushed_url.txt")
+
+def push_url(u):
+    # v3.1: trusted-channel publish (public repo). Non-fatal kapag nag-fail.
+    try:
+        if not os.path.isdir(REPO_DIR + "/.git"):
+            subprocess.run(["git","clone","-q","git@github-zr:limar01/zillion-restore.git",REPO_DIR], timeout=60, check=True)
+            subprocess.run(["git","-C",REPO_DIR,"config","user.name","Zillion Beacon"], check=True)
+            subprocess.run(["git","-C",REPO_DIR,"config","user.email","beacon@zillion.phone"], check=True)
+        else:
+            subprocess.run(["git","-C",REPO_DIR,"pull","-q"], timeout=30)
+        with open(REPO_DIR + "/url.txt","w") as f: f.write(u + "\n")
+        subprocess.run(["git","-C",REPO_DIR,"add","url.txt"], timeout=15, check=True)
+        subprocess.run(["git","-C",REPO_DIR,"commit","-q","-m","url update"], timeout=15)
+        subprocess.run(["git","-C",REPO_DIR,"push","-q","origin","main"], timeout=45, check=True)
+        with open(PUSHED,"w") as f: f.write(u + "\n")
+    except Exception:
+        pass  # retry sa susunod na cycle (15s)
 import paho.mqtt.client as mqtt
 SID="53cf4a5803c91726b892e5d0785085c6"
 KEY=open(os.path.expanduser("~/arenabridge/arenabridge.key")).read().strip()
@@ -50,6 +72,11 @@ def main():
             n=0
             while True:
                 u=url()
+                prev=""
+                try: prev=open(PUSHED).read().strip()
+                except Exception: pass
+                if u and u != prev:
+                    push_url(u)
                 info=cl.publish(T,env({"role":"phone","ver":"ph-supervisor-v3","online":True,
                     "url":u,"healthy":bool(u and u in (found(CF,r"https://[a-zA-Z0-9-]+\.trycloudflare\.com"),found(FB,r"https://[a-zA-Z0-9-]+\.lhr\.life")) and healthy(u)),
                     "adb":adb(),"ts":time.time(),"url_age":round(time.time()-LAST_GOOD_TS,1) if LAST_GOOD_TS else None}),qos=1,retain=True)
