@@ -2,7 +2,9 @@
 # ph_beacon v3 (2026-09-09): F1 fix — last-known-URL retention + healthy flag + adb exact match.
 # v3.1 (2026-09-09): + TRUSTED URL PUBLISH — kapag nagbago ang healthy URL, i-push sa
 # public repo (github-zr deploy key) bilang url.txt. Pre-key discovery ng fresh agent =
-# GitHub (trusted), HINDI MQTT beacon (spoofable pre-key). 
+# GitHub (trusted), HINDI MQTT beacon (spoofable pre-key).
+# v3.2 (2026-09-09): push_url failures LOGGED to beacon.log (v3.1's silent except:pass
+# hid a push stall for hours during the 2026-09-09 incident).
 import os, json, time, hmac, hashlib, uuid, re, subprocess, urllib.request
 
 REPO_DIR = os.path.expanduser("~/zillion_pw/_urlrepo")
@@ -22,8 +24,13 @@ def push_url(u):
         subprocess.run(["git","-C",REPO_DIR,"commit","-q","-m","url update"], timeout=15)
         subprocess.run(["git","-C",REPO_DIR,"push","-q","origin","main"], timeout=45, check=True)
         with open(PUSHED,"w") as f: f.write(u + "\n")
-    except Exception:
-        pass  # retry sa susunod na cycle (15s)
+    except Exception as e:
+        # v3.2: never silent — log the reason, retry sa susunod na cycle (15s)
+        try:
+            with open(os.path.expanduser("~/zillion_pw/beacon.log"),"a") as f:
+                f.write("push_url FAIL %r\n" % (e,))
+        except Exception:
+            pass
 import paho.mqtt.client as mqtt
 SID="53cf4a5803c91726b892e5d0785085c6"
 KEY=open(os.path.expanduser("~/arenabridge/arenabridge.key")).read().strip()
