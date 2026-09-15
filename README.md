@@ -10,6 +10,26 @@ ina-deliver ito ng passphrase-protected bootstrap op ng phone (zg v1.2).
 4. Key: `phone_tun.fetch_key(base, PASSPHRASE)` — keyless bootstrap (rate-limited)
 5. Sundin ang LIST C — walang modification, raw evidence lahat
 
+## 💻 RESTORE (Windows Laptop / PowerShell — `zillionPS`)
+Para sa Windows laptop restoration:
+1. Sa PowerShell:
+   ```powershell
+   git clone https://github.com/limar01/zillion-restore.git
+   cd zillion-restore
+   .\zillionPS.ps1 <PASSPHRASE>
+   ```
+   o direct one-liner:
+   ```powershell
+   irm https://raw.githubusercontent.com/limar01/zillion-restore/main/zillionPS.ps1 | iex
+   ```
+2. Awtomatikong:
+   - Kukunin ang trusted tunnel URL mula sa `url.txt`
+   - Mag-boo-bootstrap ng HMAC key mula sa phone gateway (keyless bootstrap)
+   - I-se-secure ang key sa `~\arenabridge\arenabridge.key` gamit ang strict NTFS user ACLs
+   - I-se-set up ang `~\arenabridge\` directory, approvals policy, at workspace mirror
+   - I-de-deploy at i-la-launch ang ArenaBridge worker (lane: `win`, topic: `arenabridge/<SID>/win/*`)
+   - Magbibigay ng interactive helper cmdlets (`Invoke-ZillionExec`, `Get-ZillionStatus`, `Start-ZillionWorker`, `Stop-ZillionWorker`)
+
 ## 🗂️ ESTRUKTURA
 - `MEMORY_CORE.md` — canonical doctrine (public-safe, scrubbed)
 - `bridge/` — sandbox clients (phone_tun = tunnel+bootstrap · phone_mqtt = MQTT backup)

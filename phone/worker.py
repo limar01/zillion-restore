@@ -214,12 +214,18 @@ class MiniMQTT:
 
 BROKERS = ["broker.emqx.io", "broker.hivemq.com", "test.mosquitto.org"]
 BASE = "arenabridge/53cf4a5803c91726b892e5d0785085c6"
-T_CMD = BASE + "/cmd"
-T_RES = BASE + "/res"
-T_PRE = BASE + "/pres"
+LANE = (os.environ.get("ZILLION_LANE") or ("win" if os.name == "nt" else "cp")).strip()
+if LANE in ("win", "pc"):
+    T_CMD = f"{BASE}/{LANE}/cmd"
+    T_RES = f"{BASE}/{LANE}/res"
+    T_PRE = f"{BASE}/{LANE}/pres"
+else:
+    T_CMD = BASE + "/cmd"
+    T_RES = BASE + "/res"
+    T_PRE = BASE + "/pres"
 _KEY_PATH = os.path.expanduser("~/arenabridge/arenabridge.key")
 KEY = open(_KEY_PATH).read().strip() if os.path.exists(_KEY_PATH) else ""
-WORKDIR = os.environ.get("BRIDGE_CWD") or "/data/data/com.termux/files/home/arenabridge"
+WORKDIR = os.environ.get("BRIDGE_CWD") or os.path.expanduser("~/arenabridge")
 SYNC_ROOT = Path(os.environ.get("AB_SYNC_ROOT") or os.path.join(WORKDIR, "workspace_mirror"))
 APPROVALS_FILE = Path(WORKDIR) / "approvals.json"
 CMD_TIMEOUT = int(os.environ.get("AB_CMD_TIMEOUT", "600"))

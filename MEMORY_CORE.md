@@ -40,7 +40,7 @@
 | `zillion` / `zillionCp` | **Phone S10+ SM-G975F** | **CF tunnel** HMAC `~/zillion_pw/zg.py` + **ADB** (`adb shell` full device). Discovery: MQTT beacon ONLY `arenabridge/<SID>/ph/pres` (`url`+`adb`). **Hindi MQTT exec.** |
 | `zilliontv` | **TV box (Termux)** | CF tunnel HMAC `zg.py`. Beacon `arenabridge/<TV_SID>/tv/pres` |
 | `zillionOM` | PC Omarchy (Arch) | MQTT `arenabridge/<SID>/pc/{cmd,res,pres}` |
-| `zillionWin` | Windows PC | MQTT `arenabridge/<SID>/win/{cmd,res,pres}` |
+| `zillionWin` / `zillionPS` | Windows PC / Laptop | MQTT `arenabridge/<SID>/win/{cmd,res,pres}` + PowerShell bootstrap (`zillionPS.ps1`) |
 SID(pc/cp/win)=`53cf4a5803c91726b892e5d0785085c6` · TV_SID=`3b6d57b5465bd22238186fb32850e569` (HMAC key pareho).
 Tokens case-insensitive. **Default kung `Zillion` / `zillion` lang:** LIST C (phone tunnel+ADB).
 
@@ -72,8 +72,8 @@ Tokens case-insensitive. **Default kung `Zillion` / `zillion` lang:** LIST C (ph
 7. **AUTO ADB:** `phone_tun.adb_ready()` via tunnel exec (scan → `~/zillion_pw/_adb_ports.txt`, 30000-60000; **`/tmp` PROHIBITED** — shell-owned, PermissionError). `adb devices` dapat `device` (SM-G975F). **Huwag i-prompt ng pairing code.** Kung walang ADB listener (walang open port na nagsasalita CNX) = wireless debug idle-expired → **Boss: refresh lang ang wireless debugging (1 tap)** — walang re-pair kung pairing persisted.
 8. Health: `adb shell getprop ro.product.model` (o plain `getprop` kung walang adb) + date + beacon `adb` field · FINAL REPORT (English) → antay utos
 
-### LIST B — tokens `zillionOM` / `zillionWin` (ipakita muna)
-1. MEMORY_CORE agreement · 2. Key · 3. paho-mqtt · 4. Bridge files kasama `phone_tun.py` · 5. Vision · 6. MQTT ping lane · 7. OS health · 8. Report
+### LIST B — tokens `zillionOM` / `zillionWin` / `zillionPS` (ipakita muna)
+1. MEMORY_CORE agreement · 2. Key · 3. paho-mqtt · 4. Bridge files kasama `phone_tun.py` · 5. Vision · 6. MQTT ping lane · 7. OS health · 8. Report (Para sa Windows PowerShell local restore: patakbuhin ang `.\zillionPS.ps1 <PASSPHRASE>`)
 
 **MGA TUNTUNIN:** file na ito lang ang protocol · ENGLISH (v1.3.9) · **huwag i-prompt si Boss para sa CF URL o ADB pairing** (one-time pair tapos na).
 
