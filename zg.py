@@ -14,7 +14,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 START = time.time()
 PORT = int(os.environ.get("ZG_PORT", "8788"))
 KEY_PATH = os.path.expanduser("~/arenabridge/arenabridge.key")
-KEY = "fdRZPFW3Qn6WY0zXdpHLQyCdqc-U_cYJ"
+KEY = open(KEY_PATH).read().strip() if os.path.exists(KEY_PATH) else ""
 MAX_OUT = 1 << 20
 ALLOWED = {"ping", "exec", "read", "health"}
 HOSTNAME = os.uname().nodename
