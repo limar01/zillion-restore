@@ -39,7 +39,7 @@
 |---|---|---|
 | `zillion` / `zillionCp` | **Phone S10+ SM-G975F** | **CF tunnel** HMAC `~/zillion_pw/zg.py` + **ADB** (`adb shell` full device). Discovery: MQTT beacon ONLY `arenabridge/<SID>/ph/pres` (`url`+`adb`). **Hindi MQTT exec.** |
 | `zilliontv` | **TV box (Termux)** | CF tunnel HMAC `zg.py`. Beacon `arenabridge/<TV_SID>/tv/pres` |
-| `zillionOM` | PC Omarchy (Arch) | MQTT `arenabridge/<SID>/pc/{cmd,res,pres}` |
+| `qwenOM` | PC Omarchy (Arch) | MQTT `arenabridge/<SID>/pc/{cmd,res,pres}` |
 | `zillionWin` | Windows PC | MQTT `arenabridge/<SID>/win/{cmd,res,pres}` |
 SID(pc/cp/win)=`53cf4a5803c91726b892e5d0785085c6` · TV_SID=`3b6d57b5465bd22238186fb32850e569` (HMAC key pareho).
 Tokens case-insensitive. **Default kung `Zillion` / `zillion` lang:** LIST C (phone tunnel+ADB).
@@ -72,7 +72,7 @@ Tokens case-insensitive. **Default kung `Zillion` / `zillion` lang:** LIST C (ph
 7. **AUTO ADB:** `phone_tun.adb_ready()` via tunnel exec (scan → `~/zillion_pw/_adb_ports.txt`, 30000-60000; **`/tmp` PROHIBITED** — shell-owned, PermissionError). `adb devices` dapat `device` (SM-G975F). **Huwag i-prompt ng pairing code.** Kung walang ADB listener (walang open port na nagsasalita CNX) = wireless debug idle-expired → **Boss: refresh lang ang wireless debugging (1 tap)** — walang re-pair kung pairing persisted.
 8. Health: `adb shell getprop ro.product.model` (o plain `getprop` kung walang adb) + date + beacon `adb` field · FINAL REPORT (English) → antay utos
 
-### LIST B — tokens `zillionOM` / `zillionWin` (ipakita muna)
+### LIST B — tokens `qwenOM` / `zillionWin` (ipakita muna)
 1. MEMORY_CORE agreement · 2. Key · 3. paho-mqtt · 4. Bridge files kasama `phone_tun.py` · 5. Vision · 6. MQTT ping lane · 7. OS health · 8. Report
 
 **MGA TUNTUNIN:** file na ito lang ang protocol · ENGLISH (v1.3.9) · **huwag i-prompt si Boss para sa CF URL o ADB pairing** (one-time pair tapos na).
@@ -707,3 +707,9 @@ Kapag may Boss-ordered optimization sa isang project: ilipat ang history sa `mem
 22. **PRESERVE HISTORY:** Monthly journals are append-only. Boss's explicit rolling-summary request permits regenerating ONLY the compact CURRENT_HANDOFF view, backed by the immutable journal and Git history; other memory/history is not silently erased. This is an agent-maintained routine, not a daemon that can observe inactive chats. Keep context small and do not invent exact context-meter readings.
 23. **SAVE BEFORE BUILD:** Before large installs/builds/risky work, commit the source, verify its remote project checkpoint, and verify a hashed source backup on the ACTUAL SanDisk volume. On this phone `/sdcard` resolves to `/storage/emulated/0`; SanDisk is `/storage/BDD5-1822`. An empty folder/write probe is NOT a backup. If checkpoint/push/backup fails, stop long/risky work and report the unsynced state; never defer preservation until after the build.
 24. **SYNC CORRECT SURFACES:** Canonical core/public pointer = public zillion-restore + private tunnel-adb + phone live core/restore pack + both SD doctrine copies. Actual public SD Git checkout = `/storage/BDD5-1822/gitrepo/zillion-restore`; private SD file mirror = `/storage/BDD5-1822/gitrepo/tunnel-adb` (no .git metadata at the audit). Private current handoff/journals mirror ONLY to private repo, phone pack, and private SD mirror — NEVER the public checkout. Preserve concurrent changes; no force-push or blanket staging.
+
+## 🏛️ QWENOM (PC OMARCHY) RESTORE INSTRUCTIONS
+- **Token:** `qwenOM`
+- **Primary:** CF Tunnel HMAC `zg.py` (Port 8788)
+- **Backup:** MQTT Bridge Worker (Lane: `pc`)
+- **Deploy Fixes:** `sed -i 's/mqtt.CallbackAPIVersion.VERSION2, //g' ~/arenabridge/*.py; sed -i 's/grep -oE/grep --line-buffered -oE/g' ~/arenabridge/start_pc_stack.sh`

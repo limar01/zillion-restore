@@ -19,3 +19,5 @@ When Boss says "QwenCP" or "restore point":
 2. Commit with timestamp + summary
 3. Push to remote (GitHub via SSH deploy key)
 4. Report status in English
+
+| **qwenOM** | Restore PC Omarchy (CF Tunnel Primary + MQTT Backup) |
