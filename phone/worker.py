@@ -1,5 +1,6 @@
 # ============================================================
 # ArenaBridge WORKER v4 (SYNC + APPROVALS) -- stdlib only
+# v4.5.2: single-instance lock + unique client ids + reconnect backoff + import guard
 # Ops: exec / put_file / get_file / manifest / del_file / approve / pending / policy
 # Policy: D:\arenabridge subtree = free; outside paths & system ops need approval.
 # Decisions persist in approvals.json (allow / allow_all / deny).
@@ -521,8 +522,54 @@ def secrets_hex(n):
     return _s.token_hex(n)
 
 
+def acquire_single_instance():
+    """v4.5.2: one worker per WORKDIR. Kernel file-lock (msvcrt.locking on
+    Windows, fcntl.flock on posix) -- auto-released on process death, so no
+    stale locks ever. Another live holder -> exit(0). Lock mechanism errors
+    (no fcntl/msvcrt) -> warn + continue (fail open, never brick the lane)."""
+    import sys as _s
+    lockf = os.path.join(WORKDIR, "worker.lock")
+    try:
+        os.makedirs(WORKDIR, exist_ok=True)
+        fh = open(lockf, "w+b")
+    except Exception as e:
+        print("[lock] cannot open lockfile (%r) -- continuing unlocked" % e)
+        return None
+    try:
+        if os.name == "nt":
+            import msvcrt
+            fh.seek(0)
+            msvcrt.locking(fh.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(fh.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except (IOError, OSError) as e:
+        if getattr(e, "errno", 13) in (11, 13, 36):  # EAGAIN/EACCES/EDEADLK = held
+            print("[lock] another worker holds %s -- exiting (no duplicate instance)" % lockf)
+            try: fh.close()
+            except Exception: pass
+            _s.exit(0)
+        print("[lock] lock error (%r) -- continuing unlocked" % e)
+        try: fh.close()
+        except Exception: pass
+        return None
+    except Exception as e:
+        print("[lock] lock unavailable (%r) -- continuing unlocked" % e)
+        try: fh.close()
+        except Exception: pass
+        return None
+    try:
+        fh.seek(0); fh.truncate(); fh.write(str(os.getpid()).encode()); fh.flush()
+    except Exception:
+        pass
+    return fh  # caller keeps this open for process lifetime
+
+
+_LOCK_FH = None
+
 def main():
-    global WORKDIR
+    global WORKDIR, _LOCK_FH
+    _LOCK_FH = acquire_single_instance()  # v4.5.2: exit if another instance holds the lock
     try:
         os.makedirs(WORKDIR, exist_ok=True)
     except Exception as e:
@@ -533,7 +580,7 @@ def main():
     info = {"system": "%s %s" % (platform.system(), platform.release()),
             "user": os.environ.get("USERNAME") or os.environ.get("USER", "?"),
             "cwd": WORKDIR, "py": sys.version.split()[0],
-            "ver": "4.5.1", "sync_root": str(SYNC_ROOT)}
+            "ver": "4.5.2", "sync_root": str(SYNC_ROOT)}
     print("=" * 62)
     print("  ARENABRIDGE WORKER v4 (SYNC+APPROVALS)")
     print("  machine : %(system)s   user: %(user)s   py %(py)s" % info)
@@ -541,13 +588,14 @@ def main():
     print("  sync    : %(sync_root)s" % info)
     print("  Commands from chat run here. Ctrl+C to stop.")
     print("=" * 62)
+    fails = 0  # v4.5.2: reconnect backoff counter
     while True:
         for host in BROKERS:
             try:
                 m = MiniMQTT(host, 1883, keepalive=30,
-                             client_id="ab4-" + (os.environ.get("USERNAME") or "x")[:8].replace(" ", ""))
+                             client_id="ab4-" + (os.environ.get("USERNAME") or "x")[:8].replace(" ", "") + "-%d-%s" % (os.getpid(), secrets_hex(2)))
                 m.connect(will_topic=T_PRE,
-                          will_payload=mkmsg(KEY, {"online": False, "ver": "4.5.1", "ts": time.time()}),
+                          will_payload=mkmsg(KEY, {"online": False, "ver": "4.5.2", "ts": time.time()}),
                           will_retain=True)
 
                 _LAST = {}   # v4.1: id+result cache -> agent retries replay, never re-execute
@@ -645,7 +693,8 @@ def main():
 
                 m.subscribe(T_CMD, on_cmd)
                 m.publish(T_PRE, mkmsg(KEY, dict(info, online=True, ts=time.time())), retain=True)
-                act("WORKER  start ver 4.4 via %s" % host)
+                act("WORKER  start ver 4.5.2 via %s" % host)
+                fails = 0
                 print("[v4 connected via %s] waiting for commands..." % host)
                 last_hb = time.time()
                 t_conn = time.time()
@@ -664,8 +713,11 @@ def main():
                 print("\n[v3 stopped by user]")
                 sys.exit(0)
             except Exception as e:
-                print("[mqtt error via %s: %r] rotating broker..." % (host, e))
-                time.sleep(2)
+                fails += 1
+                _sl = min(2 * fails, 30)
+                print("[mqtt error via %s: %r] rotating broker in %ss..." % (host, e, _sl))
+                time.sleep(_sl)
 
 
-main()
+if __name__ == "__main__":
+    main()
