@@ -1,1 +1,4 @@
 .git
+
+# Runtime credential: never commit
+/arenabridge.key
