@@ -202,8 +202,14 @@ while time.time() - t0 < 15 and not res:
     time.sleep(0.1)
 c.loop_stop()
 c.disconnect()
-print("5/5 lane self-test:", "OK -> " + res[0].get("output", "").strip() if res else
-      "no verified reply (is the worker running? see worker.console.log)")
+if res:
+    print("5/5 lane self-test: OK ->", res[0].get("output", "").strip())
+else:
+    print("5/5 lane self-test: no verified reply within 15s.")
+    print("    If you launched this script THROUGH the bridge (remote exec), the worker is busy")
+    print("    running this very command and cannot answer itself — re-run detached:")
+    print("      setsid sh -c 'bash pc_onboard.sh x --selftest-only > ~/arenabridge/selftest.out 2>&1' &")
+    print("    Otherwise check ~/arenabridge/worker.console.log (is the worker running?).")
 PY
 
 say "DONE — worker is on the bridge. Tell the sandbox agent to fetch files (get_file) or run commands (exec)."
