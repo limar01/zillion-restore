@@ -4,7 +4,9 @@ Public repo ito (by design) — **walang secrets dito**. Ang HMAC key ay HINDI k
 ina-deliver ito ng passphrase-protected bootstrap op ng phone (zg v1.2).
 
 ## 📥 RESTORE (agent, bagong chat)
-1. Si Boss ay magpapaste ng isang linya: `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore`
+1. Si Boss ay magpapaste ng isang linya:
+   - **Resume (default):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore`
+   - **Clean new project (v2.0):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore -new [<PROJECT NAME>]` — parehong restore flow, pero walang past-project memory (see BOSS CONTRACT → RESTORE LINE PARAMETERS sa MEMORY_CORE)
 2. `git clone https://github.com/limar01/zillion-restore.git` (walang auth)
 3. `MEMORY_CORE.md` = doctrine — GATE 0 (C1–C5 capability check) bago ang lahat, tapos LIST C
 4. Key: `phone_tun.fetch_key(base, PASSPHRASE)` — keyless bootstrap (rate-limited)

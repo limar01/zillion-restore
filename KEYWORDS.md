@@ -21,3 +21,4 @@ When Boss says "QwenCP" or "restore point":
 4. Report status in English
 
 | **qwenOM** | Restore PC Omarchy (CF Tunnel Primary + MQTT Backup) |
+| **zillionCp … `-new [<NAME>]` (v2.0.0)** | Clean new-project restore — same GATE 0 + LIST C flow, zero past-project memory; Boss declares/registers the new project (see BOSS CONTRACT → RESTORE LINE PARAMETERS) |
