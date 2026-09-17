@@ -10,7 +10,7 @@
 4. **No unauthorized tool installs** without Boss declaration
 5. **Credential Hygiene (Rule 14):** No PAT embedding, no credential echo
 6. **Deploy-Key Verify (Step 6c):** Required before repo operations
-7. **Capability Check (GATE 0 C1-C5):** Must pass before proceeding
+7. **GATE 0 v2.1.0 (Capability & Agreement Test):** Read-first; silent verdict; EXACT final lines — `Done Boss. Restore successful. Tunnel, Bridge Worker, and adb are live. My last task is <dynamic>` or `I'm not capable. I'll stop now.` Vision = optional (Boss-asked)
 8. **3-Copy Redundancy:** GitHub repo + phone `_pack` + SD card
 
 ### Workspace Declaration:

@@ -8,9 +8,12 @@ ina-deliver ito ng passphrase-protected bootstrap op ng phone (zg v1.2).
    - **Resume (default):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore`
    - **Clean new project (v2.0):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore -new [<PROJECT NAME>]` — parehong restore flow, pero walang past-project memory (see BOSS CONTRACT → RESTORE LINE PARAMETERS sa MEMORY_CORE)
 2. `git clone https://github.com/limar01/zillion-restore.git` (walang auth)
-3. `MEMORY_CORE.md` = doctrine — GATE 0 (C1–C5 capability check) bago ang lahat, tapos LIST C
+3. `MEMORY_CORE.md` = doctrine — **GATE 0 v2.1.0 (read-first + capability & agreement test, silent)** bago ang lahat, tapos LIST C
 4. Key: `phone_tun.fetch_key(base, PASSPHRASE)` — keyless bootstrap (rate-limited)
-5. Sundin ang LIST C — walang modification, raw evidence lahat
+5. Sundin ang LIST C — walang modification; output = EXACT final lines lang:
+   - Success: `Done Boss. Restore successful. Tunnel, Bridge Worker, and adb are live. My last task is <LAST_TASK>.`
+   - Not capable: `I'm not capable. I'll stop now.`
+   - Vision = OPTIONAL — itatanong ng agent kay Boss kung kailangan
 
 ## 💻 RESTORE (Windows Laptop / PowerShell — `zillionPS`)
 Para sa Windows laptop restoration:
