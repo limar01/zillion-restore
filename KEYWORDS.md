@@ -10,6 +10,7 @@
 | **zillionCp … `-status` (v2.3.0)** | Quick health check — tunnel/worker/adb/deploy-keys + last task; read-only, ~10s; no project resume |
 | **zillionCp … `-fix` (v2.3.0)** | Like `-status` + auto sanctioned repair of DOWN components (MQTT repair, start_all, cf_retry) |
 | **zillioncp -help (v2.3.0)** | Print the command menu — NO passphrase, no network, no side effects |
+| **Session shortcuts (v2.3.1)** | Post-restore bare words: `switch <NAME>` / `projects` / `wrap` / `phone` / `note <text>` / `log` / `summary` / `restart stack` / `pc?` `tv?` `win?` + v2.3.0 set — full table in MEMORY_CORE → SESSION SHORTCUTS |
 | **qwenOM** | Restore PC Omarchy (CF Tunnel Primary + MQTT Backup) |
 
 ## Agent Identity

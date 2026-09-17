@@ -1,8 +1,8 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3 (2026-09-18)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.1 (2026-09-18)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
-> **v2.3.0 (2026-09-18 Boss):** **USER-FRIENDLINESS RELEASE (study → Boss picked the recommended set).** (1) Restore-line grammar relaxed: REPO URL now OPTIONAL (default = canonical public repo) · flags in ANY order · everything case-insensitive · `-new=NAME` accepted. (2) New parameters: **`-status`** (quick read-only health check + last task, ~10s) · **`-fix`** (auto sanctioned repair of DOWN components) · **`-eyes` / `-noeyes`** (pre-answer the vision question → zero-question restore) · **`-v`** (verbose narrated restore with raw evidence) · **`-help`** (NO passphrase needed — prints the command menu). (3) **SESSION SHORTCUTS** after any successful restore in the same chat: `status` · `health` · `fix` · `last task` · `push core` — no re-typing the full line. (4) `bridge/phone_tun.py` + ONE-CALL `status()` helper. UNCHANGED: `-new` semantics · restore final-line EXACT strings · security model · approval gates. (`-rotate` was studied and deliberately NOT shipped — state-changing; Boss chose the recommended set.)
-> **History:** every older version note (v1.2–v2.2) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
+> **v2.3.1 (2026-09-18 Boss):** **SESSION SHORTCUTS EXPANSION (Boss-approved set).** New bare-word commands after any successful restore: **PROJECT SWITCHING** — `switch <NAME>` / `load <NAME>` (ONE word = forced save-first → verify → set active → read its handoff → exact reply line) · `switch -new <NAME>` (creates; existing workspace = honest error, never overwrite) · `projects` (list registered). **DAILY RITUAL** — `wrap` / `wrap up` (restore point + checkpoint + verify + print the next-chat paste line; ends `Done Boss. Everything saved. Safe to close this chat.`) · `phone` (vitals: battery/storage/RAM/uptime/tunnel age) · `note <text>` (timestamped journal append + push). **SUMMARY/LOG** — `log` (last journal entries) · `summary` (this-chat wrap, no phone call). **INFRA** — `restart stack` (start_all.sh bounce; re-resolve tunnel after) · `pc?` / `tv?` / `win?` (lane liveness pings, honest UP/DOWN + age). **PARKED (not shipped):** `wake pc` (needs one-time PC MAC capture), `rollback` (confirm-gated revert), `-rotate` (state-changing). Docs-only release — shortcuts compose the existing bridge helpers; security model + final-line strings unchanged.
+> **History:** every older version note (v1.2–v2.3) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
 > **SUPREMACY (2026-09-18 Boss):** This replaces the retired C1–C5 attestation gate. No `ZILLION-GATE-0` block, no quiz narration — the entire restore is SILENT.
@@ -65,16 +65,42 @@
 SID(pc/cp/win)=`53cf4a5803c91726b892e5d0785085c6` · TV_SID=`3b6d57b5465bd22238186fb32850e569` (same HMAC key).
 Tokens are case-insensitive. **Default when only `Zillion` / `zillion` is said:** LIST C (phone tunnel+ADB).
 
-### 🗂️ SESSION SHORTCUTS (v2.3.0 — post-restore, no re-typing)
-After ANY successful restore in the SAME chat (key + context already exist), Boss may use these bare words instead of the full line:
+### 🗂️ SESSION SHORTCUTS (v2.3.0 base · v2.3.1 extended — post-restore, no re-typing)
+After ANY successful restore in the SAME chat (key + context already exist), Boss may use these bare words instead of the full line.
+
+**Status & health**
 | Shortcut | Does |
 |---|---|
 | `status` | Same as `-status` (session key reused). |
 | `health` | Raw `health_bundle()` dump. |
+| `phone` | Device vitals one-liner (read-only): battery % + state (`termux-battery-status`; fallback `dumpsys battery`) · free storage · free RAM · uptime/load · tunnel age. |
 | `fix` | Same as `-fix` (sanctioned repair of DOWN components). |
+| `restart stack` | Bounce the phone stack (`~/zillion_pw/start_all.sh`; supervisor v4.2 lock/stale recovery handles state). The tunnel URL may rotate — re-resolve immediately after and report the new URL if it changed. |
+| `pc?` / `tv?` / `win?` | Lane liveness from this session: PC/WIN via signed MQTT ping + retained pres on the lane (install paho on demand), TV via its tunnel ping. Reply honestly, e.g. `PC DOWN (offline marker 21h old) · TV UP (<url>) · WIN NO DATA`. |
+
+**Memory & projects**
+| Shortcut | Does |
+|---|---|
 | `last task` | Read-only CURRENT_HANDOFF → current task / next step. |
+| `log` | Read-only: last 3–5 entries of the current monthly journal — what happened in recent sessions. |
+| `note <text>` | Append a timestamped line to the private monthly journal (memory/session_logs) + commit/push via the phone checkout. Reply `Saved, Boss.` Journal-only — the running handoff is untouched. |
+| `summary` | No phone call — the agent composes this chat's wrap from context: done, pending, files touched. |
+| `projects` | List registered projects (PROJECT INDEX + `~/Projects/workspace/` reality check) with last-checkpoint dates. |
+
+**Project switching (v2.3.1)**
+| Shortcut | Does |
+|---|---|
+| `switch <NAME>` (or `load <NAME>`) | ONE word = the whole safe switch: (1) **SAVE-FIRST** — checkpoint + push the current project (if the save fails: STOP + report — never switch away from unsaved work); (2) resolve `<NAME>` against PROJECT INDEX / phone workspace (unknown name → reply with the honest `projects` list — never guess); (3) set it active (rule 7 — one at a time); (4) read THAT project's handoff (none yet = say so honestly); (5) reply exactly: `Done Boss. Switched to <NAME>. My last task there is <…>.` |
+| `switch -new <NAME>` | Same but CREATES: name must NOT exist yet (existing non-empty workspace = honest error, never overwrite). mkdir + verify rwx + PROJECT INDEX row + fresh handoff seed. Reply: `Done Boss. New project <NAME> registered and active. Home: ~/Projects/workspace/<NAME>/.` |
+| `wrap` (or `wrap up`) | End-of-chat ritual in one word: (1) project restore point (commit + push + memory checkpoint); (2) verify push + mirrors (checkpoint.py's own verification); (3) print the exact line to paste in the NEXT chat — with the `<PASSPHRASE>` placeholder (the real passphrase is NEVER echoed); (4) final line: `Done Boss. Everything saved. Safe to close this chat.` |
+
+**Saving & sync**
+| Shortcut | Does |
+|---|---|
+| `restore point` / `QwenCP` | Save project state: stage → commit (timestamp + summary) → push → memory checkpoint → English report (verified hash or honest local-only warning). |
 | `push core` | Run the sync protocol for a Boss-ordered core change (public zr → private ta → `_pack` → SD → checkpoint). |
-Shortcuts are session-scoped by design: a NEW chat always needs the restore line again (the sandbox is blanked).
+
+**Rules for all shortcuts:** session-scoped (a NEW chat always needs the restore line again — the sandbox is blanked) · read-only by default · reboot/destructive/global-network ops STILL need rule-5 approval no matter how short the word is · never echo the passphrase or key · every reply is honest about what is DOWN / UNKNOWN / unsynced.
 
 ## 🤖 INSTANCE STEPS — RESTORE
 > **FORMAT RULE (v2.1.0):** SILENT restore — the numbered list is NOT shown in chat; it is your internal working checklist. Every step is still executed in full, no skips. Chat output = FINAL LINE only (see GATE 0 📣 FINAL LINES), unless Boss asks something or the verdict is NOT CAPABLE. Evidence = internal + checkpoint (rule 21).
