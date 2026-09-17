@@ -1,50 +1,50 @@
 # ⚡ ZILLION RESTORE — public restore surface
 
-Public repo ito (by design) — **walang secrets dito**. Ang HMAC key ay HINDI kasama;
-ina-deliver ito ng passphrase-protected bootstrap op ng phone (zg v1.2).
+This repo is PUBLIC (by design) — **no secrets here**. The HMAC key is NOT included;
+it is delivered by the phone's passphrase-protected bootstrap op (zg v1.2).
 
-## 📥 RESTORE (agent, bagong chat)
-1. Si Boss ay magpapaste ng isang linya:
+## 📥 RESTORE (agent, new chat)
+1. Boss pastes ONE line:
    - **Resume (default):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore`
-   - **Clean new project (v2.0):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore -new [<PROJECT NAME>]` — parehong restore flow, pero walang past-project memory (see BOSS CONTRACT → RESTORE LINE PARAMETERS sa MEMORY_CORE)
-2. `git clone https://github.com/limar01/zillion-restore.git` (walang auth)
-3. `MEMORY_CORE.md` = doctrine — **GATE 0 v2.1.0 (read-first + capability & agreement test, silent)** bago ang lahat, tapos LIST C
+   - **Clean new project (v2.0):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore -new [<PROJECT NAME>]` — same restore flow, zero past-project memory (see BOSS CONTRACT → RESTORE LINE PARAMETERS in MEMORY_CORE)
+2. `git clone https://github.com/limar01/zillion-restore.git` (no auth)
+3. `MEMORY_CORE.md` = doctrine — read per 📖 READ MAP → **GATE 0 v2.1.0 (read-first + capability & agreement test, silent)**, then your LIST
 4. Key: `phone_tun.fetch_key(base, PASSPHRASE)` — keyless bootstrap (rate-limited)
-5. Sundin ang LIST C — walang modification; output = EXACT final lines lang:
+5. Follow the LIST silently — chat output = EXACT final lines only:
    - Success: `Done Boss. Restore successful. Tunnel, Bridge Worker, and adb are live. My last task is <LAST_TASK>.`
    - Not capable: `I'm not capable. I'll stop now.`
-   - Vision = OPTIONAL — itatanong ng agent kay Boss kung kailangan
+   - Vision = OPTIONAL — the agent asks Boss if it is needed
 
-## 💻 RESTORE (Windows Laptop / PowerShell — `zillionPS`)
-Para sa Windows laptop restoration:
-1. Sa PowerShell:
+## 💻 RESTORE (Windows laptop / PowerShell — `zillionPS`)
+1. In PowerShell:
    ```powershell
    git clone https://github.com/limar01/zillion-restore.git
    cd zillion-restore
    .\zillionPS.ps1 <PASSPHRASE>
    ```
-   o direct one-liner:
+   or the direct one-liner:
    ```powershell
    irm https://raw.githubusercontent.com/limar01/zillion-restore/main/zillionPS.ps1 | iex
    ```
-2. Awtomatikong:
-   - Kukunin ang trusted tunnel URL mula sa `url.txt`
-   - Mag-boo-bootstrap ng HMAC key mula sa phone gateway (keyless bootstrap)
-   - I-se-secure ang key sa `~\arenabridge\arenabridge.key` gamit ang strict NTFS user ACLs
-   - I-se-set up ang `~\arenabridge\` directory, approvals policy, at workspace mirror
-   - I-de-deploy at i-la-launch ang ArenaBridge worker (lane: `win`, topic: `arenabridge/<SID>/win/*`)
-   - Magbibigay ng interactive helper cmdlets (`Invoke-ZillionExec`, `Get-ZillionStatus`, `Start-ZillionWorker`, `Stop-ZillionWorker`)
+2. Automatically:
+   - Reads the trusted tunnel URL from `url.txt`
+   - Bootstraps the HMAC key from the phone gateway (keyless bootstrap)
+   - Secures the key at `~\arenabridge\arenabridge.key` with strict NTFS user ACLs
+   - Sets up `~\arenabridge\` directory, approvals policy, and workspace mirror
+   - Deploys + launches the ArenaBridge worker (lane `win`, topic `arenabridge/<SID>/win/*`)
+   - Provides interactive helper cmdlets (`Invoke-ZillionExec`, `Get-ZillionStatus`, `Start-ZillionWorker`, `Stop-ZillionWorker`)
 
-## 🗂️ ESTRUKTURA
-- `MEMORY_CORE.md` — canonical doctrine (public-safe, scrubbed)
-- `bridge/` — sandbox clients (phone_tun = tunnel+bootstrap · phone_mqtt = MQTT backup)
-- `phone/` — phone stack: supervisor v4 · zg v1.2 (bootstrap op) · ph_beacon v3 · cf_retry v3 · fallback_retry · adb_watch v2 · worker v4.5.1 · boot files
+## 🗂️ STRUCTURE
+- `MEMORY_CORE.md` — canonical doctrine (public-safe, scrubbed; English v2.2 + 📖 READ MAP fast path)
+- `docs/CHANGELOG.md` — historical version notes (archived verbatim from the core)
+- `bridge/` — sandbox clients (phone_tun = tunnel + bootstrap + health_bundle · phone_mqtt = MQTT backup)
+- `phone/` — phone stack: supervisor v4 · zg v1.2 (bootstrap op) · ph_beacon v3 · cf_retry v3 · fallback_retry · adb_watch v2 · worker v4.5.x · boot files
 - `docs/` — manifest, code review, incident postmortem, update notes
 - `apk/termux-boot_1000.apk` — Termux:Boot 0.8.1 (F-Droid, verified)
 
 ## 🔐 SECURITY MODEL
-- Lahat ng exec channels (tunnel + MQTT) = HMAC-SHA256 signed (envelope `{"d","h"}`)
-- Ang tanging hindi-HMAC op = `bootstrap` (pre-key ito): sha256(passphrase) check + rate limit 5 fail / 900s
-- Infra details dito (SIDs, topics, stack) = hindi secret by design — integrity ang HMAC, hindi confidentiality
-- Private vault (may key): private repo + phone `_pack` + SD card
-- Rebuild ng phone: tingnan ang `docs/RESTORE_FILE_MANIFEST.md` at `phone/` contents
+- All exec channels (tunnel + MQTT) = HMAC-SHA256 signed (envelope `{"d","h"}`)
+- The only non-HMAC op = `bootstrap` (pre-key): sha256(passphrase) check + rate limit 5 fails / 900s
+- Infra details here (SIDs, topics, stack) = not secret by design — integrity comes from HMAC, not confidentiality
+- Private vault (with key): private repo + phone `_pack` + SD card
+- Phone rebuild: see `docs/RESTORE_FILE_MANIFEST.md` and `phone/` contents

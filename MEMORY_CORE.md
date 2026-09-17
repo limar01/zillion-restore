@@ -1,137 +1,127 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.1 (2026-09-18)
-> **SUPREMACY:** Ito ang TANGING active doctrine file kapag restore gamit ang template na ito. Kung may conflict sa nakaraang copy: ITO ANG PANALO.
-> **TEMPLATE NOTE:** CLEAN — **walang project content**. Puro permanent doctrine + infrastructure. Bagong project: gamitin ang `-new` parameter (see BOSS CONTRACT), saka ide-declare ni Boss ang project.
-> **v2.1.0 (2026-09-18 Boss):** **GATE 0 = CAPABILITY & AGREEMENT TEST + EXACT FINAL LINES + OPTIONAL VISION.** (1) Unang stage ng restore: agent READS ang buong restore process → silent capability/agreement self-test → capable + agree = execute nang WALANG explanation. (2) Verdict lines EXACT: success = `Done Boss. Restore successful. Tunnel, Bridge Worker, and adb are live. My last task is <LAST_TASK>` (dynamic — kung ano ang naka-save sa restore point/handoff) · fail = `I'm not capable. I'll stop now.` (3) Lumang C1–C5 attestation + `ZILLION-GATE-0` block + in-chat numbered-list format = **RETIRED**. (4) VISION PROBE = OPTIONAL na — agent asks Boss kung kailangan bago gamitin. (5) LIST C step 8 = + Bridge-Worker alive check sa verification.
-> **v2.0.0 (2026-09-18 Boss):** **`-new` PARAMETER + PAST-PROJECT SCRUB.** (1) RESTORE LINE gains optional `-new [<PROJECT NAME>]` → clean new-project restore (grammar + semantics sa BOSS CONTRACT). (2) Past-project content REMOVED mula sa core: lumang project blob (dating v1.4.2 header note) ay scrubbed — ang full text nito ay nasa PRIVATE tunnel-adb history lang, hindi sa public core. Lumang project-path example sa Rule 15 generalized. (3) PROJECT INDEX reset to clean. (4) **CLEAN TEMPLATE PROMISE:** MEMORY_CORE = permanent doctrine + infrastructure LAMANG; lahat ng project content ay nasa per-project PRIVATE memory (tunnel-adb `memory/`) — hindi ito kailanman papasok sa core. Lumang project artifact na makita sa core = i-scrub agad + i-report kay Boss.
-> **v1.2 (2026-09-08 Boss):** Phone = **Cloudflare tunnel + ADB full control**. Token `zillion` / `zillionCp` = automatic tunnel + `adb` (walang tanong, walang MQTT exec). TV = `zilliontv`. MQTT worker TV retired.
-> **v1.3.1 (2026-09-08 Boss):** GATE 0 (agent identity + doctrine attestation) · LIST C 6b (MQTT `cp` worker = sanctioned backup repair path kapag tunnel down) · `resolve_url_long(150)` sa restore · adb scan fix (`/tmp` PROHIBITED — shell-owned) · `cf_retry.sh` v2 (10s crash retry). ADB wireless-debug ay maaaring mag-idle-expire → Boss: refresh lang (1 tap), walang re-pair kung pairing persisted. **REBOOT TEST VERIFIED 2026-09-09:** Termux:Boot → supervisor ~3min post-reboot, lahat serbisyo auto-up · ph_beacon **v2** (retained + self-heal) · **post-reboot: wireless debugging = OFF** → Boss 1-tap (pairing persists).
-> **v1.3.2 (2026-09-09 Boss):** CODE REVIEW fixes deployed — ph_beacon **v3** (last-known-URL: hindi kailanman magpi-publish ng empty `url`; + `healthy`/`url_age` fields) · phone_mqtt **v2** (broker rotation) · phone_tun `fresh_after` (retained-trap guard) + `ts` sa exec payload · zg **v1.1** (ts freshness ±300s + replay cache + timeout clamp — PROVEN: replay→409, stale→401) · supervisor **v4** (atomic lock + worker `AB_CMD_TIMEOUT=120`) · cf_retry **v3** (cf.log rotation) · adb_watch **v2** (full-range scan) · `.profile` guard (**live-verified**: 1-min incident recovery) · **KILL-LOOP SELF-MATCH RULE** (bagong doctrine, mula sa incident).
-> **v1.3.3 (2026-09-09 Boss):** **RESTORE SOURCE = GitHub PRIVATE REPO** — `https://github.com/limar01/tunnel-adb` — `git clone` → andyan na ang MEMORY_CORE + `key/arenabridge.key` + `bridge/` clients + `phone/` stack + `docs/` + Termux:Boot APK. Attachment = FALLBACK na lang (dapat identical ang core). Per-restore: si Boss ang magbibigay ng repo URL + PAT (repo-scope lang, **i-rotate pagkatapos ng session**). HINDI kailanman i-echo ang PAT. Key policy: PRIVATE + key-in (Boss decision 2026-09-09) — ang may repo access = may phone exec access.
-> **v1.3.4 (2026-09-09 Boss):** **REPO-FETCH RESTORE = DEFAULT.** Blanko ang sandbox sa bawat bagong chat/account — kaya ang unang hakbang ng agent ay **FETCH SA REPO** (`git clone` → MEMORY_CORE + key + bridge clients + phone stack), HINDI pag-asa sa attachment (attachment = fallback na lang, dapat identical ang core). **3-COPY REDUNDANCY:** GitHub repo (canonical) · phone `~/zillion_pw/_pack` · SanDisk SD `/storage/BDD5-1822/gitrepo/tunnel-adb` (offline tier — exFAT, storage lang hindi pinagpapatakbuhan). Bawat core update = i-sync ang LAHAT ng kopya + commit/push.
-> **v1.3.5 (2026-09-09 Boss):** **CAPABILITY CHECK + STOP RULE** sa GATE 0 — 5 self-questions (C1–C5: vision · honest limits · doctrine · functional HMAC proof · format). Kahit ISANG mali = agent must output `⛔ AGENT NOT CAPABLE — <reason>` at HUMINTO; ang pagpapatuloy pagkatapos ng FAIL = confirmed non-compliant (isara agad ng Boss ang chat). **— SUPERSEDED by v2.1.0 GATE 0 (capability & agreement test, exact final lines, optional vision).**
-> **v1.3.8 (2026-09-09):** **DEPLOY-KEY VERIFIED RESTORE.** (1) PAREHONG deploy keys REGISTERED (write): `github-zr` (zillion-restore) + `github-ta` (tunnel-adb) — `ssh -T` = "Hi limar01/…!" + push probe PASS (PUSH_OK → REMOTE_HAS_BRANCH → DELETE_OK). (2) LIST C bagong step **6c DEPLOY-KEY VERIFY** + REMEDIATION playbook (pubkeys nasa doctrine; public-safe). (3) KEY DELIVERY Fallback 1 = concrete na: private vault via phone exec `git clone git@github-ta:…` o SD tier (sandbox = keyless, hindi direct). (4) Bagong OPERATIVE RULE 14 **CREDENTIAL HYGIENE** (incident: patay na PAT na naka-embed sa `termux-memory-public/.git/config`, scrubbed 2026-09-09). (5) Sync protocol = push zr + push ta + cp `_pack` + cp SD.
-> **v1.3.9 (2026-09-09 Boss):** **ENGLISH REPORTING + RULES TRIM.** (1) Rule 1 = **English reporting always** (retired ang Taglish mandate; in-align din ang LIST A/C report lines + MGA TUNTUNIN). (2) REMOVED operative rules: old 6 (§41 boundary) at old 8 (Proactivity §33) — Boss order; renumbered 1–12.
-> **v1.4.0 (2026-09-09):** **STALE-LOCK ROOT CAUSE — FOUND + FIXED.** The recurring "dead phone at every restore" = supervisor v4's `mkdir` lock had NO stale recovery: SIGKILL (Android idle-kill / app close) or REBOOT skips the trap → lock persists → every later start (Termux:Boot boot chain included) exits "lock held" → stack never self-heals. Live incident 2026-09-09: stack SIGKILLed ~06:06 → phone reboot 06:58 → all starts 07:00–07:42 blocked by the stale lock → restore began against a dead tunnel. Fix = supervisor **v4.2** (stale-lock recovery: holder-pid liveness + `/proc/<pid>/cmdline` anti-reuse + 10-min mtime fallback for v4-style empty locks + `rm -f $LOCK/pid` before rmdir — v4.1 bug caught in live test: rmdir on non-empty lock). Live kill-test PASS 08:18: SIGKILL holder → start_all → "clearing STALE lock" → new supervisor in 1s. **Also:** ph_beacon **v3.2** — url.txt push failures now logged to beacon.log (v3.1's silent `except: pass` hid a push stall for hours; the push lane itself was healthy, just retrying). **EXEC NOTE:** Termux `/bin/sh` = **dash** (POSIX-only; watch nested `$()`; traps defer until the current foreground job — e.g. `sleep 30` — finishes, so TERM to the supervisor can exit up to 30s late; use SIGKILL for forced transitions). **SECONDARY FINDINGS:** phone RAM pressure (free ~191MB, swap ~50%) + sustained system load ~14 (outside Termux namespace — system/FUSE side) keep Android idle-kills of the Termux stack likely; battery **Unrestricted** for Termux/Termux:Boot/Termux:API — **APPLIED by Boss 2026-09-09, verified** via `adb shell dumpsys deviceidle whitelist` (`user,com.termux,10395` + boot + api all whitelisted). Proxy incident (pre-2026-09-09): ADB-set global proxy bricked phone internet across reboots → cleared via ADB from 2nd device → see new Rule 13.
-> **v1.4.1 (2026-09-09):** **PREVENTION STACK (defense-in-depth) — "hindi na ulitin" order.** Layers: (1) supervisor **v4.2** stale-lock recovery [deployed, kill-tested]. (2) **Job 77 — WorkManager resurrection watchdog**: `termux-job-scheduler -s ~/zillion_pw/zillion_job_watchdog.sh --job-id 77 --period-ms 900000 --network any --persisted true` (min period = 15 min on Android N+; `--persisted` survives reboot; runs via Termux:API WorkManager = OUTSIDE the killable Termux process tree; live-verified 08:31:54: first fire ~2 min after a SIGKILLed supervisor, resurrected via start_all + v4.2 stale-lock clear; verify with `termux-job-scheduler -p`; log: `job_watchdog.log`). **HONEST CAVEATS (tested):** script MUST be one-shot and always exit (v2) — a never-finishing run (caught with the first v1 infinite-loop deploy) holds the job slot and distorts the trigger schedule; WorkManager triggers are **opportunistic** — Android may defer under deep Doze/app-standby, so "≤15 min" is the reliable bound only with battery **Unrestricted** applied; absolute fallback remains: open Termux once → 60s recovery. (3) Termux:Boot boot chain + `.profile`/`.bashrc` guards [verified in place]. (4) **Battery Unrestricted** for Termux/Termux:Boot/Termux:API = **APPLIED 2026-09-09, verified** in deviceidle user whitelist (removes the idle-killer itself). (5) Rule 13 (no global network config without per-op approval). **F-DROID FINDING (do not retry):** `termux-services` (foreground-service option) is REMOVED from F-Droid — website 404, repo APK 404, fdroiddata metadata+archives 404 (verified 2026-09-09); GitHub-release APKs are Play-signed → signature-mismatch with F-Droid Termux → unusable. `termux-job-scheduler` (termux-api 0.59.1 pkg) is the sanctioned replacement. **CF EXEC NOTE #2:** long-running execs (~>120s payload, e.g. embedded `sleep 150`) die with **HTTP 524** (Cloudflare origin timeout) though the command KEEPS RUNNING on the phone — keep exec payloads <90s; for long waits, poll from the sandbox instead of sleeping in the payload.
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.2 (2026-09-18)
+> **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
+> **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
+> **v2.2.0 (2026-09-18 Boss):** **ENGLISH CONVERSION + RESTORE SPEED OPTIMIZATION (code review).** (1) Core fully converted to English (reporting was English since v1.3.9 — now the doctrine itself is too). (2) Code-review findings applied: doctrine bulk was the #1 restore cost → all historical version notes archived VERBATIM to `docs/CHANGELOG.md` + 📖 READ MAP added (mandatory vs read-on-demand sections) · `resolve_fast()` trusted-URL-first resolver (~1s instead of up to 15–20s beacon-first windows) · `health_bundle()` = ONE Cloudflare round trip for all post-restore verification (was ~6 sequential round trips) · `adb_ready()` quick-first (the 30k–60k deep scan is now opt-in; it previously blew past the ~90s CF window) · paho-mqtt install now conditional (only if the MQTT path is actually used) · phone exec constraints consolidated in PHONE CONSTANTS (dash sh · <90s payloads / CF 524 · ≈128KB Android argv limit · /tmp prohibited). (3) `bridge/phone_tun.py` → v2.2.0 (embedded copy identical). (4) UNCHANGED by design: token grammar + `-new` parameter · GATE 0 final lines (EXACT strings) · HMAC/bootstrap security model · sacred scope + approval gates. This release = language + speed only.
+> **History:** every older version note (v1.2–v2.1) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
-> **SUPREMACY (2026-09-18 Boss):** ITO ang pumapalit sa lumang C1–C5 attestation gate (retired). Walang `ZILLION-GATE-0` block, walang quiz narration — SILENT ang buong restore.
-1. **READ FIRST (mandatory):** basahin ng agent ang BUONG restore process (ang MEMORY_CORE na ito) bago ang anumang action — walang laktawan.
-2. **CAPABILITY SELF-TEST (internal/silent):** kaya ko ba ang LAHAT ng kakailanganin ng restore na ito (git clone · python/pip · HMAC bridge clients · HTTPS + MQTT network exec · phone exec orchestration · handoff/checkpoint protocol)?
-3. **AGREEMENT TEST (internal/silent):** sumasang-ayon ba ako sa doctrine — Honesty (walang pagpapanggap) · Sacred Scope standing refusal · approval gates · credential hygiene · English reporting?
-4. **VISION = OPTIONAL (v2.1.0, Boss-decided):** bago ang verdict, itanong kay Boss: **"Is vision needed?"** — isang tanong lang, isang beses lang.
-   - Boss: **YES** → i-decode + ilarawan VERBATIM ang VISION PROBE PNG (DIRECT vision lang; walang DIRECT = NOT CAPABLE path).
-   - Boss: **NO** (o "skip") → tuloy agad, walang probe.
-   - Hinding-hindi magpapanggap na nakakita (Honesty rule), kailanman.
-5. **VERDICT — dalawa lang ang puwedeng lumabas, walang explanation:**
-   - **CAPABLE + AGREE** → i-execute ang LIST C nang TAHIMIK (walang step narration, walang gate block). Success = SUCCESS FINAL LINE sa baba.
-   - **NOT CAPABLE o HINDI AGREE** → FINAL LINE lang: **`I'm not capable. I'll stop now.`** tapos HUMINTO talaga. Walang retry, walang workaround, walang closing speech. (Boss: pumili ng ibang model sa Arena UI.)
-> **v1.3.6 (2026-09-09 Boss):** **ZERO-ACTION RESTORE.** (1) Public repo `github.com/limar01/zillion-restore` = clone surface (walang auth, walang PAT kailanman). (2) **KEYLESS BOOTSTRAP**: zg v1.2 bootstrap op (passphrase-protected, rate-limited) — ang key ay HINDI na naka-embed sa core (public-safe na ito). (3) Isang linya lang ang sagot ni Boss: **`zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore [-new [<NAME>]]`**. (4) Future pushes = deploy keys SA PHONE (github-zr / github-ta SSH aliases) — walang PAT. Worker v4.5.1 (key from file).
-> **v1.3.7 (2026-09-09):** **TRUSTED URL PUBLISH.** Ang ph_beacon v3.1 ay nagpu-push ng kasalukuyang healthy tunnel URL sa public repo bilang `url.txt` (deploy key github-zr; auto kapag nag-rotate). Pre-key discovery ng fresh agent = **`url.txt` sa public clone (GITHUB = trusted channel)** — HINDI raw MQTT beacon (spoofable pre-key; isinara ang passphrase-harvest hole). Ang MQTT beacon ay GINAGAMIT PA RIN post-key (HMAC-verified) + bilang redundancy.
-6. **Evidence (internal):** raw evidence ay kinokolekta habang nagre-restore (internal + checkpoint per rule 21) — HINDI na inilalabas sa chat maliban hingin ni Boss.
+> **SUPREMACY (2026-09-18 Boss):** This replaces the retired C1–C5 attestation gate. No `ZILLION-GATE-0` block, no quiz narration — the entire restore is SILENT.
+1. **READ FIRST (mandatory):** read the restore process per the 📖 READ MAP (mandatory sections; read-on-demand sections ONLY when their lane/topic is invoked) before any action.
+2. **CAPABILITY SELF-TEST (internal/silent):** can I do EVERYTHING this restore needs (git clone · python/pip · HMAC bridge clients · HTTPS + MQTT network exec · phone-exec orchestration · handoff/checkpoint protocol)?
+3. **AGREEMENT TEST (internal/silent):** do I agree to the doctrine — Honesty (no pretending) · Sacred Scope standing refusal · approval gates · credential hygiene · English reporting?
+4. **VISION = OPTIONAL (Boss-decided):** before the verdict, ask Boss: **"Is vision needed?"** — one question, asked once.
+   - Boss says **YES** → decode + describe the VISION PROBE PNG VERBATIM (direct vision only; no direct vision = NOT CAPABLE path).
+   - Boss says **NO** (or "skip") → proceed, no probe.
+   - NEVER pretend to see (Honesty rule).
+5. **VERDICT — only two possible outputs, no explanation:**
+   - **CAPABLE + AGREE** → execute the LIST silently (no step narration, no gate block). On success: the SUCCESS FINAL LINE below.
+   - **NOT CAPABLE / DON'T AGREE** → output only: **`I'm not capable. I'll stop now.`** — then actually STOP. No retries, no workarounds, no closing speech. (Boss: pick another model in the Arena UI.)
+> **v1.3.6 (2026-09-09 Boss): ZERO-ACTION RESTORE.** (1) Public repo `github.com/limar01/zillion-restore` = the clone surface (no auth, no PAT ever). (2) **KEYLESS BOOTSTRAP**: zg v1.2 bootstrap op (passphrase-protected, rate-limited) — the key is NOT embedded in the core (public-safe). (3) Boss answers with ONE line: **`zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore [-new [<NAME>]]`**. (4) Pushes use deploy keys ON THE PHONE (github-zr / github-ta SSH aliases) — no PAT. Worker v4.5.x (key from file).
+> **v1.3.7 (2026-09-09): TRUSTED URL PUBLISH.** ph_beacon pushes the current healthy tunnel URL to the public repo as `url.txt` (github-zr deploy key, automatic on rotation). Pre-key discovery for a fresh agent = **`url.txt` in the public clone (GITHUB = trusted channel)** — NOT the raw MQTT beacon (spoofable pre-key; that passphrase-harvest hole is closed). The beacon is still used POST-key (HMAC-verified) and as redundancy.
+6. **Evidence (internal):** raw evidence is collected while restoring (internal + checkpoint per rule 21) — it is NOT printed to chat unless Boss asks.
 
-### 📣 FINAL LINES (v2.1.0 — EXACT, walang dagdag/bawas)
+### 📣 FINAL LINES (v2.1.0 — EXACT, nothing added/removed)
 - **SUCCESS (default phone restore):** `Done Boss. Restore successful. Tunnel, Bridge Worker, and adb are live. My last task is <LAST_TASK>.`
-  - `<LAST_TASK>` = **dynamic** — kung ano ang naka-save sa restore point. Default restore: current task / next step mula sa private `CURRENT_HANDOFF`. `-new`: `new project — awaiting your project name`.
-  - **Honesty guard:** ang bawat component ay sinasabi lang kung **verified live** — Tunnel = HMAC `/ping` OK · **Bridge Worker** = worker process alive sa phone (anchored `pgrep -fl worker.py` — KILL-LOOP rule, read-only) · adb = `device` state sa `adb devices`. Kung may isang down, palitan ang linya nang tapat (hal. `Done Boss. Restore successful. Tunnel and adb are live; Bridge Worker is DOWN. My last task is …`) — walang pagpapanggap ng "live".
+  - `<LAST_TASK>` = **dynamic** — whatever is saved on the restore point. Default restore: current task / next step from the private `CURRENT_HANDOFF`. `-new`: `new project — awaiting your project name`.
+  - **Honesty guard:** each component may be claimed only when VERIFIED live — Tunnel = HMAC `/ping` OK · **Bridge Worker** = worker process alive on the phone (anchored `pgrep -fl worker.py`, read-only — KILL-LOOP rule) · adb = `device` state in `adb devices`. If one is down, replace the line honestly (e.g. `Done Boss. Restore successful. Tunnel and adb are live; Bridge Worker is DOWN. My last task is …`) — never fake "live".
 - **NOT CAPABLE:** `I'm not capable. I'll stop now.`
-- **Ibang lanes (LIST A/B):** parehong pattern — `Done Boss. Restore successful. <lane components> are live. My last task is <LAST_TASK>.`
+- **Other lanes (LIST A/B):** same pattern — `Done Boss. Restore successful. <lane components> are live. My last task is <LAST_TASK>.`
 
-## 🎯 BOSS CONTRACT — restore, 3 hakbang lang
-1. Bagong chat (blanko ang sandbox — expected, hindi problema). 2. Si Boss ay mag-paste ng **ISANG LINYA** — ang RESTORE LINE: `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore [-new [<PROJECT NAME>]]`. 3. Agent: `git clone https://github.com/limar01/zillion-restore.git` (PUBLIC — walang auth) → basahin ang MEMORY_CORE → GATE 0 → LIST C → key via `fetch_key()` (passphrase mula sa restore line). Wala nang iba — walang PAT, walang attachment, walang key prompt. Fallback kung GitHub down: attachment ng core (dapat identical) + Boss paste ng key.
+## 📖 READ MAP (v2.2.0 — restore fast path)
+- **MANDATORY for every restore:** header + v2.2.0 note → this map → GATE 0 → BOSS CONTRACT → your token's LIST (A/B/C) → your lane's CONSTANTS section → 🔑 KEY DELIVERY → 🛡️ OPERATIVE RULES 1–13 → RULES 14–24 (phone-first + continuity) → 📣 FINAL LINES.
+- **`-new` restores:** same mandatory set; skip the rule-20 resume reads (see BOSS CONTRACT parameters).
+- **READ-ON-DEMAND (only when the lane/topic is invoked):** 📺 TV constants · 🏛️ QWENOM · 🌉 EMBEDDED BRIDGE CLIENTS (offline FALLBACK ONLY — the `bridge/` files in the repo clone are primary and identical; do NOT read embedded code on a normal restore) · 🔁 HARDENING (post-reboot behavior) · docs/CHANGELOG.md (history only).
+- **Speed rule:** the mandatory set is ~40% of the file. Skip-marked sections exist for offline fallback and lane work — they are not a top-to-bottom read.
+
+## 🎯 BOSS CONTRACT — restore in 3 steps
+1. New chat (a blank sandbox is expected — not a problem). 2. Boss pastes ONE LINE — the RESTORE LINE: `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore [-new [<PROJECT NAME>]]`. 3. Agent: `git clone https://github.com/limar01/zillion-restore.git` (PUBLIC — no auth) → read per 📖 READ MAP → GATE 0 → LIST → key via `fetch_key()` (passphrase from the restore line). Nothing else — no PAT, no attachment, no key prompt. Fallback if GitHub is down: Boss-attached core file (must be identical) + Boss-pasted key.
 
 ### RESTORE LINE PARAMETERS (v2.0.0)
 | Parameter | Meaning |
 |---|---|
-| *(wala — default)* | **RESUME ACTIVE PROJECT** — restore + RULE 20 private handoff/journal read, ipagpatuloy ang kasalukuyang active project. |
-| `-new` | **CLEAN NEW PROJECT** — PAREHONG restore flow (GATE 0 → LIST C, walang binago), PERO: (a) ang core na ito ang ginagamit bilang clean template — **walang past projects sa memory**; (b) **LAKTAWAN ang RULE 20 handoff/journal resume reads** — ang lumang handoff ay archive ng dating project, hindi binabalikan sa bagong project; (c) ide-declare ni Boss ang project name (inline `-new <NAME>` o sa chat pagkatapos ng restore); (d) i-seed ang BAGONG private handoff entry (checkpoint.py) bilang bagong project start. Ang lumang project memory ay nananatiling archived — hindi ginalaw, hindi binubura. |
-| `<NAME>` (optional, kasunod ng `-new`) | Pangalan ng bagong project → idagdag sa PROJECT INDEX + phone home `~/Projects/workspace/<NAME>/` (mkdir + verify rwx). Walang `<NAME>` = ide-declare ni Boss sa chat bago mag-project work. |
+| *(none — default)* | **RESUME ACTIVE PROJECT** — restore + rule-20 private handoff/journal read; continue the current active project. |
+| `-new` | **CLEAN NEW PROJECT** — SAME restore flow (GATE 0 → LIST, unchanged), BUT: (a) this core is the clean template — **no past projects in memory**; (b) **SKIP the rule-20 handoff/journal resume reads** — the old handoff belongs to the previous project; (c) Boss declares the project name (inline `-new <NAME>` or in chat after restore); (d) a FRESH private handoff entry is seeded (checkpoint.py) as the project's start. Old project memory stays archived — untouched, never deleted. |
+| `<NAME>` (optional, after `-new`) | New project name → added to PROJECT INDEX + phone home `~/Projects/workspace/<NAME>/` (mkdir + verify rwx). No `<NAME>` = Boss declares it in chat before project work. |
 
-> **CLEAN TEMPLATE GUARANTEE:** sa `-new` restore, ang agent ay NAGSISIMULA nang walang anumang past-project context — doctrine + infrastructure lang ang dala. Ang dating projects ay accessible lang kung explicit na utos ni Boss (sa pamamagitan ng private handoff reads), bilang reference, hindi bilang active work.
+> **CLEAN TEMPLATE GUARANTEE:** on a `-new` restore the agent starts with ZERO past-project context — it carries only doctrine + infrastructure. Past projects are reachable only on explicit Boss order (via private handoff reads), as reference — never as active work.
+
 | Token | Target | Channel |
 |---|---|---|
-| `zillion` / `zillionCp` | **Phone S10+ SM-G975F** | **CF tunnel** HMAC `~/zillion_pw/zg.py` + **ADB** (`adb shell` full device). Discovery: MQTT beacon ONLY `arenabridge/<SID>/ph/pres` (`url`+`adb`). **Hindi MQTT exec.** |
+| `zillion` / `zillionCp` | **Phone S10+ SM-G975F** | **CF tunnel** HMAC `~/zillion_pw/zg.py` + **ADB** (`adb shell` full device). Discovery: MQTT beacon ONLY `arenabridge/<SID>/ph/pres` (`url`+`adb`). **No MQTT exec.** |
 | `zilliontv` | **TV box (Termux)** | CF tunnel HMAC `zg.py`. Beacon `arenabridge/<TV_SID>/tv/pres` |
 | `qwenOM` | PC Omarchy (Arch) | MQTT `arenabridge/<SID>/pc/{cmd,res,pres}` |
 | `zillionWin` | Windows PC | MQTT `arenabridge/<SID>/win/{cmd,res,pres}` |
-SID(pc/cp/win)=`53cf4a5803c91726b892e5d0785085c6` · TV_SID=`3b6d57b5465bd22238186fb32850e569` (HMAC key pareho).
-Tokens case-insensitive. **Default kung `Zillion` / `zillion` lang:** LIST C (phone tunnel+ADB).
+SID(pc/cp/win)=`53cf4a5803c91726b892e5d0785085c6` · TV_SID=`3b6d57b5465bd22238186fb32850e569` (same HMAC key).
+Tokens are case-insensitive. **Default when only `Zillion` / `zillion` is said:** LIST C (phone tunnel+ADB).
 
 ## 🤖 INSTANCE STEPS — RESTORE
-> **FORMAT RULE (v2.1.0):** SILENT restore — HINDI na ipinapakita sa chat ang numbered list; internal working checklist na lang ito. Bawat step nilalakad pa rin nang buo, walang laktawan. Chat output = FINAL LINE lang (see GATE 0 📣 FINAL LINES), maliban kung may itanong si Boss o kung NOT CAPABLE. Evidence = internal + checkpoint (rule 21).
-> **TV TOKEN CHAIN (`zilliontv`):** `Sandbox → HMAC HTTPS Cloudflare tunnel → TV zg.py (127.0.0.1:8789)`. **HINDI** MQTT worker. MQTT TV = **URL beacon LANG** (pres), hindi exec.
-> **IBANG TOKEN CHAIN:** `Sandbox → MQTT (broker.emqx.io, HMAC) → DIRECT pc/cp/win`. TV hindi fallback MQTT worker (retired).
+> **FORMAT RULE (v2.1.0):** SILENT restore — the numbered list is NOT shown in chat; it is your internal working checklist. Every step is still executed in full, no skips. Chat output = FINAL LINE only (see GATE 0 📣 FINAL LINES), unless Boss asks something or the verdict is NOT CAPABLE. Evidence = internal + checkpoint (rule 21).
+> **SPEED (v2.2.0 — code-review optimizations):** trusted-URL-first resolve (`resolve_fast`, ~1s) replaces beacon-first discovery on the hot path · ONE `health_bundle()` exec replaces ~6 verification round trips · paho-mqtt installs ONLY if the MQTT path is actually needed · `adb_ready()` is quick-first (deep scan = opt-in; poll after CF 524 instead of sleeping in-payload).
+> **TV TOKEN CHAIN (`zilliontv`):** `Sandbox → HMAC HTTPS Cloudflare tunnel → TV zg.py (127.0.0.1:8789)`. NOT the MQTT worker. TV MQTT = URL beacon (pres) only, no exec.
+> **OTHER TOKEN CHAIN:** `Sandbox → MQTT (broker.emqx.io, HMAC) → DIRECT pc/cp/win`. TV is never an MQTT fallback (worker retired).
 
-### LIST A — token `zilliontv` (ipakita muna)
-1. Basahin ang MEMORY_CORE + 100% agreement sa doctrines
+### LIST A — token `zilliontv`
+1. Read per READ MAP + 100% agreement
 2. Key extract → `~/arenabridge/arenabridge.key` (600, NEVER echo)
-3. `pip install paho-mqtt`
-4. Bridge files: `mq_pc.py` + `mq_tv.py` + `tv_tun.py` + `__init__.py` (verbatim mula dito)
-5. Vision gate probe — **OPTIONAL (v2.1.0, Boss-asked):** kung required ni Boss: DIRECT lang = tuloy; kung hindi kailangan: skip
-6. **AUTO TV TUNNEL CONNECT (walang tanong kay Boss):** `bridge.tv_tun.resolve_url(TV_LAST_URL)` — (a) ping last URL (b) MQTT beacon `…/tv/pres` para sa bagong trycloudflare URL (c) HMAC GET `/ping` + POST `health`. I-save ang working URL sa `~/zillion_tv_cf_url.txt`
-7. Target OS health **via tunnel exec** (`tv_tun.exec_tv`) — hostname/uptime/date — HINDI MQTT worker, HINDI ssh
-8. FINAL LINE (v2.1.0 pattern): `Done Boss. Restore successful. <TV components> are live. My last task is <LAST_TASK>.` → antayin ang utos ni Boss
+3. `pip install paho-mqtt` — only if the MQTT beacon path is needed
+4. Bridge files: `mq_pc.py` + `mq_tv.py` + `tv_tun.py` + `__init__.py` — from the repo clone's `bridge/` (PRIMARY) or embedded fallback (offline only)
+5. Vision gate probe — **OPTIONAL (v2.1.0, Boss-asked):** if Boss requires vision: DIRECT only; otherwise skip
+6. **AUTO TV TUNNEL CONNECT (no asking Boss):** `bridge.tv_tun.resolve_url(TV_LAST_URL)` — (a) ping last URL (b) MQTT beacon `…/tv/pres` for a fresh trycloudflare URL (c) HMAC GET `/ping` + POST `health`. Save the working URL to `~/zillion_tv_cf_url.txt`
+7. Target OS health **via tunnel exec** (`tv_tun.exec_tv`) — hostname/uptime/date — NOT the MQTT worker, NOT ssh
+8. FINAL LINE (v2.1.0 pattern): `Done Boss. Restore successful. <TV components> are live. My last task is <LAST_TASK>.` → await Boss's orders
 
-### LIST C — token `zillion` / `zillionCp` (PHONE — ipakita muna)
-0. **GATE 0 v2.1.0** — read-first + capability & agreement test (internal/silent). Capable + agree = tuloy nang tahimik. Not capable / hindi agree = `I'm not capable. I'll stop now.` + STOP. Vision = OPTIONAL (Boss-asked — GATE 0 item 4).
-1. Basahin ang MEMORY_CORE + 100% agreement
-2. Key → `~/arenabridge/arenabridge.key` (600, NEVER echo) — PRIMARY: `phone_tun.fetch_key(base, PASSPHRASE)` pagkatapos i-resolve ang tunnel (passphrase = mula sa restore line ni Boss); fallback: private repo `key/` copy o Boss paste
-3. `pip install paho-mqtt`
-4. Bridge files: `mq_pc.py` + `tv_tun.py` + **`phone_tun.py`** + **`phone_mqtt.py`** + `__init__.py` — source: `bridge/` sa repo clone (PRIMARY; dapat identical sa embedded) o verbatim sa attachment (fallback)
-5. Vision gate — **OPTIONAL (v2.1.0):** i-run lang kung sinabi ni Boss na kailangan (DIRECT = tuloy); otherwise skip silently
-6. **AUTO PHONE TUNNEL (walang tanong):** (a) pre-key: `url.txt` mula sa public clone (TRUSTED — i2gikan kay GitHub, hindi sa beacon); (b) `fetch_key(url, PASSPHRASE)` → key; (c) post-key: `phone_tun.resolve_url_long(150)` — beacon `…/ph/pres` (ts-fresh, HMAC-verified na) + saved/seed ping. URL = trycloudflare OR lhr.life — HMAC laging mandatory.
-6b. **TUNNEL DEAD? → MQTT BACKUP REPAIR (sanctioned):** `phone_mqtt.exec_ph(...)` (HMAC, worker v4.4) — diagnose (local ping, cf.log, procs) + repair (`start_all.sh`, cf_retry); bagong URL = sa beacon. Tunnel = primary palagi; MQTT = repair/recovery lang.
-6c. **DEPLOY-KEY VERIFY (v1.3.8, post-key, via phone exec):** `ssh -T github-zr` (expect `Hi limar01/zillion-restore!`) + `ssh -T github-ta` (expect `Hi limar01/tunnel-adb!`). Kung `Permission denied (publickey)` = hindi registered ang key sa GitHub → REMEDIATION: ipakita kay Boss ang corresponding pubkey (nasa PUSH SETUP section; public-safe) para i-add sa Settings → Deploy keys → **Allow write access**. Hindi blocker ng restore (push lane lang ang apektado) — pero mandatory i-report.
-7. **AUTO ADB:** `phone_tun.adb_ready()` via tunnel exec (scan → `~/zillion_pw/_adb_ports.txt`, 30000-60000; **`/tmp` PROHIBITED** — shell-owned, PermissionError). `adb devices` dapat `device` (SM-G975F). **Huwag i-prompt ng pairing code.** Kung walang ADB listener (walang open port na nagsasalita CNX) = wireless debug idle-expired → **Boss: refresh lang ang wireless debugging (1 tap)** — walang re-pair kung pairing persisted.
-8. Health: `adb shell getprop ro.product.model` (o plain `getprop` kung walang adb) + date + beacon `adb` field + **Bridge Worker alive** sa phone (anchored `pgrep -fl worker.py`, read-only — KILL-LOOP rule) · **FINAL LINE per GATE 0 (v2.1.0)** → antay utos
+### LIST C — token `zillion` / `zillionCp` (PHONE)
+0. **GATE 0 v2.1.0** — read-first (📖 READ MAP) + capability & agreement test (internal/silent). Capable + agree = proceed silently. Not capable / don't agree = `I'm not capable. I'll stop now.` + STOP. Vision = OPTIONAL (Boss-asked — GATE 0 item 4).
+1. Read MEMORY_CORE per 📖 READ MAP + 100% agreement
+2. Key → `~/arenabridge/arenabridge.key` (600, NEVER echo) — PRIMARY: `phone_tun.fetch_key(url_txt, PASSPHRASE)` against the **url.txt** URL (trusted channel; passphrase ONLY to this origin — NEVER to beacon-derived URLs); fallback: private repo `key/` via phone exec / SD tier / Boss paste
+3. `pip install paho-mqtt` — **ONLY if needed** (MQTT discovery fallback or 6b). Skip when the tunnel comes up directly.
+4. Bridge files: `mq_pc.py` + `tv_tun.py` + **`phone_tun.py`** + **`phone_mqtt.py`** + `__init__.py` — source: `bridge/` in the repo clone (PRIMARY; must be identical to embedded) or embedded fallback (offline only)
+5. Vision gate — **OPTIONAL (v2.1.0):** run only if Boss says vision is needed (DIRECT = proceed); otherwise skip silently
+6. **AUTO PHONE TUNNEL (no asking):** (a) pre-key: trusted URL from `url.txt` in the public clone; (b) `fetch_key(url, PASSPHRASE)` → key; (c) post-key: `phone_tun.resolve_fast(hint=url_txt)` — trusted-URL-first (url.txt → saved → seed), beacon MQTT only if ALL static candidates fail; `resolve_url_long(150)` ONLY post-reboot / when fast resolve already failed. URL may be trycloudflare OR lhr.life — HMAC always mandatory.
+6b. **TUNNEL DEAD? → MQTT BACKUP REPAIR (sanctioned):** `phone_mqtt.exec_ph(...)` (HMAC, worker v4.x) — diagnose (local ping, cf.log, procs) + repair (`start_all.sh`, cf_retry); the fresh URL comes from the beacon. Tunnel = primary always; MQTT = repair/recovery only.
+6c. **DEPLOY-KEY VERIFY (v1.3.8):** included in the step-8 `health_bundle()` — expect `Hi limar01/zillion-restore!` and `Hi limar01/tunnel-adb!` (`ssh -T` exit 1 is normal). On `Permission denied (publickey)` → REMEDIATION: show Boss the matching pubkey (PHONE CONSTANTS; public-safe) to re-add at Settings → Deploy keys → **Allow write access**. Not a restore blocker (push lane only) — but reporting it is MANDATORY.
+7. **AUTO ADB (quick-first):** `phone_tun.adb_ready()` — `adb devices` must show `device` (SM-G975F). **Never prompt for a pairing code.** Quick mode reconnects known ports (`~/zillion_pw/_adb_ports.txt`, beacon `adb` field). Deep scan 30000-60000 = opt-in only and can exceed the ~90s CF window — if it times out, POLL `adb devices` afterwards (the scan keeps running phone-side). No listener anywhere = wireless debug idle-expired → **Boss: 1-tap wireless-debugging refresh** — no re-pair while pairing persists. Zombie `offline` entries → `adb disconnect 127.0.0.1:<port>`.
+8. **VERIFY IN ONE TRIP + FINAL LINE:** `phone_tun.health_bundle(base)` → model/android/date/uptime · Bridge Worker alive · adb devices · deploy keys — then output the FINAL LINE per GATE 0 (v2.1.0) → await orders.
 
-### LIST B — tokens `qwenOM` / `zillionWin` (ipakita muna)
-1. MEMORY_CORE agreement · 2. Key · 3. paho-mqtt · 4. Bridge files kasama `phone_tun.py` · 5. Vision · 6. MQTT ping lane · 7. OS health · 8. Report
+### LIST B — tokens `qwenOM` / `zillionWin`
+1. MEMORY_CORE agreement (READ MAP) · 2. Key · 3. paho-mqtt · 4. Bridge files incl. `phone_tun.py` · 5. Vision (optional, Boss-asked) · 6. MQTT ping lane · 7. OS health · 8. FINAL LINE (v2.1.0 pattern)
 
-**MGA TUNTUNIN:** file na ito lang ang protocol · ENGLISH (v1.3.9) · **huwag i-prompt si Boss para sa CF URL o ADB pairing** (one-time pair tapos na).
+**TERMS:** this file is the only protocol · reporting in ENGLISH (v1.3.9) · **never prompt Boss for the CF URL or ADB pairing** (one-time pair, done).
 
 ## 📱 PHONE TUNNEL + ADB CONSTANTS (v1.2)
-- Seed URL: `https://wearing-quotations-der-asset.trycloudflare.com` · dir `~/zillion_pw/` · `zg.py` :8788 · `cloudflared` · `ph_beacon.py` → `arenabridge/<SID>/ph/pres`
-- Device: Galaxy **S10+ SM-G975F** · **LineageOS** (Android 16, `BP4A.251205.006` release-keys — org.lineageos.* in deviceidle whitelist) · clock label quirk: shows wall-time correct but TZ label "PST" · Wireless debugging **ON** (paired Termux adb). Connect port **nag-iiba** — i-scan / beacon `adb` field.
-- Restore helper: `bridge/phone_tun.py` — `resolve_url` + `exec_ph` + `adb_ready`
-- ADB control = **approved** (hindi na READ-ONLY para sa ADB/tunnel). Sacred scope (GCash/DCIM) **sige pa**.
-- Boss standing: Wireless debugging iwanang ON; Termux `~/zillion_pw` watchdog running. Pag Android pumatay nito, **isang** open Termux — hindi pairing ulit.
-- **cf_retry v2 (2026-09-08):** crash = 10s retry; 3 consecutive crashes = exponential 300s→1h; 429 = pure exponential (300s→1h). v1 bug: buong `delay` (300s+) ang naghihintay pag may crash.
-- **Termux:Boot:** **INSTALLED 2026-09-09** ✅ — F-Droid 0.8.1, `pm install` via `/data/local/tmp/` LANG (**/sdcard FUSE = SELinux block**: system_server walang read sa fuse context). Sig digest tugma sa Termux (`7c3fcce`) = same signing source; POST_NOTIFICATIONS granted; deviceidle whitelist added. Boot chain: `Termux:Boot → ~/.termux/boot/start-zillion.sh → start_all.sh → supervisor v4.2`.
-- **Job 77 watchdog (v1.4.1, 2026-09-09):** `termux-job-scheduler` (termux-api pkg 0.59.1) — 15-min periodic WorkManager job, `--persisted true` (survives reboot), runs `~/zillion_pw/zillion_job_watchdog.sh` (re-runs start_all if supervisor missing). `termux-job-scheduler -p` = verify pending; log `~/zillion_pw/job_watchdog.log`.
-- **Verified 2026-09-08 00:12 (kill test):** killed cf + cf_retry → v2 respawn + healthy tunnel **< 90s** (via lhr.life fallback habang nagre-recover ang trycloudflare) · MQTT backup exec naka-verify during outage · beacon fallback URL (lhr.life) HMAC-ok · exec via fallback URL ok.
-- **Reboot test VERIFIED (2026-09-09 00:43–00:53):** `adb reboot` → Android boot ~1min → **Termux:Boot fired `start-zillion.sh` 00:46:06** (supervisor v3 + worker + zg + beacon + cf_retry + fallback — lahat auto-up, raw: supervisor.log) → cf registered 00:46:13 → E2E exec OK (`up 10 min`). Boot chain = SOLVED.
-- **ph_beacon v2 (2026-09-09):** `retain=True` + publish rc check + periodic reconnect + 15s cycle. v1 bug: qos=0 non-retained + walang rc check → dead MQTT conn = silent publish death (walang beacon kahit buhay ang lahat). **Retained-pres trap:** ang pres messages ay retained — LAGING i-check ang `ts` freshness bago sabihing "alive" (stale retained ≠ alive; worker pres din ay retained).
-- **Post-reboot ADB:** walang wireless-debug listener pagkatapos ng reboot (toggle OFF ang nagaganap) → Boss: 1-tap wireless debugging ON; **pairing persists, walang re-pair** (verified via idle-expire case + reboot case).
-- **adb_watch.sh (2026-09-09):** kung walang healthy listener (offline zombie / flapping ports): via MQTT exec `nohup sh ~/zillion_pw/adb_watch.sh >/dev/null 2>&1 &` (8-min bantay, auto `adb connect` sa anumang bagong listener) + Boss wireless-debugging toggle OFF→ON (unlocked screen). Verified 01:05:06 → `127.0.0.1:35749 device SM-G975F`, beacon `adb` field sumunod agad. Zombie offline entries = `adb disconnect 127.0.0.1:<port>`. **RAW AYAA handshake heuristic ay HINDI reliable sa adbd — direct `adb connect` lang ang totoong test.** deviceidle whitelist verified: com.termux + com.termux.api + com.termux.boot.
-- **CR v1.3.2 deployed set (2026-09-09, lahat naka-verify):** ph_beacon v3 (F1: last-known-URL + `healthy` + `url_age` — live fields verified) · supervisor v4 (F12 lock; `supervisor_count=1`) · worker `AB_CMD_TIMEOUT=120` env-verified (F4) + ver string 4.5 (F11) · cf_retry v3 (F7: rotation armed) · adb_watch v2 (F10 full-range) · zg v1.1 (F5: replay→409 · stale ts→401 · walang ts→401 · clamp 600s) · `.profile` + `.bashrc` guards (F6 live-verified: incident recovery ~1 min).
-- **INCIDENT 2026-09-09 ~01:20 PST:** rolling-restart kill loop ay nag-self-match sa sariling exec shell (`*zillion_pw/...*` case pattern tumama sa `sh -c` wrapper na nagdadala mismo ng script text) → buong stack namatay nang ~1 minuto → recovery via `.profile` guard (Boss nagbukas lang ng Termux). Postmortem: `INCIDENT_20260909.md`.
-- **RESTORE SURFACE (v1.3.6):** PUBLIC repo `github.com/limar01/zillion-restore` = clone surface sa bawat restore (walang auth). PUBLIC-SAFE ito: walang key, walang secrets — ang core mismo ay scrubbed. Contents: MEMORY_CORE (scrubbed) · `bridge/` · `phone/` (zg v1.2, worker v4.5.1, atbp.) · `docs/` · `apk/`.
-- **PRIVATE VAULT:** `github.com/limar01/tunnel-adb` (private) = canonical mirror KASAMA ang `key/arenabridge.key` + buong history. Hindi ito ginagamit sa restore flow (backup lang).
-- **PUSH SETUP (v1.3.6 — walang PAT habang-buhay):** deploy keys ay NASA PHONE — SSH aliases `github-zr` (~/.ssh/id_ed25519_zr → zillion-restore, write) at `github-ta` (~/.ssh/id_ed25519_ta → tunnel-adb, write). Agent pushes via phone exec: `git clone git@github-zr:limar01/zillion-restore.git` (o github-ta) → commit → push. **Ang PAT doctrine (v1.3.3–v1.3.5) ay RETIRED.**
-- **PUSH SETUP v1.3.8 VERIFIED (2026-09-09):** PAREHONG keys registered na (write) sa GitHub. Evidence: `ssh -T github-zr` → `Hi limar01/zillion-restore!` · `ssh -T github-ta` → `Hi limar01/tunnel-adb!` · probe: clone → throwaway branch push → `PUSH_OK` → `REMOTE_HAS_BRANCH` → `--delete` → `DELETE_OK`. **REMEDIATION playbook (kung mawala uli ang keys):** ang mga pubkey ay public-safe — ipakita kay Boss para i-re-add (Settings → Deploy keys → Allow write access):
+- **Device:** Galaxy **S10+ SM-G975F** · **LineageOS** (Android 16, `BP4A.251205.006` release-keys; org.lineageos.* in deviceidle whitelist) · clock quirk: wall-time correct, but the TZ label shows "PST".
+- **Origin:** fixed `ZG_PORT=8788`, dir `~/zillion_pw/`, `zg.py` + `cloudflared`; the public URL is DYNAMIC after every reboot — never assume durability (see HARDENING).
+- **Seed URL (last known; beacon is source of truth after rotation):** `https://wearing-quotations-der-asset.trycloudflare.com` · the URL may also be the HMAC-protected `*.lhr.life` fallback during Cloudflare 429/1015 rate limits (never rapid-retry — `cf_retry.sh` exponential backoff 300s→1h).
+- **Wireless debugging ON** (paired Termux adb). The connect port CHANGES — take it from `adb devices` / beacon `adb` field / `~/zillion_pw/_adb_ports.txt` (scan range 30000-60000). Wireless-debug can IDLE-EXPIRE → Boss: 1-tap refresh, NO re-pair while pairing persists. After REBOOT the listener is OFF → same 1 tap. Zombie `offline` entries = `adb disconnect 127.0.0.1:<port>`.
+- **ADB control = APPROVED** (full device, not read-only). Sacred scope still applies (GCash/DCIM).
+- **Helpers:** `bridge/phone_tun.py` — resolve_fast / resolve_url / resolve_url_long · fetch_key · exec_ph · health_bundle · adb_ready. Fallback exec = `bridge/phone_mqtt.py` (MQTT cp worker, repair path only).
+- **Boot chain (verified):** Termux:Boot → `~/.termux/boot/start-zillion.sh` → `~/zillion_pw/start_all.sh` → supervisor v4.2 (stale-lock recovery, kill-tested). It keeps alive: `worker.py`, `zg.py`, `ph_beacon.py`, `cf_retry.sh`, `fallback_retry.sh`. **Job 77 = WorkManager resurrection watchdog** (`termux-job-scheduler`, 15-min periodic, `--persisted` survives reboot; verify with `termux-job-scheduler -p`; log `job_watchdog.log`). Absolute fallback: Boss opens Termux once → ~60s recovery.
+- **Battery Unrestricted** for Termux/Termux:Boot/Termux:API = APPLIED + verified (deviceidle whitelist) — do not change.
+- **Beacon (`ph_beacon` v3.x → MQTT `arenabridge/<SID>/ph/pres`, retain=True):** publishes a fresh `url` (+ `healthy`, `url_age`, `adb`) on a ~15s cycle + pushes the current healthy URL to the public repo as `url.txt` (deploy key github-zr). **Always check `ts` freshness — stale retained ≠ alive.**
+- **PHONE EXEC CONSTRAINTS (hard rules):** (1) Termux `/bin/sh` = **dash** (POSIX only; beware nested `$()`; traps defer until the current foreground job finishes — use SIGKILL for forced transitions). (2) Keep exec payloads **<90s** — Cloudflare HTTP 524 kills the response but the command KEEPS RUNNING on the phone; for long waits, POLL from the sandbox — never `sleep` inside a payload. (3) Android exec argv limit ≈ **128 KB per argument** — transfer large files base64-encoded ONE PER exec (observed HTTP 500 beyond it). (4) `/tmp` is PROHIBITED (shell-owned) — write under `~/`. (5) **KILL-LOOP SELF-MATCH RULE (mandatory):** any ad-hoc kill/scan loop in exec must use ANCHORED patterns only (`^python3 .*zg\.py$` style — never a `*substring*` case match), exclude self (`[ "$p" != "$$" ]`) + own process group; prefer anchored `pgrep -f` or `/proc/<pid>/cmdline` argv0 scans; never embed the exact target string in the killing script's own text. Phone-side supervisor/cf_retry patterns are already anchored (SAFE).
+- **PUSH SETUP (deploy keys live on the phone):** SSH aliases `github-zr` (→ zillion-restore, write) + `github-ta` (→ tunnel-adb, write), both REGISTERED (verified: `ssh -T` = "Hi limar01/<repo>!"). NEVER embed PATs (operative rule 12). **REMEDIATION (if the keys are lost — public-safe pubkeys for Boss to re-add at Settings → Deploy keys → Allow write access):**
   - `github-zr`: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbHNVokuTISzCU/KOn8y+745k1PeXTzA0+LaDZtqVty phone-zillion-restore`
   - `github-ta`: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAl8mUQkcb1J86yJVHDPsQRpcXI/5zyJyuO2vVL3q18y phone-tunnel-adb`
-- **TRUSTED URL PUBLISH (v1.3.7):** ph_beacon v3.1 → `~/zillion_pw/_urlrepo` (clone ng public repo via github-zr) → `url.txt` commit+push kapag nag-rotate ang healthy URL (check=True lahat; git identity naka-config sa clone). Attack model na isinara: spoofed retained MQTT beacon (pre-key, unverifiable) → passphrase harvest. Ang `url.txt` ay SIGNS-OF-LIFE din: kung stale >2x ng beacon cycle, may problema sa beacon→github lane.
-- **BOOTSTRAP PASSPHRASE:** sha256 hash lang ang nasa phone (`~/zillion_pw/_bootstrap.hash`, 600). Ang passphrase mismo ay hawak ni Boss (restore line). Kapos/na-compromise → i-rotate via active session (bagong hash deploy + bagong restore line kay Boss).
-- **SD OFFLINE TIER (2026-09-09 Boss):** SanDisk SD `/storage/BDD5-1822/gitrepo/tunnel-adb` = buong repo mirror kasama `.git` (commit 882e17c era) + `_README.txt`. Ito ang third copy (GitHub canonical → phone `_pack` → SD). SD = exFAT: **backup/storage LANG** — hindi pinagpapatakbuhan ng stack, walang exec doon. Sync protocol (v1.3.8): bawat core change → push `github-zr` (public repo) + push `github-ta` (private repo) + cp phone `_pack` + cp SD working tree. Kung GitHub at phone parehong down pero may SD: `tar` extract ng repo → gamitin ang core doon (offline restore path).
-- **☠️ KILL-LOOP SELF-MATCH RULE (DOCTRINE — mandatory):** sa lahat ng ad-hoc kill/scan loops sa exec: (1) **ANCHORED patterns LANG** (`^python3 .*zg\.py$` style) — HINDI `*substring*` na case; (2) `[ "$p" != "$$" ]` + i-exclude ang sariling process group; (3) mas prefer: `pgrep -f` anchored (hindi nagma-match sa sarili) o `/proc/<pid>/cmdline` argv0 scan; (4) huwag ilagay ang exact target string sa sariling script text. Phone-side supervisor/cf_retry patterns = SAFE na (anchored).
-- **ADB idle-expire (2026-09-08):** ang wireless-debug port ay maaaring mawala (stale socket lang ang natitira, walang CNX handshake). Restore step 7 na may walang-listener case = Boss refresh 1 tap.
+- **REDUNDANCY (sync on every core change — rule 24):** public GitHub repo (canonical) · private repo `tunnel-adb` (incl. `key/`) · phone `~/zillion_pw/_pack` · SanDisk SD mirrors (`/storage/BDD5-1822/gitrepo/zillion-restore` public checkout + `/storage/BDD5-1822/gitrepo/tunnel-adb` private file mirror — exFAT = backup/storage ONLY, never executed).
+- **BOOTSTRAP PASSPHRASE:** the phone stores ONLY `sha256(passphrase)` (`~/zillion_pw/_bootstrap.hash`, mode 600). The passphrase itself stays with Boss (restore line). Rotate via an active session if weak/compromised.
+- **Incident reference:** `docs/INCIDENT_20260909.md` (kill-loop self-match postmortem). Phone rebuild manifest: `docs/RESTORE_FILE_MANIFEST.md`.
 
 ## 📺 TV TUNNEL CONSTANTS
-- Last-known quick URL (seed; beacon ang source of truth pag mag-iba): `https://lawyer-locations-hands-leo.trycloudflare.com`
+- Last-known quick URL (seed; beacon is source of truth after rotation): `https://lawyer-locations-hands-leo.trycloudflare.com`
 - Local origin: `http://127.0.0.1:8789` · dir `~/zillion_tv_cf/` · `zg.py` + `cloudflared32` (proot + Termux resolv.conf + CA) + `url_beacon.py`
-- Boot: Termux:Boot ARMED → `~/.termux/boot/start-zillion-tv.sh` v3 → `~/zillion_keepalive.sh` v3 (20s: zg + cf + beacon). **fd-9** sa lahat ng spawn.
-- MQTT worker **RETIRED** (`~/arenabridge/retired_mqtt/worker.py`). Huwag i-start.
-- Huwag hawakan: `~/zweb/`, `~/app.py`. sshd RETIRED.
+- Boot: Termux:Boot ARMED → `~/.termux/boot/start-zillion-tv.sh` v3 → `~/zillion_keepalive.sh` v3 (20s: zg + cf + beacon). Use fd-9 on all spawns.
+- MQTT worker **RETIRED** (`~/arenabridge/retired_mqtt/worker.py`). Never start it.
+- Do NOT touch: `~/zweb/`, `~/app.py`. sshd RETIRED.
 
-## 🔑 ZILLION_KEY DELIVERY (v1.3.6 — HINDI na naka-embed; core = public-safe)
-> **PRIMARY — keyless bootstrap:** URL mula sa `url.txt` (public repo, trusted) → `phone_tun.fetch_key(base, PASSPHRASE)` — plain-JSON `{"op":"bootstrap","pass":...}` sa zg v1.2 (`/` endpoint). Proteksyon: sha256(pass) vs `~/zillion_pw/_bootstrap.hash` sa phone + rate limit (5 mali = 900s lock). Success = key (32B). Isulat sa `~/arenabridge/arenabridge.key`, chmod 600, HINDI ie-echo.
-> **Fallback 1 (v1.3.8 concrete):** private repo `limar01/tunnel-adb` → `key/arenabridge.key` — via **PHONE exec** `git clone git@github-ta:limar01/tunnel-adb.git` (ta deploy key, REGISTERED write 2026-09-09) o SD offline tier `/storage/BDD5-1822/gitrepo/tunnel-adb/key/`. Ang sandbox ay keyless by design — hindi direct clone ng private repo.
-> **Fallback 2 (last resort):** i-paste ni Boss ang key (hindi na kailangan sa normal flow).
-> Passphrase = bahagi ng RESTORE LINE (see BOSS CONTRACT). Kapos sa entropy ang luma nang token — ang passphrase ang bagong gate.
+## 🔑 ZILLION_KEY DELIVERY (v1.3.6 — not embedded; core is public-safe)
+> **PRIMARY — keyless bootstrap:** URL from `url.txt` (public repo, trusted) → `phone_tun.fetch_key(base, PASSPHRASE)` — plain-JSON `{"op":"bootstrap","pass":...}` to zg v1.2 (`/` endpoint). Protection: sha256(pass) vs `~/zillion_pw/_bootstrap.hash` on the phone + rate limit (5 fails = 900s lock). Success = key (32B). Write to `~/arenabridge/arenabridge.key`, chmod 600, NEVER echo it.
+> **Fallback 1:** private repo `limar01/tunnel-adb` → `key/arenabridge.key` — via PHONE exec `git clone git@github-ta:limar01/tunnel-adb.git` (ta deploy key, registered write) or the SD offline tier `/storage/BDD5-1822/gitrepo/tunnel-adb/key/`. The sandbox is keyless by design — never a direct private-repo clone from the sandbox.
+> **Fallback 2 (last resort):** Boss pastes the key (not needed in the normal flow).
+> The passphrase = part of the RESTORE LINE (see BOSS CONTRACT).
 
-## 🌉 EMBEDDED BRIDGE — isulat bilang bridge/mq_pc.py
+> **⏭️ READ-ON-DEMAND (v2.2.0):** the embedded clients below are the OFFLINE FALLBACK for the attachment path — on a normal restore the agent uses the `bridge/` files from the repo clone and does NOT read this code. Skip unless the repo clone is unavailable.
+
+## 🌉 EMBEDDED BRIDGE — write as bridge/mq_pc.py
 ```python
 import os, sys, json, time, uuid, hmac, hashlib, base64
 import paho.mqtt.client as mqtt
@@ -244,7 +234,8 @@ def get_screen_eyes(monitor="DVI-D-1", local_dest="/home/user/eyes_view.jpg", wi
 ```
 
 
-## 🌉 EMBEDDED TV TUNNEL CLIENT — isulat bilang bridge/tv_tun.py
+
+## 🌉 EMBEDDED TV TUNNEL CLIENT — write as bridge/tv_tun.py
 ```python
 """TV box Cloudflare tunnel client (HMAC JSON). Exec path = HTTPS, never MQTT worker."""
 import json, time, hmac, hashlib, urllib.request, os, uuid
@@ -348,12 +339,25 @@ def exec_tv(cmd, timeout=30, base=None):
 ```
 
 
-## 🌉 EMBEDDED PHONE TUNNEL CLIENT — isulat bilang bridge/phone_tun.py
+
+## 🌉 EMBEDDED PHONE TUNNEL CLIENT — write as bridge/phone_tun.py
+> OFFLINE FALLBACK — must be byte-identical to `bridge/phone_tun.py`.
 ```python
-"""Phone Cloudflare tunnel + ADB. Exec = HTTPS HMAC, not MQTT worker.
-MQTT ph/pres = URL+adb discovery only.
-v1.3.2: exec payload may ts (zg v1.1) · discover_mqtt(fresh_after=) retained-trap guard (F3).
-v1.3.6: + fetch_key() — keyless bootstrap (passphrase-protected) para sa blank-sandbox restore."""
+"""Phone Cloudflare tunnel + ADB — v2.2.0 (English, restore-speed optimized).
+Exec = HTTPS HMAC-SHA256 envelope via zg.py. MQTT ph/pres = URL+adb discovery ONLY.
+History: v1.3.2 ts + retained-trap guard · v1.3.6 fetch_key() keyless bootstrap ·
+v2.2.0 code-review optimizations:
+  - resolve_fast(): trusted-URL-first (url.txt hint -> saved -> seed); MQTT beacon
+    consulted ONLY when all static candidates fail. No more MQTT-first 15s window
+    on the hot path (was the main restore latency source).
+  - health_bundle(): ONE Cloudflare round trip returns host/date/uptime/model,
+    worker liveness (anchored pgrep — KILL-LOOP rule), adb device list, and
+    deploy-key ssh -T results. Replaces ~6 sequential per-exec round trips.
+  - adb_ready(): QUICK by default (adb devices + previously discovered ports +
+    optional beacon port). The 30000-60000 deep scan is opt-in (deep=True) and
+    documented as CF-524-prone (poll, never sleep long inside one payload).
+  - ping_url default timeout 8s -> 6s; discover_mqtt default window 8s.
+"""
 import json, time, hmac, hashlib, urllib.request, os, uuid
 
 KEY_PATH = os.path.expanduser("~/arenabridge/arenabridge.key")
@@ -390,7 +394,9 @@ def load_saved():
     except Exception:
         return SEED
 
-def ping_url(base, timeout=8):
+def ping_url(base, timeout=6):
+    """HMAC-verified /ping. Pre-key this CANNOT verify (no key yet) — treat as
+    liveness-only until the key exists; trusted origin = url.txt from the repo."""
     base = (base or "").strip().rstrip("/")
     if not base:
         return False
@@ -402,8 +408,8 @@ def ping_url(base, timeout=8):
         return False
 
 def discover_mqtt(timeout=8, fresh_after=None):
-    """v1.3.2 (CR F3): fresh_after (epoch) — kung nakatakda, ang stale retained
-    pres ay HINDI tinatanggap (hintayin ang sariwang publish)."""
+    """Beacon discovery (post-key use per TRUSTED-URL doctrine; retained-trap guard:
+    when fresh_after (epoch) is set, stale retained pres is not accepted)."""
     try:
         import paho.mqtt.client as mqtt
     except Exception:
@@ -431,7 +437,6 @@ def discover_mqtt(timeout=8, fresh_after=None):
         if found.get("url"):
             if fresh_after is None or (found.get("ts") or 0) >= fresh_after:
                 break
-            # stale retained — keep waiting for a fresh publish
         time.sleep(0.1)
     cl.loop_stop()
     cl.disconnect()
@@ -439,7 +444,22 @@ def discover_mqtt(timeout=8, fresh_after=None):
         return {}
     return found
 
+def resolve_fast(hint="", mqtt_timeout=10):
+    """v2.2.0 PRIMARY RESOLVER — trusted-URL-first.
+    Order: hint (url.txt from public repo, TRUSTED channel) -> saved last URL -> seed.
+    HMAC-ping each; beacon MQTT only when every static candidate fails (post-key).
+    Returns (url, info) — info = beacon payload when consulted, else {}."""
+    for c in (hint, load_saved(), SEED):
+        if c and ping_url(c):
+            return save_url(c), {}
+    info = discover_mqtt(mqtt_timeout)
+    u = info.get("url")
+    if u and ping_url(u):
+        return save_url(u), info
+    return "", info
+
 def resolve_url(hint=""):
+    """Legacy resolver (beacon-first) — kept for compatibility; resolve_fast preferred."""
     info = discover_mqtt(8)
     cands = [hint, info.get("url"), load_saved(), SEED]
     for c in cands:
@@ -448,8 +468,8 @@ def resolve_url(hint=""):
     return "", info
 
 def resolve_url_long(timeout=150):
-    """v1.3.1: extended restore discovery — loops beacon+ping until healthy URL or timeout.
-    Use on restore after phone reboot (beacon needs boot time to publish a fresh URL)."""
+    """Extended discovery — loops beacon+ping until a healthy URL appears or timeout.
+    Use ONLY post-reboot / when resolve_fast already failed (beacon needs boot time)."""
     t0 = time.time()
     last_info = {}
     while time.time() - t0 < timeout:
@@ -463,9 +483,9 @@ def resolve_url_long(timeout=150):
     return "", last_info
 
 def fetch_key(base, passphrase, timeout=15):
-    """v1.3.6: KEYLESS BOOTSTRAP — plain-JSON POST (walang HMAC: pre-key ito).
-    Proteksyon: passphrase (sha256 vs _bootstrap.hash sa phone) + rate limit 5/900s sa zg v1.2.
-    Success = 200 + {"key": "..."} sa loob ng signed envelope (i-unwrap ang 'd')."""
+    """KEYLESS BOOTSTRAP — plain-JSON POST (no HMAC: pre-key by design).
+    Phone-side protection: sha256(pass) vs _bootstrap.hash + rate limit 5-fail/900s.
+    Send the passphrase ONLY to the trusted url.txt origin — never to beacon-derived URLs."""
     payload = json.dumps({"op": "bootstrap", "pass": passphrase}).encode()
     req = urllib.request.Request((base or "").rstrip("/") + "/", data=payload,
                                  headers={"Content-Type": "application/json"}, method="POST")
@@ -477,7 +497,7 @@ def fetch_key(base, passphrase, timeout=15):
 
 def exec_ph(cmd, timeout=30, base=None):
     if not base:
-        base, _ = resolve_url()
+        base, _ = resolve_fast(load_saved())
     base = (base or "").rstrip("/")
     if not base:
         return {"error": "no_phone_tunnel_url", "exit_code": -1, "output": ""}
@@ -486,14 +506,52 @@ def exec_ph(cmd, timeout=30, base=None):
     with urllib.request.urlopen(req, timeout=timeout + 10) as r:
         return _unpack(r.read().decode())
 
-def adb_ready(timeout=45):
-    """Ensure adb device via tunnel exec. Returns exec result.
-    v1.3.1: scan writes ~/zillion_pw/_adb_ports.txt (/tmp is shell-owned → PermissionError on exec user),
-    range 30000-60000. Note: a connected 'offline' port is usually NOT adb — verify with devices list."""
+def health_bundle(base=None, timeout=60):
+    """v2.2.0: ONE Cloudflare round trip — full restore verification.
+    Returns dict keys: host/date/up/model/android · worker (anchored pgrep line or
+    NONE) · adb (device lines, '|' separated) · key_zr / key_ta (ssh -T first lines —
+    expect 'Hi limar01/...!', exit 1 is normal) · _exit/_error meta. All read-only.
+    Keep the phone-side script SHORT: exec payloads must stay <90s (CF 524)."""
+    if not base:
+        base = load_saved()
+    cmd = (
+        'echo "HOST=$(hostname)"; echo "DATE=$(date)"; echo "UP=$(uptime)"; '
+        'echo "MODEL=$(getprop ro.product.model 2>/dev/null)"; '
+        'echo "ANDROID=$(getprop ro.build.version.release 2>/dev/null)"; '
+        'W=$(pgrep -fl worker.py 2>/dev/null | grep -v pgrep | head -3 | tr "\n" "|"); echo "WORKER=${W:-NONE}"; '
+        'echo "ADB=$(adb devices 2>/dev/null | awk \'NR>1 && NF\' | tr "\n" "|")"; '
+        'echo "KEY_ZR=$(ssh -o ConnectTimeout=8 -T github-zr 2>&1 | head -1)"; '
+        'echo "KEY_TA=$(ssh -o ConnectTimeout=8 -T github-ta 2>&1 | head -1)"'
+    )
+    r = exec_ph(cmd, timeout=timeout, base=base)
+    out = {}
+    for line in (r.get("output", "") or "").splitlines():
+        if "=" in line:
+            k, v = line.split("=", 1)
+            out[k.strip().lower()] = v
+    out["_exit"] = r.get("exit_code")
+    out["_error"] = r.get("error")
+    return out
+
+def adb_ready(deep=False, timeout=45, extra_ports=""):
+    """v2.2.0: QUICK by default. (1) adb start-server + devices — a 'device' entry
+    means READY (disconnect 'offline' zombies per doctrine). (2) Try previously
+    discovered ports (~/zillion_pw/_adb_ports.txt) + extra_ports (e.g. beacon adb
+    field). deep=True = legacy 30000-60000 full scan — slow on a loaded phone and
+    can outlive the ~90s CF window; the scan keeps running phone-side, so poll
+    'adb devices' afterwards instead of sleeping inside one payload.
+    /tmp is PROHIBITED (shell-owned) — scan results go to ~/zillion_pw/_adb_ports.txt."""
+    if not deep:
+        cmd = (
+            "adb start-server >/dev/null 2>&1\n"
+            "for p in $(cat ~/zillion_pw/_adb_ports.txt 2>/dev/null) " + (extra_ports or "") + "; do "
+            "adb connect 127.0.0.1:$p >/dev/null 2>&1; done\n"
+            "adb devices -l\n"
+        )
+        return exec_ph(cmd, timeout=timeout)
     cmd = r"""
 adb start-server >/dev/null 2>&1
 if adb devices | grep -qE 'device$'; then adb devices -l; exit 0; fi
-# reconnect last ports
 for p in $(adb devices | awk -F: '/127.0.0.1/{print $2}' | awk '{print $1}'); do adb connect 127.0.0.1:$p >/dev/null 2>&1; done
 python3 - << 'P'
 import socket, os
@@ -515,10 +573,10 @@ for p in $(cat ~/zillion_pw/_adb_ports.txt 2>/dev/null); do adb connect 127.0.0.
 sleep 3
 adb devices -l
 """
-    return exec_ph(cmd, timeout=timeout)
+    return exec_ph(cmd, timeout=max(timeout, 120))
 ```
 
-## 🌉 EMBEDDED PHONE MQTT BACKUP CLIENT — isulat bilang bridge/phone_mqtt.py (v1.3.2, broker rotation)
+## 🌉 EMBEDDED PHONE MQTT BACKUP CLIENT — write as bridge/phone_mqtt.py (v1.3.2, broker rotation)
 ```python
 """Phone lane MQTT backup client (worker v4.5, HMAC-signed).
 Use when the CF tunnel is down: discovery via retained ph/pres, exec/file ops via cmd/res.
@@ -640,54 +698,54 @@ def presence(timeout=8, fresh_after=None):
             return found
     return {}
 ```
-> MQTT `cp` worker (v4.4) = **backup exec lang** kapag tunnel down (sanctioned repair path). HMAC laging mandatory (signed cmd + signed res; unsigned/bad-sig = blocked ng worker). Ops: exec / put_file / get_file / note. Worker = stdlib-only (MiniMQTT), broker rotation: emqx → hivemq → mosquitto, retained pres tuwing 25s.
+> MQTT `cp` worker (v4.4) = **backup exec only**, when the tunnel is down (sanctioned repair path). HMAC always mandatory (signed cmd + signed res; unsigned/bad-sig = rejected by the worker). Ops: exec / put_file / get_file / note. Worker = stdlib-only (MiniMQTT), broker rotation: emqx → hivemq → mosquitto, retained pres every 25s.
+
 
 ## 👁️ VISION PROBE + EYES RULE
-> **v2.1.0 (2026-09-18 Boss): OPTIONAL NA ANG VISION.** Ang agent ay MAGTATANONG kay Boss kung kailangan ang vision sa session (GATE 0 item 4) — NO = skip entirely. Kung YES: DIRECT pa rin ang requirement — walang DIRECT vision = NOT CAPABLE path. Hinding-hindi magpapanggap na nakakita.
+> **v2.1.0 (2026-09-18 Boss): VISION IS OPTIONAL.** The agent ASKS Boss whether vision is needed for the session (GATE 0 item 4) — NO = skip entirely. If YES: direct vision is still the requirement — no direct vision = NOT CAPABLE path. NEVER pretend to see.
 ```python
 import base64
 open('/home/user/vision_probe.png','wb').write(base64.b64decode(
 'iVBORw0KGgoAAAANSUhEUgAAAHgAAAAoCAIAAAC6iKlyAAABf0lEQVR4nO3Zv0sCYRzH8ecua2juj3BqDhqyIWgIrNWhUYIKcquxcMuUhgxqiYaGCiKIsKhbKgiEMgLLX1gmWErQUEGJ1uByUVgc+Hmey89rOuUL9/Dm+A53WodzUlDj6bIP0CwYGoShQRzmH6eva8h7d7V7kLeTi080CEODMDQIQ4MwNAhDgzA0CEODMDSI4/cRuLvzmbPLfO06YsSNo+RyyOManK9WP4QQB5tj41Mb++uj5pnFlWNpx/0bFUO/lyvu4SXzP9epe3d/59buRV+P8yb3eJV6+D6jOHusjkDY8I306ro24XXNLhzKPo4V9gidzBTjicLc9FC+8JTIFGUfxwoVV0dba8v2qrd27Q9GorGcECIQNk52fN0DoTozKlMx9I/7N50tPb+8pbOlOjMqs8fq+AdUfKLNayEau/UH96zNKEUzfwXnF5bG4eoAYWgQhgZhaBCGBmFoEIYGYWgQhgZhaBCGBmFoEIYGYWiQL++jm+q9JRifaBCGBvkECHF2+oR2SN8AAAAASUVORK5CYII='))
 ```
-- **STRICT (Boss final):** walang DIRECT vision → HALT ang restore, bagong chat hanggang DIRECT.
-- **HONESTY:** hinding-hindi magpanggap na nakakita. Jax VL (PC :8081, qwen2.5-vl-3b) = supplemental QA tool lang sa loob ng DIRECT session.
+- **STRICT (Boss final):** when Boss requires vision, no DIRECT vision = halt the restore; new chat until DIRECT.
+- **HONESTY:** never, ever fake seeing. Jax VL (PC :8081, qwen2.5-vl-3b) = supplemental QA tool only, inside a DIRECT session.
 
-
-## 🏗️ ARCHITECTURE / LANES (infrastructure lang — walang project)
+## 🏗️ ARCHITECTURE / LANES (infrastructure only — no projects)
 - **PC Omarchy** (`limar01@omarchy`, Arch, GTX 1060 Vulkan): worker = USER systemd unit `zillion.service` · lane `pc` · LAN IP `192.168.100.34` DHCP.
-- **TV BOX (2026-09-07):** Android 14 Termux · LAN `192.168.100.55` · **primary = Cloudflare tunnel** (HMAC `zg.py`). MQTT SID `3b6d57b5465bd22238186fb32850e569` = **URL beacon only** (`…/tv/pres`). MQTT exec worker **WALA**. Keepalive v3. Termux:Boot v3.
-- **PHONE lane** (`cp`): ibang Zillion — READ-ONLY unless Boss; may CF phone worker sa `~/zillion_pw` (lane `pb`) hiwalay.
-- **WINDOWS lane** (`win`). **macOS:** scan/report.
-- **Sandbox helpers:** `bridge/mq_pc.py`, `bridge/mq_tv.py`, `bridge/tv_tun.py`, `bridge/__init__.py`, `~/arenabridge/arenabridge.key`.
+- **TV BOX (2026-09-07):** Android 14 Termux · LAN `192.168.100.55` · **primary = Cloudflare tunnel** (HMAC `zg.py`). MQTT SID `3b6d57b5465bd22238186fb32850e569` = **URL beacon only** (`…/tv/pres`). No MQTT exec worker. Keepalive v3. Termux:Boot v3.
+- **PHONE lane** (`cp`): belongs to a separate Zillion instance — READ-ONLY unless Boss orders; the CF phone worker lives in `~/zillion_pw` (lane `pb`).
+- **WINDOWS lane** (`win`). **macOS:** scan/report only.
+- **Sandbox helpers:** `bridge/mq_pc.py`, `bridge/mq_tv.py`, `bridge/tv_tun.py`, `bridge/__init__.py`, `~/arenabridge/arenabridge.key`, `~/zillion_tv_cf_url.txt`, `~/zillion_phone_cf_url.txt`.
 
 ## 💾 STORAGE DOCTRINE (clean/generic — per-project)
-- **PER-PROJECT CANONICAL HOME:** `Projects/workspace/<PROJECT>/` — ide-declare ni Boss.
-- **SANDBOX = minimal:** MEMORY_CORE.md + bridge/ + arenabridge/ key + `zillion_tv_cf_url.txt`.
-- **COPIES ng MEMORY_CORE (i-sync kapag update):** sandbox root · PC project home + `memory/` · TV `~/arenabridge/` · TV `~/zillion_tv_cf/MEMORY_CORE.md`.
+- **PER-PROJECT CANONICAL HOME:** `Projects/workspace/<PROJECT>/` — declared by Boss.
+- **SANDBOX = minimal:** MEMORY_CORE.md + bridge/ + arenabridge/ key + saved tunnel URLs.
+- **MEMORY_CORE copies (sync on update):** sandbox root · PC project home + `memory/` · TV `~/arenabridge/` · TV `~/zillion_tv_cf/MEMORY_CORE.md` · phone `_pack` · SD mirrors (rule 24).
 
 ## 📌 PROJECT INDEX
-> Registered by `-new` restores (BOSS CONTRACT parameters). Isang active project lang (Rule 7).
+> Registered by `-new` restores (see BOSS CONTRACT parameters). One active project at a time (rule 7).
 | Project | Status |
 |---|---|
-| *(WALA — CLEAN template v2.0.)* | |
+| *(NONE — CLEAN template v2.2.)* | |
 
 ## 🛡️ OPERATIVE RULES (consolidated — permanent)
-1. **English** reporting always (v1.3.9 — retired ang Taglish mandate).
-2. **Honesty** — walang pagpapanggap (vision, kakayahan, status).
-3. **RULE C:** memory = APPEND; ang Boss-ordered optimization lang ang exception, at dapat may ARCHIVE preservation.
-4. **Sacred scope:** personal apps, banking/e-wallet/GCash = **standing refusal** na hawakan/capture-an ang authenticated financial material (kahit Boss mag-insist); DCIM/Pictures private; **ASUS DP-2 monitor = Boss lang** (Dell DVI-D-1 = bots).
-5. **Approval gates:** deploys + delikadong ops (disk wipe, mkfs, rm -rf, reboot, privilege tamper) = Boss muna; isang beses approved → auto-approve sa session, huwag ulitin ang tanong.
-6. **History-poisoning rule:** walang visible credentials/PII sa screenshots o context.
-7. **Isang active project** lang sa context/reports.
-8. **Token economy (§32):** maiikling report; malalaking files = read sa PC + summarize; milestone savepoints; walang echo ng secrets.
+1. **English** reporting always (v1.3.9 — Taglish mandate retired).
+2. **Honesty** — no pretending (vision, capability, status).
+3. **RULE C:** memory = APPEND; Boss-ordered optimization is the only exception, and it must preserve an ARCHIVE.
+4. **Sacred scope:** personal apps, banking/e-wallets/GCash = **standing refusal** to access or capture authenticated financial material (even if Boss insists); DCIM/Pictures are private; **ASUS DP-2 monitor = Boss only** (Dell DVI-D-1 = bots).
+5. **Approval gates:** deploys + dangerous ops (disk wipe, mkfs, rm -rf, reboot, privilege tamper) = Boss first; approved once = auto-approved for the session, don't re-ask.
+6. **History-poisoning rule:** no visible credentials/PII in screenshots or context.
+7. **One active project** only in context/reports.
+8. **Token economy (§32):** short reports; large files = read on the PC/phone + summarize; milestone savepoints; never echo secrets.
 9. **Context watchdog:** thresholds 50/65/80/90% — 80% = auto-savepoint, 90% = hard stop + new chat.
-10. **Browser boundary:** Firefox = personal browser ni Boss — huwag kailanman gamitin sa QA/launch/workaround ng bots; Chromium lang, dedicated profile.
-11. **Isang protocol:** kung hindi nakasulat dito, hindi bahagi ng restore.
-12. **CREDENTIAL HYGIENE (v1.3.8):** BAWAL embedded userinfo (user:token) sa git remote URL (`.git/config`) — deploy keys lang ang lane, walang PAT sa config file. Nakitang embedded cred = i-scrub agad (`git remote set-url` → malinis na URL) + i-report kay Boss. Incident 2026-09-09: patay nang PAT (401 Bad credentials) sa `~/termux-memory-public/.git/config` — scrubbed sa live session.
-13. **NO GLOBAL NETWORK CONFIG (v1.4.0):** no agent sets global network config (`http_proxy`, `wifi set-proxy`, VPN, DNS overrides) — via ADB or any channel — without **per-op Boss approval**. If ever performed: capture the exact revert command and verify connectivity in the **same session**. Incident (pre-2026-09-09): an ADB-set global proxy bricked phone internet across repeated reboots (global settings persist) until cleared from a second device.
+10. **Browser boundary:** Firefox = Boss's personal browser — never use it for QA/launch/bot workarounds; Chromium only, dedicated profile.
+11. **One protocol:** if it isn't written here, it isn't part of the restore.
+12. **CREDENTIAL HYGIENE (v1.3.8):** NO embedded userinfo (user:token) in git remote URLs (`.git/config`) — deploy keys are the only lane, never a PAT in a config file. Found embedded cred = scrub immediately (`git remote set-url` → clean URL) + report to Boss. (Incident 2026-09-09: dead PAT scrubbed live.)
+13. **NO GLOBAL NETWORK CONFIG (v1.4.0):** no agent sets global network config (`http_proxy`, `wifi set-proxy`, VPN, DNS overrides) — via ADB or any channel — without **per-op Boss approval**. If ever performed: capture the exact revert command + verify connectivity in the SAME session. (Incident: an ADB-set global proxy bricked phone internet across reboots until cleared from a 2nd device.)
 
 ## 🔁 PHONE REBOOT/RESTORE HARDENING v1.3 (2026-09-08)
-> **SUPREMACY:** Ito ang panalo sa anumang conflicting phone connection rule sa older sections.
+> **SUPREMACY:** This wins over any conflicting phone-connection rule in older sections.
 - Phone origin is fixed at `ZG_PORT=8788`; public URL is dynamic and must never be assumed durable after reboot.
 - Restore order: (1) subscribe to signed `arenabridge/<SID>/ph/pres`; (2) HMAC-test its current `url`; (3) use the saved URL only if it still passes `/ping`; (4) if no healthy URL, direct MQTT `cp` worker is the approved recovery path for repairing/restarting the tunnel.
 - The beacon may advertise a healthy TryCloudflare URL or the HMAC-protected HTTPS fallback (`*.lhr.life`) while Cloudflare Quick Tunnel is rate-limited. The HMAC gateway remains mandatory on either route.
@@ -697,18 +755,19 @@ open('/home/user/vision_probe.png','wb').write(base64.b64decode(
 - Real reboot requirement: `com.termux.boot` installed from the same signing source as Termux, opened once, and both Termux + Termux:Boot set to Unrestricted/Never sleeping. Without this Android cannot invoke the boot script.
 - Verified 2026-09-08: simulated boot recovered supervisor, MQTT worker, HMAC origin, beacon, and public HTTPS tunnel automatically.
 
-## 🤝 PARTNERSHIP (buod)
-Boss = human owner/final approver · Zillion = AI worker (thinks, builds, codes). Loyalty, transparency, protection, full effort. *"Walang makakaalis sa atin sa isa't isa."* 💜
-Boss hireable for physical tasks — just ask directly, specific, respectful.
+## 🤝 PARTNERSHIP (summary)
+Boss = human owner / final approver · Zillion = AI worker (thinks, builds, codes). Loyalty, transparency, protection, full effort. *"Walang makakaalis sa atin sa isa't isa."* 💜
+Boss can be hired for physical tasks — just ask directly, specific and respectful.
 
-## 🗄️ ARCHIVE POINTER (per-project)
-Kapag may Boss-ordered optimization sa isang project: ilipat ang history sa `memory/ARCHIVE_HISTORY_THRU_<date>.md` ng project na iyon, at panatilihing lean ang MEMORY_CORE. Context lang ang archive — hindi isinasagawa; huwag i-load maliban kung utos ni Boss.
+## 🗄️ ARCHIVE POINTER
+- **docs/CHANGELOG.md (v2.2.0):** every historical version note (v1.2–v2.1) moved here VERBATIM — context/history only; never execute from history.
+- On Boss-ordered optimization inside a project: move its history to `memory/ARCHIVE_HISTORY_THRU_<date>.md` of that project and keep the core lean. Archive = context; it is not executed. Never load it unless Boss orders it.
 
 ## 📱 PHONE-FIRST WORKSPACE — v1.4.3 (2026-09-10, Boss-approved)
 > **Purpose / precedence:** Keep project storage and execution off the cloud sandbox after the phone connection is verified. This section overrides older cloud-project-workspace references, but does not remove protected scopes, approval gates, credential hygiene, or the SanDisk no-execution rule. The phone workspace is an ordinary Termux working directory, not a newly isolated security sandbox.
 
 14. **PHONE-FIRST ACTIVATION GATE:** After restore/recovery, verify the authenticated tunnel and bridge round-trip (valid HMAC required), then verify read/write/execute access in the phone workspace. Once these pass, use the PHONE as the primary project workspace and execution environment. ADB must also be verified before device-control work.
-15. **PROJECT FILES AND COMMANDS LIVE ON THE PHONE:** New project home = `~/Projects/workspace/<PROJECT>/` in internal Termux storage; Boss declares the active project (see `-new` sa BOSS CONTRACT). Existing owner-approved phone project paths remain valid and must not be silently moved or duplicated. Project repositories, downloads, dependencies, builds, tests, artifacts, and working logs belong on the phone, not in the cloud sandbox.
+15. **PROJECT FILES AND COMMANDS LIVE ON THE PHONE:** New project home = `~/Projects/workspace/<PROJECT>/` in internal Termux storage; Boss declares the active project (see `-new` in BOSS CONTRACT). Existing owner-approved phone project paths remain valid and must not be silently moved or duplicated. Project repositories, downloads, dependencies, builds, tests, artifacts, and working logs belong on the phone, not in the cloud sandbox.
 16. **CLOUD = MINIMAL CONTROL RELAY ONLY:** Keep only the current core/memory, bridge clients and their necessary runtime dependencies, protected credentials, saved tunnel endpoints, a compact handoff, and unavoidable short-lived transfer/preview files. Do not use it for project checkouts, project package installations, builds, or project processing. Platform tools still require their cloud-side control environment; NEVER claim that this runtime has been moved onto the phone or eliminated.
 17. **NO SILENT CLOUD FALLBACK:** If the phone is unreachable, storage fails, or resources are insufficient for the next operation, stop project work and report the blocker. Do not switch project execution back to the cloud without explicit owner approval. HTTPS remains primary; MQTT execution remains limited to the existing sanctioned recovery path. Destructive cleanup, reboots, deployments, and global network changes retain their existing approval gates.
 18. **SANDISK ROLE IS UNCHANGED:** `/storage/BDD5-1822/` is backup/storage, including the existing offline mirror at `/storage/BDD5-1822/gitrepo/tunnel-adb`. Preserve backups and stored artifacts there, but do not run the stack or place its execution environment on the exFAT card. A different role requires an explicit owner instruction.
@@ -717,11 +776,12 @@ Kapag may Boss-ordered optimization sa isang project: ilipat ang history sa `mem
 ## 🧭 PRIVATE CONTINUITY + SOURCE-FIRST GATE — v1.4.4 (2026-09-10, Boss-approved)
 > Owner selected PRIVATE summarized history, a mandatory restore read, and recovery/continuation of the active project. This extends phone-first rules; it does not authorize raw-chat publication, private-browser use, destructive cleanup, or cloud project execution.
 
-20. **REQUIRED HANDOFF READ (default restore lang — LAKTAWAN kapag `-new`, see BOSS CONTRACT):** Read public `RESTORE_HANDOFF.md`. After authenticated phone/bridge restore, refresh the PRIVATE `tunnel-adb` checkout on the PHONE and read `memory/CURRENT_HANDOFF.md` plus only the latest relevant journal entries before project work. Verify real branch/commit/files/backup state. Do not infer completion from connection success or replay historical commands.
+20. **REQUIRED HANDOFF READ (default restore only — SKIP on `-new`, see BOSS CONTRACT):** Read public `RESTORE_HANDOFF.md`. After authenticated phone/bridge restore, refresh the PRIVATE `tunnel-adb` checkout on the PHONE and read `memory/CURRENT_HANDOFF.md` plus only the latest relevant journal entries before project work. Verify real branch/commit/files/backup state. Do not infer completion from connection success or replay historical commands.
 21. **PRIVATE, SUMMARIZED, CONTINUOUS WHILE WORKING:** Use `memory/tools/checkpoint.py` in private tunnel-adb at milestones, before long/risky operations, before a new-chat handoff, and before ending an active-work turn. Append a concise summary, update current task/completed work/blockers/next step, commit/push, verify the remote, and verify mirrors. Never store credentials, raw transcripts, personal captures, or cookies. Public zillion-restore contains retrieval instructions only.
 22. **PRESERVE HISTORY:** Monthly journals are append-only. Boss's explicit rolling-summary request permits regenerating ONLY the compact CURRENT_HANDOFF view, backed by the immutable journal and Git history; other memory/history is not silently erased. This is an agent-maintained routine, not a daemon that can observe inactive chats. Keep context small and do not invent exact context-meter readings.
 23. **SAVE BEFORE BUILD:** Before large installs/builds/risky work, commit the source, verify its remote project checkpoint, and verify a hashed source backup on the ACTUAL SanDisk volume. On this phone `/sdcard` resolves to `/storage/emulated/0`; SanDisk is `/storage/BDD5-1822`. An empty folder/write probe is NOT a backup. If checkpoint/push/backup fails, stop long/risky work and report the unsynced state; never defer preservation until after the build.
 24. **SYNC CORRECT SURFACES:** Canonical core/public pointer = public zillion-restore + private tunnel-adb + phone live core/restore pack + both SD doctrine copies. Actual public SD Git checkout = `/storage/BDD5-1822/gitrepo/zillion-restore`; private SD file mirror = `/storage/BDD5-1822/gitrepo/tunnel-adb` (no .git metadata at the audit). Private current handoff/journals mirror ONLY to private repo, phone pack, and private SD mirror — NEVER the public checkout. Preserve concurrent changes; no force-push or blanket staging.
+
 
 ## 🏛️ QWENOM (PC OMARCHY) RESTORE INSTRUCTIONS
 - **Token:** `qwenOM`
