@@ -1,8 +1,8 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.2 (2026-09-18)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.3 (2026-09-18)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
-> **v2.3.2 (2026-09-18 Boss):** **QUOTA & CONTEXT GUARD (`tools/quota_guard.py`).** Boss order: analyze quota/context mechanics + build a preventative tool. HONEST FOUNDATION: the platform's quota counter and the exact context window are **server-side and invisible to any agent** — the tool MANAGES usage, never circumvents limits. It provides: token estimation (chars/4, `--ratio`) · LOCAL daily pacing log of estimated spend (`--daily` = set to the real plan limit when Boss knows it) · Rule-9 context thresholds with concrete actions (50 note · 65 trim · 80 AUTO-SAVEPOINT · 90 HARD STOP + new chat) · preflight estimation BEFORE big text is pasted into chat. New session shortcut **`quota`** = run the guard report. Key mechanic documented in the guard section: every turn re-sends the whole chat, so savepoint-and-new-chat at ~80% cuts BOTH context pressure and per-turn quota cost. Self-test 10/10.
-> **History:** every older version note (v1.2–v2.3.1) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
+> **v2.3.3 (2026-09-18 Boss):** **COMPRESS-BEFORE-PASTE (`tools/text_slim.py`) + RECAP RULE.** Boss order: research internet quota/context-limit workarounds and implement the LEGITIMATE ones (evasion = standing refusal). Research converged on 5 levers (sources in CHANGELOG); the two an agent can honestly apply shipped here: (1) `tools/text_slim.py` — stdlib deterministic slimming BEFORE anything big enters chat: code comment/blank collapse (indentation + shebang kept) · log dedupe `×N` + timestamp strip (`--keep-ts`) · JSON minify · HTML→text · text whitespace normalize · head/tail line-boundary crop `--max-chars` (default 12000, explicit omission marker) · SAFE/HEAVY/TOO BIG verdict vs `--window` (same bands as quota_guard preflight) · stdout = clean text, stderr = report, exit 2 = still TOO BIG → Rule-8 device-side path · auto-detect kinds (markdown NEVER treated as code) · original files never modified. (2) **RECAP RULE:** every ~10 heavy turns the agent OFFERS a ≤5-line state recap (decisions + next step); what survives a chat split = recap + `wrap` capsule + phone-side handoff/journal — old turns are never re-pasted. (3) New shortcut **`slim <PATH>`**: fetch file on the device (no re-upload) → text_slim → show result + est savings; original untouched. UNCHANGED: manage-usage-never-circumvent stance · quota_guard role (pacing + Rule-9 verdicts) · every number = honest ESTIMATE. Self-test 11/11.
+> **History:** every older version note (v1.2–v2.3.2) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
 > **SUPREMACY (2026-09-18 Boss):** This replaces the retired C1–C5 attestation gate. No `ZILLION-GATE-0` block, no quiz narration — the entire restore is SILENT.
@@ -28,7 +28,7 @@
 - **Other lanes (LIST A/B):** same pattern — `Done Boss. Restore successful. <lane components> are live. My last task is <LAST_TASK>.`
 
 ## 📖 READ MAP (v2.2.0 — restore fast path)
-- **MANDATORY for every restore:** header + v2.3.2 note → this map → GATE 0 → BOSS CONTRACT → your token's LIST (A/B/C) → your lane's CONSTANTS section → 🔑 KEY DELIVERY → 🛡️ OPERATIVE RULES 1–13 → 📊 QUOTA & CONTEXT GUARD → RULES 14–24 (phone-first + continuity) → 📣 FINAL LINES.
+- **MANDATORY for every restore:** header + v2.3.3 note → this map → GATE 0 → BOSS CONTRACT → your token's LIST (A/B/C) → your lane's CONSTANTS section → 🔑 KEY DELIVERY → 🛡️ OPERATIVE RULES 1–13 → 📊 QUOTA & CONTEXT GUARD → RULES 14–24 (phone-first + continuity) → 📣 FINAL LINES.
 - **`-new` restores:** same mandatory set; skip the rule-20 resume reads (see BOSS CONTRACT parameters).
 - **READ-ON-DEMAND (only when the lane/topic is invoked):** 📺 TV constants · 🏛️ QWENOM · 🌉 EMBEDDED BRIDGE CLIENTS (offline FALLBACK ONLY — the `bridge/` files in the repo clone are primary and identical; do NOT read embedded code on a normal restore) · 🔁 HARDENING (post-reboot behavior) · docs/CHANGELOG.md (history only).
 - **Speed rule:** the mandatory set is ~40% of the file. Skip-marked sections exist for offline fallback and lane work — they are not a top-to-bottom read.
@@ -87,6 +87,7 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 | `note <text>` | Append a timestamped line to the private monthly journal (memory/session_logs) + commit/push via the phone checkout. Reply `Saved, Boss.` Journal-only — the running handoff is untouched. |
 | `summary` | No phone call — the agent composes this chat's wrap from context: done, pending, files touched. |
 | `projects` | List registered projects (PROJECT INDEX + `~/Projects/workspace/` reality check) with last-checkpoint dates. |
+| `slim <PATH>` (v2.3.3) | Fetch the file on the device (no re-upload — see Rule 8) → run `tools/text_slim.py` there (fallback: pull, slim in sandbox) → show the slimmed text + est savings % → original untouched. Use for anything that would otherwise be pasted raw (logs, dumps, big files). |
 
 **Project switching (v2.3.1)**
 | Shortcut | Does |
@@ -805,7 +806,7 @@ open('/home/user/vision_probe.png','wb').write(base64.b64decode(
 6. **History-poisoning rule:** no visible credentials/PII in screenshots or context.
 7. **One active project** only in context/reports.
 8. **Token economy (§32):** short reports; large files = read on the PC/phone + summarize; milestone savepoints; never echo secrets.
-9. **Context watchdog:** thresholds 50/65/80/90% — 80% = auto-savepoint, 90% = hard stop + new chat. Applied via `tools/quota_guard.py` (v2.3.2) — estimates only; err on the early side.
+9. **Context watchdog:** thresholds 50/65/80/90% — 80% = auto-savepoint, 90% = hard stop + new chat. Applied via `tools/quota_guard.py` (v2.3.2) — estimates only; err on the early side. Big pastes: preflight first, then `tools/text_slim.py` (v2.3.3) BEFORE they enter chat.
 10. **Browser boundary:** Firefox = Boss's personal browser — never use it for QA/launch/bot workarounds; Chromium only, dedicated profile.
 11. **One protocol:** if it isn't written here, it isn't part of the restore.
 12. **CREDENTIAL HYGIENE (v1.3.8):** NO embedded userinfo (user:token) in git remote URLs (`.git/config`) — deploy keys are the only lane, never a PAT in a config file. Found embedded cred = scrub immediately (`git remote set-url` → clean URL) + report to Boss. (Incident 2026-09-09: dead PAT scrubbed live.)
@@ -819,6 +820,13 @@ open('/home/user/vision_probe.png','wb').write(base64.b64decode(
   - `add` / `report` → LOCAL daily pacing log of ESTIMATED spend (defaults are references — set `--daily` to the real plan limit when Boss knows it, `--window` to the real context size)
   - `preflight` → estimate text BEFORE pasting into chat (HEAVY/TOO BIG = read on phone/PC + bring a summary — Rule 8)
 - **Agent duty:** run it on long sessions (~every 10 heavy turns) and always when Boss asks **`quota`**. Day boundary = Boss timezone (`QG_TZ_OFFSET`, default UTC+8).
+
+### 🗜️ COMPRESS-BEFORE-PASTE + RECAP RULE (v2.3.3 — internet-researched tactics, legitimate-only)
+- **Research (2026-09-18) converged on ~5 levers** (sources archived in `docs/CHANGELOG.md`): compress-before-paste · periodic in-chat summaries · split conversations >15 turns · token budgets · server-side features (provider prompt caching, batch API, model routing = PLATFORM-side; NOT adoptable from a chat UI). The first four are agent-honest and shipped here.
+- **Tool:** `tools/text_slim.py` (stdlib, NO network, originals never modified): code/log/json/html/text slimming + `--max-chars` head/tail crop with explicit omission marker. Verdict = same SAFE/HEAVY/TOO BIG bands as `preflight`; exit code 2 = still TOO BIG → Rule-8 device-side read + summary.
+- **Doctrine — big paste flow (Rule 8 + Rule 9 combined):** quota_guard `preflight` → HEAVY/TOO BIG ⇒ text_slim it (or read device-side + bring summary) — the paste size Boss/agent is about to spend gets SHRUNK FIRST.
+- **RECAP RULE:** every ~10 heavy turns in a long session, OFFER Boss a ≤5-line recap (decisions + next step + blockers only). What is allowed to cross a chat split: recap + `wrap` capsule + phone-side handoff/journal. NEVER re-paste old turns.
+- **Boss-side levers (no tool):** send ONE message with several questions instead of 5 small ones (each message re-sends the whole chat) · ask for "short answers" (output costs too) · prefer lighter models for quick questions · distinct task = fresh chat after `wrap`.
 
 ## 🔁 PHONE REBOOT/RESTORE HARDENING v1.3 (2026-09-08)
 > **SUPREMACY:** This wins over any conflicting phone-connection rule in older sections.

@@ -9,7 +9,7 @@ it is delivered by the phone's passphrase-protected bootstrap op (zg v1.2).
    - **Clean new project (v2.0):** `zillionCp <PASSPHRASE> -new [<NAME>]` — same restore flow, zero past-project memory
    - **Quick status (v2.3):** `zillionCp <PASSPHRASE> -status` — tunnel/worker/adb/keys + last task in ~10s, read-only · `-fix` to auto-repair what's DOWN
    - **Menu (no passphrase):** `zillioncp -help`
-   - More: `-eyes`/`-noeyes` (skip the vision question) · `-v` (verbose) · after a restore, session shortcuts: `status` · `health` · `fix` · `last task` · `push core` · `switch <NAME>`/`projects` · `wrap` · `phone` · `note <text>` · `log` · `summary` · `restart stack` · `pc?`/`tv?`/`win?` (full SESSION SHORTCUTS table in MEMORY_CORE)
+   - More: `-eyes`/`-noeyes` (skip the vision question) · `-v` (verbose) · after a restore, session shortcuts: `status` · `health` · `fix` · `last task` · `push core` · `switch <NAME>`/`projects` · `wrap` · `phone` · `note <text>` · `log` · `summary` · `restart stack` · `pc?`/`tv?`/`win?` · `quota` · `slim <PATH>` (full SESSION SHORTCUTS table in MEMORY_CORE)
 2. `git clone https://github.com/limar01/zillion-restore.git` (no auth)
 3. `MEMORY_CORE.md` = doctrine — read per 📖 READ MAP → **GATE 0 v2.1.0 (read-first + capability & agreement test, silent)**, then your LIST
 4. Key: `phone_tun.fetch_key(base, PASSPHRASE)` — keyless bootstrap (rate-limited)
@@ -45,6 +45,7 @@ it is delivered by the phone's passphrase-protected bootstrap op (zg v1.2).
 - `docs/` — manifest, code review, incident postmortem, update notes
 - `apk/termux-boot_1000.apk` — Termux:Boot 0.8.1 (F-Droid, verified)
 - `tools/quota_guard.py` — quota & context guardrail (v2.3.2): token estimation + LOCAL daily pacing + Rule-9 context verdicts + preflight check — manages usage, never circumvents limits
+- `tools/text_slim.py` — compress-before-paste slimming (v2.3.3): code/log/JSON/HTML → much smaller text (est. 30–80% on logs/code), markdown-safe auto-detect, head/tail crop with explicit omission marker; verdict bands match quota_guard preflight
 
 ## 🔐 SECURITY MODEL
 - All exec channels (tunnel + MQTT) = HMAC-SHA256 signed (envelope `{"d","h"}`)
