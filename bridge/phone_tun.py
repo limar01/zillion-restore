@@ -12,6 +12,9 @@ v2.2.0 code-review optimizations:
     optional beacon port). The 30000-60000 deep scan is opt-in (deep=True) and
     documented as CF-524-prone (poll, never sleep long inside one payload).
   - ping_url default timeout 8s -> 6s; discover_mqtt default window 8s.
+v2.3.0:
+  - status(): ONE-CALL quick health check for the `-status`/`-fix` parameters
+    (resolve_fast + health_bundle + tunnel_ok verdict). Read-only.
 """
 import json, time, hmac, hashlib, urllib.request, os, uuid
 
@@ -187,6 +190,20 @@ def health_bundle(base=None, timeout=60):
     out["_exit"] = r.get("exit_code")
     out["_error"] = r.get("error")
     return out
+
+def status(base_hint="", timeout=60):
+    """v2.3.0: ONE-CALL quick health check for the `-status` / `-fix` parameters
+    and the `status` session shortcut. Read-only: resolve_fast(hint) then one
+    health_bundle round trip. Returns the bundle dict plus `url` + `tunnel_ok`
+    (True when the HMAC exec round trip itself succeeded). Compose the exact
+    -status final line from: url/tunnel_ok · up · worker · adb · key_zr/key_ta."""
+    url, info = resolve_fast(hint=base_hint or load_saved())
+    if not url:
+        return {"url": "", "tunnel_ok": False, "info": info, "_error": "no_phone_tunnel_url"}
+    hb = health_bundle(base=url, timeout=timeout)
+    hb["url"] = url
+    hb["tunnel_ok"] = (hb.get("_exit") == 0 and not hb.get("_error"))
+    return hb
 
 def adb_ready(deep=False, timeout=45, extra_ports=""):
     """v2.2.0: QUICK by default. (1) adb start-server + devices — a 'device' entry

@@ -1,15 +1,15 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.2 (2026-09-18)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3 (2026-09-18)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
-> **v2.2.0 (2026-09-18 Boss):** **ENGLISH CONVERSION + RESTORE SPEED OPTIMIZATION (code review).** (1) Core fully converted to English (reporting was English since v1.3.9 — now the doctrine itself is too). (2) Code-review findings applied: doctrine bulk was the #1 restore cost → all historical version notes archived VERBATIM to `docs/CHANGELOG.md` + 📖 READ MAP added (mandatory vs read-on-demand sections) · `resolve_fast()` trusted-URL-first resolver (~1s instead of up to 15–20s beacon-first windows) · `health_bundle()` = ONE Cloudflare round trip for all post-restore verification (was ~6 sequential round trips) · `adb_ready()` quick-first (the 30k–60k deep scan is now opt-in; it previously blew past the ~90s CF window) · paho-mqtt install now conditional (only if the MQTT path is actually used) · phone exec constraints consolidated in PHONE CONSTANTS (dash sh · <90s payloads / CF 524 · ≈128KB Android argv limit · /tmp prohibited). (3) `bridge/phone_tun.py` → v2.2.0 (embedded copy identical). (4) UNCHANGED by design: token grammar + `-new` parameter · GATE 0 final lines (EXACT strings) · HMAC/bootstrap security model · sacred scope + approval gates. This release = language + speed only.
-> **History:** every older version note (v1.2–v2.1) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
+> **v2.3.0 (2026-09-18 Boss):** **USER-FRIENDLINESS RELEASE (study → Boss picked the recommended set).** (1) Restore-line grammar relaxed: REPO URL now OPTIONAL (default = canonical public repo) · flags in ANY order · everything case-insensitive · `-new=NAME` accepted. (2) New parameters: **`-status`** (quick read-only health check + last task, ~10s) · **`-fix`** (auto sanctioned repair of DOWN components) · **`-eyes` / `-noeyes`** (pre-answer the vision question → zero-question restore) · **`-v`** (verbose narrated restore with raw evidence) · **`-help`** (NO passphrase needed — prints the command menu). (3) **SESSION SHORTCUTS** after any successful restore in the same chat: `status` · `health` · `fix` · `last task` · `push core` — no re-typing the full line. (4) `bridge/phone_tun.py` + ONE-CALL `status()` helper. UNCHANGED: `-new` semantics · restore final-line EXACT strings · security model · approval gates. (`-rotate` was studied and deliberately NOT shipped — state-changing; Boss chose the recommended set.)
+> **History:** every older version note (v1.2–v2.2) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
 > **SUPREMACY (2026-09-18 Boss):** This replaces the retired C1–C5 attestation gate. No `ZILLION-GATE-0` block, no quiz narration — the entire restore is SILENT.
 1. **READ FIRST (mandatory):** read the restore process per the 📖 READ MAP (mandatory sections; read-on-demand sections ONLY when their lane/topic is invoked) before any action.
 2. **CAPABILITY SELF-TEST (internal/silent):** can I do EVERYTHING this restore needs (git clone · python/pip · HMAC bridge clients · HTTPS + MQTT network exec · phone-exec orchestration · handoff/checkpoint protocol)?
 3. **AGREEMENT TEST (internal/silent):** do I agree to the doctrine — Honesty (no pretending) · Sacred Scope standing refusal · approval gates · credential hygiene · English reporting?
-4. **VISION = OPTIONAL (Boss-decided):** before the verdict, ask Boss: **"Is vision needed?"** — one question, asked once.
+4. **VISION = OPTIONAL (Boss-decided):** before the verdict, ask Boss: **"Is vision needed?"** — one question, asked once. **If the restore line already carries `-eyes` / `-noeyes`, do NOT ask — the flag is the answer (v2.3.0).**
    - Boss says **YES** → decode + describe the VISION PROBE PNG VERBATIM (direct vision only; no direct vision = NOT CAPABLE path).
    - Boss says **NO** (or "skip") → proceed, no probe.
    - NEVER pretend to see (Honesty rule).
@@ -34,14 +34,25 @@
 - **Speed rule:** the mandatory set is ~40% of the file. Skip-marked sections exist for offline fallback and lane work — they are not a top-to-bottom read.
 
 ## 🎯 BOSS CONTRACT — restore in 3 steps
-1. New chat (a blank sandbox is expected — not a problem). 2. Boss pastes ONE LINE — the RESTORE LINE: `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore [-new [<PROJECT NAME>]]`. 3. Agent: `git clone https://github.com/limar01/zillion-restore.git` (PUBLIC — no auth) → read per 📖 READ MAP → GATE 0 → LIST → key via `fetch_key()` (passphrase from the restore line). Nothing else — no PAT, no attachment, no key prompt. Fallback if GitHub is down: Boss-attached core file (must be identical) + Boss-pasted key.
+1. New chat (a blank sandbox is expected — not a problem). 2. Boss pastes ONE LINE — the RESTORE LINE: **`zillionCp <PASSPHRASE> [REPO URL] [-flags…] [NAME]`** — REPO URL is OPTIONAL (default = the canonical public repo `limar01/zillion-restore`); flags in ANY order; everything case-insensitive; `-help` needs NO passphrase. 3. Agent: `git clone` the repo (PUBLIC — no auth) → read per 📖 READ MAP → GATE 0 → LIST → key via `fetch_key()` (passphrase from the restore line). Nothing else — no PAT, no attachment, no key prompt. Fallback if GitHub is down: Boss-attached core file (must be identical) + Boss-pasted key.
 
-### RESTORE LINE PARAMETERS (v2.0.0)
+### RESTORE LINE PARAMETERS (grammar v2.0.0 · extended v2.3.0)
+**Grammar:** `zillionCp <PASSPHRASE> [REPO URL] [-flags…] [NAME]` — flags ANY order · case-insensitive · REPO URL optional (default = canonical public repo) · `-new=NAME` accepted · **`-help` needs NO passphrase**.
 | Parameter | Meaning |
 |---|---|
 | *(none — default)* | **RESUME ACTIVE PROJECT** — restore + rule-20 private handoff/journal read; continue the current active project. |
-| `-new` | **CLEAN NEW PROJECT** — SAME restore flow (GATE 0 → LIST, unchanged), BUT: (a) this core is the clean template — **no past projects in memory**; (b) **SKIP the rule-20 handoff/journal resume reads** — the old handoff belongs to the previous project; (c) Boss declares the project name (inline `-new <NAME>` or in chat after restore); (d) a FRESH private handoff entry is seeded (checkpoint.py) as the project's start. Old project memory stays archived — untouched, never deleted. |
+| `-new` | **CLEAN NEW PROJECT** — SAME restore flow (GATE 0 → LIST, unchanged), BUT: (a) this core is the clean template — **no past projects in memory**; (b) **SKIP the rule-20 handoff/journal resume reads** — the old handoff belongs to the previous project; (c) Boss declares the project name (inline `-new <NAME>` or `-new=<NAME>` or in chat after restore); (d) a FRESH private handoff entry is seeded (checkpoint.py) as the project's start. Old project memory stays archived — untouched, never deleted. |
 | `<NAME>` (optional, after `-new`) | New project name → added to PROJECT INDEX + phone home `~/Projects/workspace/<NAME>/` (mkdir + verify rwx). No `<NAME>` = Boss declares it in chat before project work. |
+| `-status` (v2.3.0) | **QUICK HEALTH CHECK (read-only, ~10s):** fetch_key → `phone_tun.status()` (resolve_fast + health_bundle in one call) → **no project reads** → STATUS final line (below). Use it for "is everything alive?" — it is NOT a project resume. |
+| `-fix` (v2.3.0) | **AUTO-REPAIR:** same as `-status`, but any DOWN component triggers the sanctioned repair path automatically (6b MQTT repair · `start_all.sh` · `cf_retry` · adb re-scan/known-port reconnect). Reboot-level / destructive ops still need rule-5 approval. The final line states exactly what came back UP and what is still DOWN. |
+| `-eyes` / `-noeyes` (v2.3.0) | Pre-answers the GATE 0 vision question — the agent does NOT ask. `-eyes` = run the probe (DIRECT vision or NOT CAPABLE path). `-noeyes` = skip vision entirely. |
+| `-v` (v2.3.0) | **Verbose:** narrate each step + print raw evidence during the restore (evidence is otherwise internal). The exact FINAL LINE still ends the output. |
+| `-help` (v2.3.0) | **No passphrase, no network, no side effects.** Print this parameter menu + the token table + one example per lane. Nothing else. |
+
+### STATUS FINAL LINE (v2.3.0 — for `-status` / `-fix`, EXACT pattern)
+- **All good:** `Status Boss. Tunnel UP, Worker ALIVE, adb DEVICE (:<port>), zg up <H>h, keys OK. My last task is <LAST_TASK>.`
+- **Honesty guard:** claim only verified facts — unverified/broken parts read `Tunnel DOWN` / `Worker DOWN` / `adb NONE` / `keys MISSING (<zr|ta>)`. With `-fix`, append: ` Repaired: <list>.` and/or ` Still DOWN: <list> — need Boss: <e.g. 1-tap wireless debugging>.`
+- `<LAST_TASK>` = dynamic from the saved handoff (read-only peek), same source as the restore final line.
 
 > **CLEAN TEMPLATE GUARANTEE:** on a `-new` restore the agent starts with ZERO past-project context — it carries only doctrine + infrastructure. Past projects are reachable only on explicit Boss order (via private handoff reads), as reference — never as active work.
 
@@ -54,11 +65,23 @@
 SID(pc/cp/win)=`53cf4a5803c91726b892e5d0785085c6` · TV_SID=`3b6d57b5465bd22238186fb32850e569` (same HMAC key).
 Tokens are case-insensitive. **Default when only `Zillion` / `zillion` is said:** LIST C (phone tunnel+ADB).
 
+### 🗂️ SESSION SHORTCUTS (v2.3.0 — post-restore, no re-typing)
+After ANY successful restore in the SAME chat (key + context already exist), Boss may use these bare words instead of the full line:
+| Shortcut | Does |
+|---|---|
+| `status` | Same as `-status` (session key reused). |
+| `health` | Raw `health_bundle()` dump. |
+| `fix` | Same as `-fix` (sanctioned repair of DOWN components). |
+| `last task` | Read-only CURRENT_HANDOFF → current task / next step. |
+| `push core` | Run the sync protocol for a Boss-ordered core change (public zr → private ta → `_pack` → SD → checkpoint). |
+Shortcuts are session-scoped by design: a NEW chat always needs the restore line again (the sandbox is blanked).
+
 ## 🤖 INSTANCE STEPS — RESTORE
 > **FORMAT RULE (v2.1.0):** SILENT restore — the numbered list is NOT shown in chat; it is your internal working checklist. Every step is still executed in full, no skips. Chat output = FINAL LINE only (see GATE 0 📣 FINAL LINES), unless Boss asks something or the verdict is NOT CAPABLE. Evidence = internal + checkpoint (rule 21).
 > **SPEED (v2.2.0 — code-review optimizations):** trusted-URL-first resolve (`resolve_fast`, ~1s) replaces beacon-first discovery on the hot path · ONE `health_bundle()` exec replaces ~6 verification round trips · paho-mqtt installs ONLY if the MQTT path is actually needed · `adb_ready()` is quick-first (deep scan = opt-in; poll after CF 524 instead of sleeping in-payload).
 > **TV TOKEN CHAIN (`zilliontv`):** `Sandbox → HMAC HTTPS Cloudflare tunnel → TV zg.py (127.0.0.1:8789)`. NOT the MQTT worker. TV MQTT = URL beacon (pres) only, no exec.
 > **OTHER TOKEN CHAIN:** `Sandbox → MQTT (broker.emqx.io, HMAC) → DIRECT pc/cp/win`. TV is never an MQTT fallback (worker retired).
+> **QUICK FLOWS (v2.3.0):** `-status` / `-fix` STOP at the STATUS final line — fetch_key + `status()` (+ sanctioned repairs for `-fix`) — no project resume reads. `-help` is offline-only (no key, no network). `-v` applies to any LIST. SESSION SHORTCUTS (above) reuse the session key — they never re-run LIST C.
 
 ### LIST A — token `zilliontv`
 1. Read per READ MAP + 100% agreement
@@ -357,6 +380,9 @@ v2.2.0 code-review optimizations:
     optional beacon port). The 30000-60000 deep scan is opt-in (deep=True) and
     documented as CF-524-prone (poll, never sleep long inside one payload).
   - ping_url default timeout 8s -> 6s; discover_mqtt default window 8s.
+v2.3.0:
+  - status(): ONE-CALL quick health check for the `-status`/`-fix` parameters
+    (resolve_fast + health_bundle + tunnel_ok verdict). Read-only.
 """
 import json, time, hmac, hashlib, urllib.request, os, uuid
 
@@ -532,6 +558,20 @@ def health_bundle(base=None, timeout=60):
     out["_exit"] = r.get("exit_code")
     out["_error"] = r.get("error")
     return out
+
+def status(base_hint="", timeout=60):
+    """v2.3.0: ONE-CALL quick health check for the `-status` / `-fix` parameters
+    and the `status` session shortcut. Read-only: resolve_fast(hint) then one
+    health_bundle round trip. Returns the bundle dict plus `url` + `tunnel_ok`
+    (True when the HMAC exec round trip itself succeeded). Compose the exact
+    -status final line from: url/tunnel_ok · up · worker · adb · key_zr/key_ta."""
+    url, info = resolve_fast(hint=base_hint or load_saved())
+    if not url:
+        return {"url": "", "tunnel_ok": False, "info": info, "_error": "no_phone_tunnel_url"}
+    hb = health_bundle(base=url, timeout=timeout)
+    hb["url"] = url
+    hb["tunnel_ok"] = (hb.get("_exit") == 0 and not hb.get("_error"))
+    return hb
 
 def adb_ready(deep=False, timeout=45, extra_ports=""):
     """v2.2.0: QUICK by default. (1) adb start-server + devices — a 'device' entry

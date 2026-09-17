@@ -4,9 +4,12 @@ This repo is PUBLIC (by design) — **no secrets here**. The HMAC key is NOT inc
 it is delivered by the phone's passphrase-protected bootstrap op (zg v1.2).
 
 ## 📥 RESTORE (agent, new chat)
-1. Boss pastes ONE line:
-   - **Resume (default):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore`
-   - **Clean new project (v2.0):** `zillionCp <PASSPHRASE> https://github.com/limar01/zillion-restore -new [<PROJECT NAME>]` — same restore flow, zero past-project memory (see BOSS CONTRACT → RESTORE LINE PARAMETERS in MEMORY_CORE)
+1. Boss pastes ONE line — `zillionCp <PASSPHRASE> [REPO URL] [-flags…] [NAME]` (URL optional now; flags any order, case-insensitive):
+   - **Resume (default):** `zillionCp <PASSPHRASE>`
+   - **Clean new project (v2.0):** `zillionCp <PASSPHRASE> -new [<NAME>]` — same restore flow, zero past-project memory
+   - **Quick status (v2.3):** `zillionCp <PASSPHRASE> -status` — tunnel/worker/adb/keys + last task in ~10s, read-only · `-fix` to auto-repair what's DOWN
+   - **Menu (no passphrase):** `zillioncp -help`
+   - More: `-eyes`/`-noeyes` (skip the vision question) · `-v` (verbose) · after a restore, session shortcuts: `status` · `health` · `fix` · `last task` · `push core` (see BOSS CONTRACT in MEMORY_CORE)
 2. `git clone https://github.com/limar01/zillion-restore.git` (no auth)
 3. `MEMORY_CORE.md` = doctrine — read per 📖 READ MAP → **GATE 0 v2.1.0 (read-first + capability & agreement test, silent)**, then your LIST
 4. Key: `phone_tun.fetch_key(base, PASSPHRASE)` — keyless bootstrap (rate-limited)
