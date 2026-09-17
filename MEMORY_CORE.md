@@ -1,8 +1,8 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.1 (2026-09-18)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.2 (2026-09-18)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
-> **v2.3.1 (2026-09-18 Boss):** **SESSION SHORTCUTS EXPANSION (Boss-approved set).** New bare-word commands after any successful restore: **PROJECT SWITCHING** — `switch <NAME>` / `load <NAME>` (ONE word = forced save-first → verify → set active → read its handoff → exact reply line) · `switch -new <NAME>` (creates; existing workspace = honest error, never overwrite) · `projects` (list registered). **DAILY RITUAL** — `wrap` / `wrap up` (restore point + checkpoint + verify + print the next-chat paste line; ends `Done Boss. Everything saved. Safe to close this chat.`) · `phone` (vitals: battery/storage/RAM/uptime/tunnel age) · `note <text>` (timestamped journal append + push). **SUMMARY/LOG** — `log` (last journal entries) · `summary` (this-chat wrap, no phone call). **INFRA** — `restart stack` (start_all.sh bounce; re-resolve tunnel after) · `pc?` / `tv?` / `win?` (lane liveness pings, honest UP/DOWN + age). **PARKED (not shipped):** `wake pc` (needs one-time PC MAC capture), `rollback` (confirm-gated revert), `-rotate` (state-changing). Docs-only release — shortcuts compose the existing bridge helpers; security model + final-line strings unchanged.
-> **History:** every older version note (v1.2–v2.3) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
+> **v2.3.2 (2026-09-18 Boss):** **QUOTA & CONTEXT GUARD (`tools/quota_guard.py`).** Boss order: analyze quota/context mechanics + build a preventative tool. HONEST FOUNDATION: the platform's quota counter and the exact context window are **server-side and invisible to any agent** — the tool MANAGES usage, never circumvents limits. It provides: token estimation (chars/4, `--ratio`) · LOCAL daily pacing log of estimated spend (`--daily` = set to the real plan limit when Boss knows it) · Rule-9 context thresholds with concrete actions (50 note · 65 trim · 80 AUTO-SAVEPOINT · 90 HARD STOP + new chat) · preflight estimation BEFORE big text is pasted into chat. New session shortcut **`quota`** = run the guard report. Key mechanic documented in the guard section: every turn re-sends the whole chat, so savepoint-and-new-chat at ~80% cuts BOTH context pressure and per-turn quota cost. Self-test 10/10.
+> **History:** every older version note (v1.2–v2.3.1) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
 > **SUPREMACY (2026-09-18 Boss):** This replaces the retired C1–C5 attestation gate. No `ZILLION-GATE-0` block, no quiz narration — the entire restore is SILENT.
@@ -28,7 +28,7 @@
 - **Other lanes (LIST A/B):** same pattern — `Done Boss. Restore successful. <lane components> are live. My last task is <LAST_TASK>.`
 
 ## 📖 READ MAP (v2.2.0 — restore fast path)
-- **MANDATORY for every restore:** header + v2.2.0 note → this map → GATE 0 → BOSS CONTRACT → your token's LIST (A/B/C) → your lane's CONSTANTS section → 🔑 KEY DELIVERY → 🛡️ OPERATIVE RULES 1–13 → RULES 14–24 (phone-first + continuity) → 📣 FINAL LINES.
+- **MANDATORY for every restore:** header + v2.3.2 note → this map → GATE 0 → BOSS CONTRACT → your token's LIST (A/B/C) → your lane's CONSTANTS section → 🔑 KEY DELIVERY → 🛡️ OPERATIVE RULES 1–13 → 📊 QUOTA & CONTEXT GUARD → RULES 14–24 (phone-first + continuity) → 📣 FINAL LINES.
 - **`-new` restores:** same mandatory set; skip the rule-20 resume reads (see BOSS CONTRACT parameters).
 - **READ-ON-DEMAND (only when the lane/topic is invoked):** 📺 TV constants · 🏛️ QWENOM · 🌉 EMBEDDED BRIDGE CLIENTS (offline FALLBACK ONLY — the `bridge/` files in the repo clone are primary and identical; do NOT read embedded code on a normal restore) · 🔁 HARDENING (post-reboot behavior) · docs/CHANGELOG.md (history only).
 - **Speed rule:** the mandatory set is ~40% of the file. Skip-marked sections exist for offline fallback and lane work — they are not a top-to-bottom read.
@@ -77,6 +77,7 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 | `fix` | Same as `-fix` (sanctioned repair of DOWN components). |
 | `restart stack` | Bounce the phone stack (`~/zillion_pw/start_all.sh`; supervisor v4.2 lock/stale recovery handles state). The tunnel URL may rotate — re-resolve immediately after and report the new URL if it changed. |
 | `pc?` / `tv?` / `win?` | Lane liveness from this session: PC/WIN via signed MQTT ping + retained pres on the lane (install paho on demand), TV via its tunnel ping. Reply honestly, e.g. `PC DOWN (offline marker 21h old) · TV UP (<url>) · WIN NO DATA`. |
+| `quota` | Run `tools/quota_guard.py` — LOCAL daily pacing report + Rule-9 context verdict, with the honest labels (estimates — real quota/window are server-side; see QUOTA & CONTEXT GUARD). |
 
 **Memory & projects**
 | Shortcut | Does |
@@ -804,11 +805,20 @@ open('/home/user/vision_probe.png','wb').write(base64.b64decode(
 6. **History-poisoning rule:** no visible credentials/PII in screenshots or context.
 7. **One active project** only in context/reports.
 8. **Token economy (§32):** short reports; large files = read on the PC/phone + summarize; milestone savepoints; never echo secrets.
-9. **Context watchdog:** thresholds 50/65/80/90% — 80% = auto-savepoint, 90% = hard stop + new chat.
+9. **Context watchdog:** thresholds 50/65/80/90% — 80% = auto-savepoint, 90% = hard stop + new chat. Applied via `tools/quota_guard.py` (v2.3.2) — estimates only; err on the early side.
 10. **Browser boundary:** Firefox = Boss's personal browser — never use it for QA/launch/bot workarounds; Chromium only, dedicated profile.
 11. **One protocol:** if it isn't written here, it isn't part of the restore.
 12. **CREDENTIAL HYGIENE (v1.3.8):** NO embedded userinfo (user:token) in git remote URLs (`.git/config`) — deploy keys are the only lane, never a PAT in a config file. Found embedded cred = scrub immediately (`git remote set-url` → clean URL) + report to Boss. (Incident 2026-09-09: dead PAT scrubbed live.)
 13. **NO GLOBAL NETWORK CONFIG (v1.4.0):** no agent sets global network config (`http_proxy`, `wifi set-proxy`, VPN, DNS overrides) — via ADB or any channel — without **per-op Boss approval**. If ever performed: capture the exact revert command + verify connectivity in the SAME session. (Incident: an ADB-set global proxy bricked phone internet across reboots until cleared from a 2nd device.)
+
+## 📊 QUOTA & CONTEXT GUARD (v2.3.2)
+- **HONEST FOUNDATION (Rule 2):** the platform's daily-quota counter and the exact context-window size are **server-side** — invisible to every agent, no meter exists. Official stance: **manage usage, never circumvent limits.**
+- **Key mechanic:** every chat turn re-sends the WHOLE conversation → cost per turn grows with chat length; long marathons + big dumps burn the quota fastest. One fix handles both: **savepoint-and-new-chat at ~80%** (Rule 9).
+- **Tool:** `tools/quota_guard.py` (stdlib-only, this repo):
+  - `context` → Rule-9 verdict for a context size (50 note · 65 trim · 80 AUTO-SAVEPOINT · 90 HARD STOP)
+  - `add` / `report` → LOCAL daily pacing log of ESTIMATED spend (defaults are references — set `--daily` to the real plan limit when Boss knows it, `--window` to the real context size)
+  - `preflight` → estimate text BEFORE pasting into chat (HEAVY/TOO BIG = read on phone/PC + bring a summary — Rule 8)
+- **Agent duty:** run it on long sessions (~every 10 heavy turns) and always when Boss asks **`quota`**. Day boundary = Boss timezone (`QG_TZ_OFFSET`, default UTC+8).
 
 ## 🔁 PHONE REBOOT/RESTORE HARDENING v1.3 (2026-09-08)
 > **SUPREMACY:** This wins over any conflicting phone-connection rule in older sections.

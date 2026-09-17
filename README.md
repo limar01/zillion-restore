@@ -44,6 +44,7 @@ it is delivered by the phone's passphrase-protected bootstrap op (zg v1.2).
 - `phone/` — phone stack: supervisor v4 · zg v1.2 (bootstrap op) · ph_beacon v3 · cf_retry v3 · fallback_retry · adb_watch v2 · worker v4.5.x · boot files
 - `docs/` — manifest, code review, incident postmortem, update notes
 - `apk/termux-boot_1000.apk` — Termux:Boot 0.8.1 (F-Droid, verified)
+- `tools/quota_guard.py` — quota & context guardrail (v2.3.2): token estimation + LOCAL daily pacing + Rule-9 context verdicts + preflight check — manages usage, never circumvents limits
 
 ## 🔐 SECURITY MODEL
 - All exec channels (tunnel + MQTT) = HMAC-SHA256 signed (envelope `{"d","h"}`)
