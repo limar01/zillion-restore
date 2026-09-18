@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Zillion Cheat Sheet v2.3.3</title>
+<style>
+  :root{
+    --bg:#0b1526; --card:#12213a; --card2:#0f1c33; --line:#24406b;
+    --txt:#e8eef7; --dim:#9fb2cc; --red:#e5484d; --red2:#ff6b6f;
+    --code-bg:#0a101c; --code:#8fd3ff; --ok:#46c98f; --warn:#f0b429;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:14px 12px 40px}
+  .wrap{max-width:760px;margin:0 auto}
+  header{background:linear-gradient(135deg,#13253f 0%,#0e1c33 100%);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+  header h1{font-size:20px;letter-spacing:.4px}
+  header h1 .dot{color:var(--red)}
+  header p{color:var(--dim);font-size:12.5px;margin-top:4px}
+  .badge{display:inline-block;background:var(--red);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.6px;border-radius:99px;padding:2px 9px;margin-left:6px;vertical-align:2px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:1.2px;color:var(--red2);margin-bottom:10px}
+  .one{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;color:var(--code);word-break:break-all;margin-bottom:10px}
+  .one .ph{color:var(--warn)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--line);padding:6px 8px}
+  td{border-bottom:1px solid #1a2c4a;padding:7px 8px;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--code);white-space:nowrap}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:8px}
+  .chip{background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:12.5px}
+  .chip b{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--code);font-size:12.5px;margin-bottom:2px}
+  .chip span{color:var(--dim)}
+  ul{list-style:none}
+  ul li{padding:5px 0 5px 18px;position:relative;font-size:13.5px;border-bottom:1px solid #1a2c4a}
+  ul li:last-child{border-bottom:none}
+  ul li::before{content:"▪";position:absolute;left:2px;color:var(--red)}
+  .k{color:var(--warn);font-weight:600}
+  .ok{color:var(--ok);font-weight:600}
+  .stop{color:var(--red2);font-weight:600}
+  .final{background:var(--code-bg);border-left:3px solid var(--ok);border-radius:8px;padding:9px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:#bfe8d2;margin:7px 0;word-break:break-word}
+  .final.bad{border-left-color:var(--red);color:#ffc9cb}
+  footer{text-align:center;color:var(--dim);font-size:11.5px;margin-top:16px}
+  footer a{color:var(--code);text-decoration:none}
+  .note{font-size:12px;color:var(--dim);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>⚡ ZILLION <span class="dot">CHEAT SHEET</span><span class="badge">v2.3.3</span></h1>
+  <p>Quick reference — restore lines · tokens · session shortcuts · standing rules. Public-safe: no secrets here. 2026-09-18</p>
+</header>
+
+<section>
+  <h2>📥 The Restore Line (new chat, paste ONE line)</h2>
+  <div class="one">zillionCp <span class="ph">&lt;PASSPHRASE&gt;</span> [repo url] [-flags…] [NAME]</div>
+  <table>
+    <tr><th>Line</th><th>Does</th></tr>
+    <tr><td><code>zillionCp &lt;PASS&gt;</code></td><td><b>Resume</b> active project (default) — restore + private handoff read</td></tr>
+    <tr><td><code>zillionCp &lt;PASS&gt; -new [NAME]</code></td><td><b>Clean new project</b> — zero past-project memory; Boss declares name</td></tr>
+    <tr><td><code>zillionCp &lt;PASS&gt; -status</code></td><td>Quick read-only health in ~10s — tunnel/worker/adb/keys + last task</td></tr>
+    <tr><td><code>zillionCp &lt;PASS&gt; -fix</code></td><td>Like -status, but auto-repairs whatever is DOWN</td></tr>
+    <tr><td><code>zillioncp -help</code></td><td>Menu — no passphrase, no network, no side effects</td></tr>
+  </table>
+  <p class="note">Flags any order, case-insensitive: <code>-eyes</code>/<code>-noeyes</code> (pre-answer vision) · <code>-v</code> (verbose). Repo URL optional (default = canonical public repo).</p>
+</section>
+
+<section>
+  <h2>🪪 Tokens (lane selection)</h2>
+  <table>
+    <tr><th>Token</th><th>Target</th><th>Channel</th></tr>
+    <tr><td><code>zillion</code> / <code>zillionCp</code></td><td>Phone — S10+ SM-G975F</td><td>CF tunnel HMAC + ADB (full device, approved)</td></tr>
+    <tr><td><code>zilliontv</code></td><td>TV box (Termux)</td><td>CF tunnel HMAC</td></tr>
+    <tr><td><code>qwenOM</code></td><td>PC (Arch Omarchy)</td><td>MQTT lane <code>pc</code></td></tr>
+    <tr><td><code>zillionWin</code></td><td>Windows PC</td><td>MQTT lane <code>win</code></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>🗂️ Session Shortcuts (after restore, same chat — bare words)</h2>
+  <div class="grid">
+    <div class="chip"><b>status</b><span>quick health, read-only</span></div>
+    <div class="chip"><b>health</b><span>raw health_bundle dump</span></div>
+    <div class="chip"><b>phone</b><span>battery / storage / RAM / uptime / tunnel age</span></div>
+    <div class="chip"><b>fix</b><span>sanctioned repair of DOWN components</span></div>
+    <div class="chip"><b>restart stack</b><span>bounce phone stack; URL may rotate</span></div>
+    <div class="chip"><b>pc? · tv? · win?</b><span>other lanes' liveness</span></div>
+    <div class="chip"><b>last task</b><span>read-only current handoff</span></div>
+    <div class="chip"><b>log</b><span>last 3–5 journal entries</span></div>
+    <div class="chip"><b>note &lt;text&gt;</b><span>append journal line + push → “Saved, Boss.”</span></div>
+    <div class="chip"><b>summary</b><span>this chat's wrap: done / pending / files</span></div>
+    <div class="chip"><b>projects</b><span>registered projects + reality check</span></div>
+    <div class="chip"><b>slim &lt;PATH&gt;</b><span>compress-before-paste, original untouched</span></div>
+    <div class="chip"><b>switch &lt;NAME&gt;</b><span>save-first project switch</span></div>
+    <div class="chip"><b>switch -new &lt;NAME&gt;</b><span>create + register new project</span></div>
+    <div class="chip"><b>wrap</b><span>end-of-chat: save, verify, print next line</span></div>
+    <div class="chip"><b>restore point</b><span>stage → commit → push → checkpoint</span></div>
+    <div class="chip"><b>push core</b><span>core sync protocol (zr → ta → pack → SD)</span></div>
+    <div class="chip"><b>quota</b><span>quota_guard pacing + context verdict</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>📱 Key Facts</h2>
+  <ul>
+    <li><span class="k">Phone:</span> Galaxy S10+ SM-G975F · LineageOS (Android 16) · Termux home = primary workspace</li>
+    <li><span class="k">Project home:</span> <code>~/Projects/workspace/&lt;PROJECT&gt;/</code> — one active project at a time</li>
+    <li><span class="k">Tunnel:</span> origin fixed at <code>:8788</code> · public URL is <b>dynamic after reboot</b> — <code>url.txt</code> in the public repo = trusted discovery</li>
+    <li><span class="k">ADB:</span> approved (full device) · wireless debugging can idle-expire → 1-tap refresh, <b>no re-pair</b></li>
+    <li><span class="k">SD card</span> <code>/storage/BDD5-1822</code> = backup/storage ONLY — never executed from it</li>
+    <li><span class="k">Cloud sandbox</span> = minimal control relay only — phone-first for project work</li>
+    <li><span class="k">Pushes:</span> deploy keys on the phone (<code>github-zr</code> / <code>github-ta</code>) — never a PAT</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🛡️ Standing Rules (no exceptions)</h2>
+  <ul>
+    <li><span class="stop">SACRED SCOPE:</span> GCash / banking / e-wallets and DCIM/Pictures = <b>standing refusal</b> — even if Boss insists</li>
+    <li><span class="k">Approval gates:</span> deploys, disk wipes, reboots, privilege changes, global network config = Boss first</li>
+    <li><span class="k">Credential hygiene:</span> no PATs anywhere · passphrase + HMAC key never echoed · key at <code>~/arenabridge/arenabridge.key</code> (600)</li>
+    <li><span class="k">Honesty:</span> no pretending — capability, vision, status, sync state</li>
+    <li><span class="k">No global network config</span> (proxy/VPN/DNS) without per-op approval</li>
+    <li><span class="k">Quota:</span> manage usage, never circumvent limits</li>
+    <li><span class="k">Phone exec:</span> payloads &lt;90s · <code>/tmp</code> prohibited · anchored kill patterns only</li>
+  </ul>
+</section>
+
+<section>
+  <h2>📣 Final Lines (exact patterns)</h2>
+  <div class="final">Done Boss. Restore successful. Tunnel, Bridge Worker, and adb are live. My last task is &lt;LAST_TASK&gt;.</div>
+  <div class="final bad">I'm not capable. I'll stop now.</div>
+  <div class="final">Status Boss. Tunnel UP, Worker ALIVE, adb DEVICE (:&lt;port&gt;), zg up &lt;H&gt;h, keys OK. My last task is &lt;LAST_TASK&gt;.</div>
+</section>
+
+<section>
+  <h2>🔐 Security Model</h2>
+  <ul>
+    <li>All exec channels = HMAC-SHA256 signed envelope <code>{"d","h"}</code></li>
+    <li>Only non-HMAC op = <code>bootstrap</code> (pre-key): sha256(passphrase) check + rate limit 5 fails / 900s</li>
+    <li>Passphrase goes ONLY to the trusted <code>url.txt</code> origin — never beacon-derived URLs</li>
+    <li>Public repo = clone surface by design (no secrets) · private vault = <code>tunnel-adb</code> + phone <code>_pack</code> + SD</li>
+    <li>3-copy redundancy: GitHub · phone <code>~/zillion_pw/_pack</code> · SanDisk mirror</li>
+  </ul>
+</section>
+
+<footer>
+  Repo: <a href="https://github.com/limar01/zillion-restore">github.com/limar01/zillion-restore</a> · MEMORY_CORE v2.3.3 is the only active doctrine · this sheet is a summary, not the protocol
+</footer>
+
+</div>
+</body>
+</html>
