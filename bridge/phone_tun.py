@@ -176,7 +176,7 @@ def health_bundle(base=None, timeout=60):
         'echo "HOST=$(hostname)"; echo "DATE=$(date)"; echo "UP=$(uptime)"; '
         'echo "MODEL=$(getprop ro.product.model 2>/dev/null)"; '
         'echo "ANDROID=$(getprop ro.build.version.release 2>/dev/null)"; '
-        'W=$(pgrep -fl worker.py 2>/dev/null | grep -v pgrep | head -3 | tr "\n" "|"); echo "WORKER=${W:-NONE}"; '
+        'W=$(pgrep -a -f "/arenabridge/worker.py" 2>/dev/null | grep -v pgrep | head -3 | tr "\n" "|"); echo "WORKER=${W:-NONE}"; '
         'echo "ADB=$(adb devices 2>/dev/null | awk \'NR>1 && NF\' | tr "\n" "|")"; '
         'echo "KEY_ZR=$(ssh -o ConnectTimeout=8 -T github-zr 2>&1 | head -1)"; '
         'echo "KEY_TA=$(ssh -o ConnectTimeout=8 -T github-ta 2>&1 | head -1)"'
