@@ -1,8 +1,8 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.4 (2026-09-19)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.5 (2026-09-19)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
-> **v2.3.4 (2026-09-19 Boss):** **zillionOM — PC OMARCHY DUAL-CHANNEL RESTORE (Boss-declared keyword + restore point).** Token `zillionOM` restores/verifies the Omarchy PC on BOTH channels: **CF-tunnel primary** (zg `0.0.0.0:8788` HMAC + user-local cloudflared in `~/arenabridge`; URL records: `~/arenabridge/pc_tunnel_url.txt` on the PC + retained `pc/pres.url`) and **MQTT lane pc** backup (worker v4.5.x). Ships **LIST D** (below LIST B) incl. the 2026-09-19 PROVEN remote runtime redeploy (no sudo · WORKDIR-relative paths = approval gates not tripped · `approve` = a worker OP payload not shell cmd · ANCHORED pgrep only — substring self-match is the kill-loop trap). Doctrine note: Omarchy IP is DHCP — verified `192.168.100.200` today (older constants cite `.34`); trust `pc/pres` host + LAN probe, not the stale constant. UNCHANGED: HMAC/bootstrap security model · sacred scope · approval gates · FINAL LINES.
-> **History:** every older version note (v1.2–v2.3.3) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
+> **v2.3.5 (2026-09-19 Boss):** **zillionOM LANE WORKSPACE DECLARATION.** Boss order: the zillionOM lane's working storage = `/home/limar01/Projects/workspace/project` ON THE PC ITSELF (created + verified drwxr-xr-x, probe written/cleaned 2026-09-19). All PC-lane project files, builds, downloads, and artifacts live there — **never** on the phone SanDisk (`/storage/BDD5-1822` stays the phone-side backup tier per rules 18/24; doctrine phone-first rules unchanged for the phone lane). LIST D item 6 records it. UNCHANGED: security model · gates · FINAL LINES.
+> **History:** every older version note (v1.2–v2.3.4) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
 > **SUPREMACY (2026-09-18 Boss):** This replaces the retired C1–C5 attestation gate. No `ZILLION-GATE-0` block, no quiz narration — the entire restore is SILENT.
@@ -144,9 +144,10 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 3. **CF tunnel (primary):** URL candidates in order — retained signed `pc/pres.url` → `get_file` `pc_tunnel_url.txt` (worker-relative) → sandbox-saved `~/zillion_pc_cf_url.txt`; verify HMAC `/ping` + one signed exec round-trip.
 4. **Repair (ordered):** (a) BOTH dead → hands-on `pc_onboard.sh "<PASSPHRASE>"` on the PC. (b) MQTT alive + tunnel dead → REMOTE runtime redeploy (proven 2026-09-19): fetch canonical `zg.py` + user-local cloudflared into `~/arenabridge` — stay WORKDIR-relative so gates don't trip — launch anchored (`^python3 zg\.py$` / `^bin/cloudflared tunnel`) — capture URL from `cf.console.log` — verify + republish signed retained pres. (c) tunnel alive + worker dead → redeploy worker via zg exec.
 5. **Gate notes:** `approve` is an OP (`approve_id` + `decision`), not shell text; deny stale pendings; `allow_all` persists in `approvals.json` — Boss-level decision, never the agent default.
-6. IP is DHCP — discover via `pc/pres` host / LAN probe from the phone; constants may lag.
-7. Boot persistence (systemd user unit) + SSH manage lane = Boss opt-ins, not defaults.
-8. FINAL LINE (v2.1.0 pattern): `Done Boss. Restore successful. <PC components> are live. My last task is <LAST_TASK>.`
+6. **LANE WORKSPACE (Boss-declared v2.3.5):** `/home/limar01/Projects/workspace/project` — all PC-lane project work + storage on the PC internal disk; never the SanDisk tier.
+7. IP is DHCP — discover via `pc/pres` host / LAN probe from the phone; constants may lag.
+8. Boot persistence (systemd user unit) + SSH manage lane = Boss opt-ins, not defaults.
+9. FINAL LINE (v2.1.0 pattern): `Done Boss. Restore successful. <PC components> are live. My last task is <LAST_TASK>.`
 
 **TERMS:** this file is the only protocol · reporting in ENGLISH (v1.3.9) · **never prompt Boss for the CF URL or ADB pairing** (one-time pair, done).
 
