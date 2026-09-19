@@ -1,8 +1,8 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.3 (2026-09-18)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.4 (2026-09-19)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
-> **v2.3.3 (2026-09-18 Boss):** **COMPRESS-BEFORE-PASTE (`tools/text_slim.py`) + RECAP RULE.** Boss order: research internet quota/context-limit workarounds and implement the LEGITIMATE ones (evasion = standing refusal). Research converged on 5 levers (sources in CHANGELOG); the two an agent can honestly apply shipped here: (1) `tools/text_slim.py` — stdlib deterministic slimming BEFORE anything big enters chat: code comment/blank collapse (indentation + shebang kept) · log dedupe `×N` + timestamp strip (`--keep-ts`) · JSON minify · HTML→text · text whitespace normalize · head/tail line-boundary crop `--max-chars` (default 12000, explicit omission marker) · SAFE/HEAVY/TOO BIG verdict vs `--window` (same bands as quota_guard preflight) · stdout = clean text, stderr = report, exit 2 = still TOO BIG → Rule-8 device-side path · auto-detect kinds (markdown NEVER treated as code) · original files never modified. (2) **RECAP RULE:** every ~10 heavy turns the agent OFFERS a ≤5-line state recap (decisions + next step); what survives a chat split = recap + `wrap` capsule + phone-side handoff/journal — old turns are never re-pasted. (3) New shortcut **`slim <PATH>`**: fetch file on the device (no re-upload) → text_slim → show result + est savings; original untouched. UNCHANGED: manage-usage-never-circumvent stance · quota_guard role (pacing + Rule-9 verdicts) · every number = honest ESTIMATE. Self-test 11/11.
-> **History:** every older version note (v1.2–v2.3.2) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
+> **v2.3.4 (2026-09-19 Boss):** **zillionOM — PC OMARCHY DUAL-CHANNEL RESTORE (Boss-declared keyword + restore point).** Token `zillionOM` restores/verifies the Omarchy PC on BOTH channels: **CF-tunnel primary** (zg `0.0.0.0:8788` HMAC + user-local cloudflared in `~/arenabridge`; URL records: `~/arenabridge/pc_tunnel_url.txt` on the PC + retained `pc/pres.url`) and **MQTT lane pc** backup (worker v4.5.x). Ships **LIST D** (below LIST B) incl. the 2026-09-19 PROVEN remote runtime redeploy (no sudo · WORKDIR-relative paths = approval gates not tripped · `approve` = a worker OP payload not shell cmd · ANCHORED pgrep only — substring self-match is the kill-loop trap). Doctrine note: Omarchy IP is DHCP — verified `192.168.100.200` today (older constants cite `.34`); trust `pc/pres` host + LAN probe, not the stale constant. UNCHANGED: HMAC/bootstrap security model · sacred scope · approval gates · FINAL LINES.
+> **History:** every older version note (v1.2–v2.3.3) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
 > **SUPREMACY (2026-09-18 Boss):** This replaces the retired C1–C5 attestation gate. No `ZILLION-GATE-0` block, no quiz narration — the entire restore is SILENT.
@@ -61,6 +61,7 @@
 | `zillion` / `zillionCp` | **Phone S10+ SM-G975F** | **CF tunnel** HMAC `~/zillion_pw/zg.py` + **ADB** (`adb shell` full device). Discovery: MQTT beacon ONLY `arenabridge/<SID>/ph/pres` (`url`+`adb`). **No MQTT exec.** |
 | `zilliontv` | **TV box (Termux)** | CF tunnel HMAC `zg.py`. Beacon `arenabridge/<TV_SID>/tv/pres` |
 | `qwenOM` | PC Omarchy (Arch) | MQTT `arenabridge/<SID>/pc/{cmd,res,pres}` |
+| `zillionOM` | **PC Omarchy (Arch)** | **CF tunnel primary** — zg `0.0.0.0:8788` HMAC + user-local cloudflared (URL: `~/arenabridge/pc_tunnel_url.txt`, retained `pc/pres.url`) · **MQTT lane pc** backup |
 | `zillionWin` | Windows PC | MQTT `arenabridge/<SID>/win/{cmd,res,pres}` |
 SID(pc/cp/win)=`53cf4a5803c91726b892e5d0785085c6` · TV_SID=`3b6d57b5465bd22238186fb32850e569` (same HMAC key).
 Tokens are case-insensitive. **Default when only `Zillion` / `zillion` is said:** LIST C (phone tunnel+ADB).
@@ -136,6 +137,16 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 
 ### LIST B — tokens `qwenOM` / `zillionWin`
 1. MEMORY_CORE agreement (READ MAP) · 2. Key · 3. paho-mqtt · 4. Bridge files incl. `phone_tun.py` · 5. Vision (optional, Boss-asked) · 6. MQTT ping lane · 7. OS health · 8. FINAL LINE (v2.1.0 pattern)
+
+### LIST D — token `zillionOM` (PC OMARCHY, dual-channel — v2.3.4)
+1. GATE 0 + key via phone bootstrap (passphrase → `url.txt` origin, as LIST C); the sandbox then holds the shared lane key.
+2. **MQTT lane pc (backup, always check):** signed exec `hostname` via `bridge/mq_pc.py` (ZILLION_LANE=pc); expect `omarchy` (worker v4.5.x, `~/arenabridge`, paho 2.x).
+3. **CF tunnel (primary):** URL candidates in order — retained signed `pc/pres.url` → `get_file` `pc_tunnel_url.txt` (worker-relative) → sandbox-saved `~/zillion_pc_cf_url.txt`; verify HMAC `/ping` + one signed exec round-trip.
+4. **Repair (ordered):** (a) BOTH dead → hands-on `pc_onboard.sh "<PASSPHRASE>"` on the PC. (b) MQTT alive + tunnel dead → REMOTE runtime redeploy (proven 2026-09-19): fetch canonical `zg.py` + user-local cloudflared into `~/arenabridge` — stay WORKDIR-relative so gates don't trip — launch anchored (`^python3 zg\.py$` / `^bin/cloudflared tunnel`) — capture URL from `cf.console.log` — verify + republish signed retained pres. (c) tunnel alive + worker dead → redeploy worker via zg exec.
+5. **Gate notes:** `approve` is an OP (`approve_id` + `decision`), not shell text; deny stale pendings; `allow_all` persists in `approvals.json` — Boss-level decision, never the agent default.
+6. IP is DHCP — discover via `pc/pres` host / LAN probe from the phone; constants may lag.
+7. Boot persistence (systemd user unit) + SSH manage lane = Boss opt-ins, not defaults.
+8. FINAL LINE (v2.1.0 pattern): `Done Boss. Restore successful. <PC components> are live. My last task is <LAST_TASK>.`
 
 **TERMS:** this file is the only protocol · reporting in ENGLISH (v1.3.9) · **never prompt Boss for the CF URL or ADB pairing** (one-time pair, done).
 

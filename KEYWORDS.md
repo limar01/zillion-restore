@@ -12,6 +12,7 @@
 | **zillioncp -help (v2.3.0)** | Print the command menu — NO passphrase, no network, no side effects |
 | **Session shortcuts (v2.3.1+v2.3.2)** | Post-restore bare words: `switch <NAME>` / `projects` / `wrap` / `phone` / `note <text>` / `log` / `summary` / `restart stack` / `pc?` `tv?` `win?` / `quota` + v2.3.0 set — full table in MEMORY_CORE → SESSION SHORTCUTS |
 | **Session shortcut `slim` (v2.3.3)** | `slim <PATH>` — compress-before-paste: fetch the file on the device (no re-upload), shrink via `tools/text_slim.py`, show text + est. savings %; the original is never modified — quota/context doctrine in 📊 QUOTA & CONTEXT GUARD → COMPRESS-BEFORE-PASTE |
+| **zillionOM** (v2.3.4, 2026-09-19 Boss) | Restore/verify the **PC Omarchy lane** — dual-channel (CF tunnel zg :8788 primary → MQTT lane `pc` backup); LIST D in MEMORY_CORE; repair = remote redeploy when MQTT alive, else hands-on `pc_onboard.sh` / `pc_tunnel_fix.sh` |
 | **qwenOM** | Restore PC Omarchy (CF Tunnel Primary + MQTT Backup) |
 
 ## Agent Identity
