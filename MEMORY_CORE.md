@@ -1,4 +1,4 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.5 (2026-09-19)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.6 (2026-09-26)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
 > **v2.3.5 (2026-09-19 Boss):** **zillionOM LANE WORKSPACE DECLARATION.** Boss order: the zillionOM lane's working storage = `/home/limar01/Projects/workspace/project` ON THE PC ITSELF (created + verified drwxr-xr-x, probe written/cleaned 2026-09-19). All PC-lane project files, builds, downloads, and artifacts live there — **never** on the phone SanDisk (`/storage/BDD5-1822` stays the phone-side backup tier per rules 18/24; doctrine phone-first rules unchanged for the phone lane). LIST D item 6 records it. UNCHANGED: security model · gates · FINAL LINES.
@@ -79,6 +79,7 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 | `restart stack` | Bounce the phone stack (`~/zillion_pw/start_all.sh`; supervisor v4.2 lock/stale recovery handles state). The tunnel URL may rotate — re-resolve immediately after and report the new URL if it changed. |
 | `pc?` / `tv?` / `win?` | Lane liveness from this session: PC/WIN via signed MQTT ping + retained pres on the lane (install paho on demand), TV via its tunnel ping. Reply honestly, e.g. `PC DOWN (offline marker 21h old) · TV UP (<url>) · WIN NO DATA`. |
 | `quota` | Run `tools/quota_guard.py` — LOCAL daily pacing report + Rule-9 context verdict, with the honest labels (estimates — real quota/window are server-side; see QUOTA & CONTEXT GUARD). |
+| `quota-watch` (v2.3.6) | PC quota watcher state (read-only): `cat ~/arenabridge/quota_watch.state` via tunnel + last log lines. Report level (0 ok / 1 warn / 2 limit), why, and the ratelimit headers. |
 
 **Memory & projects**
 | Shortcut | Does |
@@ -142,12 +143,13 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 1. GATE 0 + key via phone bootstrap (passphrase → `url.txt` origin, as LIST C); the sandbox then holds the shared lane key.
 2. **MQTT lane pc (backup, always check):** signed exec `hostname` via `bridge/mq_pc.py` (ZILLION_LANE=pc); expect `omarchy` (worker v4.5.x, `~/arenabridge`, paho 2.x).
 3. **CF tunnel (primary):** URL candidates in order — retained signed `pc/pres.url` → `get_file` `pc_tunnel_url.txt` (worker-relative) → sandbox-saved `~/zillion_pc_cf_url.txt`; verify HMAC `/ping` + one signed exec round-trip.
-4. **Repair (ordered):** (a) BOTH dead → hands-on `pc_onboard.sh "<PASSPHRASE>"` on the PC. (b) MQTT alive + tunnel dead → REMOTE runtime redeploy (proven 2026-09-19): fetch canonical `zg.py` + user-local cloudflared into `~/arenabridge` — stay WORKDIR-relative so gates don't trip — launch anchored (`^python3 zg\.py$` / `^bin/cloudflared tunnel`) — capture URL from `cf.console.log` — verify + republish signed retained pres. (c) tunnel alive + worker dead → redeploy worker via zg exec.
+4. **Repair (ordered):** (a) BOTH dead → hands-on `pc_onboard.sh "<PASSPHRASE>"` on the PC. (b) MQTT alive + tunnel dead → REMOTE runtime redeploy (proven 2026-09-19): fetch canonical `zg.py` + user-local cloudflared into `~/arenabridge` — stay WORKDIR-relative so gates don't trip — launch anchored (`^python3 zg\.py$` / `^bin/cloudflared tunnel`) — capture URL from `cf.console.log` — verify + republish signed retained pres. (c) tunnel alive + worker dead → redeploy worker via zg exec **with `ZILLION_LANE=pc`** — a launch WITHOUT the env defaults the worker to lane `cp` (phone topic): the process looks alive and heartbeats on the WRONG lane while every pc-lane exec silently times out (verified incident 2026-09-26 — the inactive systemd unit was a red herring; the stale `worker.lock` holds the LIVE pid; kill by explicit PID, relaunch `cd ~/arenabridge && ZILLION_LANE=pc setsid nohup python3 worker.py >> worker.console.log 2>&1 &`, then verify signed exec + fresh pres).
 5. **Gate notes:** `approve` is an OP (`approve_id` + `decision`), not shell text; deny stale pendings; `allow_all` persists in `approvals.json` — Boss-level decision, never the agent default.
 6. **LANE WORKSPACE (Boss-declared v2.3.5):** `/home/limar01/Projects/workspace/project` — all PC-lane project work + storage on the PC internal disk; never the SanDisk tier.
 7. IP is DHCP — discover via `pc/pres` host / LAN probe from the phone; constants may lag.
 8. Boot persistence (systemd user unit) + SSH manage lane = Boss opt-ins, not defaults.
-9. FINAL LINE (v2.1.0 pattern): `Done Boss. Restore successful. <PC components> are live. My last task is <LAST_TASK>.`
+9. **QUOTA WATCHER (v2.3.6 — every restore):** ensure the arena.ai quota watcher is deployed + running on the PC — canonical `tools/quota_watch.py` from the clone → `~/arenabridge/quota_watch.py` (600, byte-identical); if not running (anchored `pgrep -f "^python3 quota_watch[.]py"`), start detached: `cd ~/arenabridge && setsid nohup python3 quota_watch.py --interval 90 --ui-monitor <BOT_MONITOR> >> quota_watch.console.log 2>&1 &` (BOT_MONITOR from `hyprctl monitors` — the focused/bot monitor; DP-2 = Boss-only, NEVER captured). The watcher polls `/api/me` burst headers, watches the red-triangle daily-limit state, and on LIMIT auto-runs the phone `checkpoint.py` (mechanical `wrap`) + critical notify. Routine restore repair — NOT a deploy; the watcher never pushes and never drives the browser (rule 10).
+10. FINAL LINE (v2.1.0 pattern): `Done Boss. Restore successful. <PC components> are live. My last task is <LAST_TASK>.`
 
 **TERMS:** this file is the only protocol · reporting in ENGLISH (v1.3.9) · **never prompt Boss for the CF URL or ADB pairing** (one-time pair, done).
 
@@ -792,7 +794,7 @@ open('/home/user/vision_probe.png','wb').write(base64.b64decode(
 - **HONESTY:** never, ever fake seeing. Jax VL (PC :8081, qwen2.5-vl-3b) = supplemental QA tool only, inside a DIRECT session.
 
 ## 🏗️ ARCHITECTURE / LANES (infrastructure only — no projects)
-- **PC Omarchy** (`limar01@omarchy`, Arch, GTX 1060 Vulkan): worker = USER systemd unit `zillion.service` · lane `pc` · LAN IP `192.168.100.34` DHCP.
+- **PC Omarchy** (`limar01@omarchy`, Arch, GTX 1060 Vulkan): worker = USER systemd unit `zillion.service` · lane `pc` · LAN IP `192.168.100.34` DHCP · `quota_watch.py` daemon (v2.3.6 auto-wrap safety net).
 - **TV BOX (2026-09-07):** Android 14 Termux · LAN `192.168.100.55` · **primary = Cloudflare tunnel** (HMAC `zg.py`). MQTT SID `3b6d57b5465bd22238186fb32850e569` = **URL beacon only** (`…/tv/pres`). No MQTT exec worker. Keepalive v3. Termux:Boot v3.
 - **PHONE lane** (`cp`): belongs to a separate Zillion instance — READ-ONLY unless Boss orders; the CF phone worker lives in `~/zillion_pw` (lane `pb`).
 - **WINDOWS lane** (`win`). **macOS:** scan/report only.
@@ -832,6 +834,7 @@ open('/home/user/vision_probe.png','wb').write(base64.b64decode(
   - `add` / `report` → LOCAL daily pacing log of ESTIMATED spend (defaults are references — set `--daily` to the real plan limit when Boss knows it, `--window` to the real context size)
   - `preflight` → estimate text BEFORE pasting into chat (HEAVY/TOO BIG = read on phone/PC + bring a summary — Rule 8)
 - **Agent duty:** run it on long sessions (~every 10 heavy turns) and always when Boss asks **`quota`**. Day boundary = Boss timezone (`QG_TZ_OFFSET`, default UTC+8).
+- **Automated backstop (v2.3.6):** `tools/quota_watch.py` on the PC watches the arena.ai daily-limit state and auto-checkpoints on LIMIT (LIST D step 9) — the watcher is the machine half; the agent half stays: offer `wrap` at milestones and on WARN.
 
 ### 🗜️ COMPRESS-BEFORE-PASTE + RECAP RULE (v2.3.3 — internet-researched tactics, legitimate-only)
 - **Research (2026-09-18) converged on ~5 levers** (sources archived in `docs/CHANGELOG.md`): compress-before-paste · periodic in-chat summaries · split conversations >15 turns · token budgets · server-side features (provider prompt caching, batch API, model routing = PLATFORM-side; NOT adoptable from a chat UI). The first four are agent-honest and shipped here.
@@ -877,6 +880,14 @@ Boss can be hired for physical tasks — just ask directly, specific and respect
 22. **PRESERVE HISTORY:** Monthly journals are append-only. Boss's explicit rolling-summary request permits regenerating ONLY the compact CURRENT_HANDOFF view, backed by the immutable journal and Git history; other memory/history is not silently erased. This is an agent-maintained routine, not a daemon that can observe inactive chats. Keep context small and do not invent exact context-meter readings.
 23. **SAVE BEFORE BUILD:** Before large installs/builds/risky work, commit the source, verify its remote project checkpoint, and verify a hashed source backup on the ACTUAL SanDisk volume. On this phone `/sdcard` resolves to `/storage/emulated/0`; SanDisk is `/storage/BDD5-1822`. An empty folder/write probe is NOT a backup. If checkpoint/push/backup fails, stop long/risky work and report the unsynced state; never defer preservation until after the build.
 24. **SYNC CORRECT SURFACES:** Canonical core/public pointer = public zillion-restore + private tunnel-adb + phone live core/restore pack + both SD doctrine copies. Actual public SD Git checkout = `/storage/BDD5-1822/gitrepo/zillion-restore`; private SD file mirror = `/storage/BDD5-1822/gitrepo/tunnel-adb` (no .git metadata at the audit). Private current handoff/journals mirror ONLY to private repo, phone pack, and private SD mirror — NEVER the public checkout. Preserve concurrent changes; no force-push or blanket staging.
+
+
+## 🏛️ QWENOM (PC OMARCHY) RESTORE INSTRUCTIONS
+- **Token:** `qwenOM`
+- **Primary:** CF Tunnel HMAC `zg.py` (Port 8788)
+- **Backup:** MQTT Bridge Worker (Lane: `pc`)
+- **Deploy Fixes:** `sed -i 's/mqtt.CallbackAPIVersion.VERSION2, //g' ~/arenabridge/*.py; sed -i 's/grep -oE/grep --line-buffered -oE/g' ~/arenabridge/start_pc_stack.sh`
+e/restore pack + both SD doctrine copies. Actual public SD Git checkout = `/storage/BDD5-1822/gitrepo/zillion-restore`; private SD file mirror = `/storage/BDD5-1822/gitrepo/tunnel-adb` (no .git metadata at the audit). Private current handoff/journals mirror ONLY to private repo, phone pack, and private SD mirror — NEVER the public checkout. Preserve concurrent changes; no force-push or blanket staging.
 
 
 ## 🏛️ QWENOM (PC OMARCHY) RESTORE INSTRUCTIONS

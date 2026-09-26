@@ -46,6 +46,7 @@ it is delivered by the phone's passphrase-protected bootstrap op (zg v1.2).
 - `apk/termux-boot_1000.apk` — Termux:Boot 0.8.1 (F-Droid, verified)
 - `tools/quota_guard.py` — quota & context guardrail (v2.3.2): token estimation + LOCAL daily pacing + Rule-9 context verdicts + preflight check — manages usage, never circumvents limits
 - `tools/text_slim.py` — compress-before-paste slimming (v2.3.3): code/log/JSON/HTML → much smaller text (est. 30–80% on logs/code), markdown-safe auto-detect, head/tail crop with explicit omission marker; verdict bands match quota_guard preflight
+- `tools/quota_watch.py` — arena.ai daily/rate-limit watcher (v2.3.6): PC-lane daemon; polls `/api/me` burst `ratelimit:` headers + red-triangle daily-limit state (bot monitor only); on LIMIT auto-runs the phone checkpoint (mechanical `wrap`) + critical notify. Deployed by LIST D step 9.
 
 ## 🔐 SECURITY MODEL
 - All exec channels (tunnel + MQTT) = HMAC-SHA256 signed (envelope `{"d","h"}`)
