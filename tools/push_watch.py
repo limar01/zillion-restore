@@ -139,11 +139,15 @@ def check_adb():
     return ("ok", "%d transport(s)" % len(devs)) if devs else ("down", "no adb device")
 
 
+DIRTY_IGNORE = ("STATE/",)   # written by this watchdog + state_snapshot; never a fault
+
+
 def check_repo():
     o, _, rc = sh("git -C '%s' status --porcelain" % REPO)
     if rc != 0:
         return "down", "urlrepo unreadable (corrupt .git?)"
-    dirty = len([l for l in o.splitlines() if l.strip()])
+    lines = [l for l in o.splitlines() if l.strip()]
+    dirty = len([l for l in lines if l[3:].strip().strip('"') not in ("",) and not l[3:].strip().startswith(DIRTY_IGNORE)])
     ahead, _, _ = sh("git -C '%s' rev-list --count origin/main..HEAD 2>/dev/null" % REPO)
     ref = os.path.join(REPO, ".git", "refs", "remotes", "origin", "main")
     try:
@@ -174,6 +178,18 @@ def run_cycle(verbose=True, quiet=False):
             status, detail = "down", "check raised %r" % (e,)
         results[name] = {"status": status, "detail": detail}
 
+    st0 = load_state()
+    # transient dirtiness is normal during legitimate work (a copy, a pull, a commit in flight).
+    # Only call it a fault when it survives one full cycle.
+    rp = results.get("REPO", {})
+    if rp.get("status") == "warn" and "uncommitted" in rp.get("detail", ""):
+        streak = int(st0.get("dirty_streak", 0)) + 1
+        if streak < 2:
+            results["REPO"] = {"status": "ok", "detail": rp["detail"] + " (transient, streak %d)" % streak}
+        st0["dirty_streak"] = streak
+    else:
+        st0["dirty_streak"] = 0
+
     bad = {k: v for k, v in results.items() if v["status"] != "ok"}
     verdict = "DEGRADED" if bad else "HEALTHY"
     if verbose:
@@ -193,7 +209,8 @@ def run_cycle(verbose=True, quiet=False):
         log("DEGRADED %s :: %s" % (signature, "; ".join("%s=%s(%s)" % (k, v["status"], v["detail"]) for k, v in bad.items())))
         # safe self-heal: only the local idempotent push
         healed = []
-        if "REPO" in bad or "TRUSTED" in bad:
+        rep = results.get("REPO", {})
+        if results.get("TRUSTED", {}).get("status") == "down" or rep.get("status") == "down":
             o, e, rc = sh("cd '%s' && python3 '%s' --push 2>&1 | tail -2" % (PW, os.path.join(PW, "state_snapshot.py")), 150)
             healed.append("snapshot-push rc=%s" % rc)
             log("self-heal: " + " | ".join(healed) + " :: " + (o or e)[-160:].replace("\n", " "))
@@ -214,7 +231,8 @@ def run_cycle(verbose=True, quiet=False):
                    % (REPO, REPO, ",".join(sorted(bad)), REPO), 90)
             except Exception as e:
                 log("alert publish failed: %r" % (e,))
-        save_state({"signature": signature, "last_alert_ts": time.time(), "status": verdict})
+        st0.update({"signature": signature, "last_alert_ts": time.time(), "status": verdict})
+        save_state(st0)
         return 1
 
     if prev and prev != signature:
@@ -229,7 +247,8 @@ def run_cycle(verbose=True, quiet=False):
                 pass
     elif signature != prev:
         log("HEALTHY %s :: %s" % (signature, "; ".join("%s=%s" % (k, v["detail"]) for k, v in results.items())))
-    save_state({"signature": signature, "last_alert_ts": last_alert, "status": verdict})
+    st0.update({"signature": signature, "last_alert_ts": last_alert, "status": verdict})
+    save_state(st0)
     return 0
 
 
