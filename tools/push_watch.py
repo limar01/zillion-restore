@@ -44,6 +44,7 @@ STATE = os.path.join(PW, "watch_state.json")
 ALERT_MD = os.path.join(REPO, "STATE", "ALERT.md")
 PIDFILE = os.path.join(PW, "watch.pid")
 RAW_URL = "https://raw.githubusercontent.com/limar01/zillion-restore/main/url.txt"
+API_URL = "https://api.github.com/repos/limar01/zillion-restore/contents/url.txt?ref=main"
 STALE_PUSH_S = 3600      # remote ref older than this = publishing is dead
 COOLDOWN_S = 1800
 MAX_LOG = 1024 * 1024
@@ -107,6 +108,35 @@ def save_state(s):
 
 
 # ---------------------------------------------------------------- checks
+def published_url():
+    """Authoritative read of url.txt. raw.githubusercontent.com is CDN-cached and serves
+    STALE content for minutes after a push -- using it here made the watchdog cry wolf on
+    every tunnel rotation. Use the API with an ETag (a 304 is free and does not burn quota),
+    and only fall back to the CDN when the API is rate-limited -- flagged as unverified."""
+    import urllib.error
+    st = load_state()
+    req = urllib.request.Request(API_URL, headers={
+        "Accept": "application/vnd.github.raw", "User-Agent": "zillion-push-watch"})
+    if st.get("url_etag"):
+        req.add_header("If-None-Match", st["url_etag"])
+    try:
+        with urllib.request.urlopen(req, timeout=15) as r:
+            body = r.read().decode(errors="ignore").strip()
+            st["url_etag"] = r.headers.get("ETag")
+            st["url_body"] = body
+            save_state(st)
+            return 200, body, "api"
+    except urllib.error.HTTPError as e:
+        if e.code == 304:
+            return 200, (st.get("url_body") or ""), "api-cached"
+        if e.code in (403, 429):
+            code, body = get(RAW_URL, 12)
+            return code, (body or "").strip(), "cdn-fallback(unverified)"
+        return e.code, "", "api"
+    except Exception:
+        return 0, "", "api"
+
+
 def check_trusted():
     """THE ORIGINAL BUG: url.txt pointing somewhere dead while the phone is fine."""
     local = ""
@@ -114,10 +144,12 @@ def check_trusted():
         local = open(os.path.join(REPO, "url.txt")).read().strip()
     except Exception:
         pass
-    code, remote = get(RAW_URL, 12)
+    code, remote, via = published_url()
     remote = (remote or "").strip()
     if code != 200:
-        return "down", "cannot read url.txt from GitHub (http=%s)" % code
+        if code == 403 or code == 429:
+            return "warn", "GitHub API rate-limited; url.txt unverified this cycle"
+        return "down", "cannot read url.txt from GitHub (http=%s via %s)" % (code, via)
     if not remote.startswith("https://"):
         return "down", "url.txt content invalid: %r" % remote[:60]
     c2, _ = get(remote.rstrip("/") + "/ping", 8)
@@ -125,7 +157,7 @@ def check_trusted():
         return "down", "url.txt advertises DEAD url %s (ping=%s)" % (remote, c2)
     if local and local.rstrip("/") != remote.rstrip("/"):
         return "warn", "url.txt lags local (%s vs %s) - beacon push behind" % (remote, local)
-    return "ok", "url.txt -> %s (live)" % remote
+    return "ok", "url.txt -> %s (live, via %s)" % (remote, via)
 
 
 def check_worker():
