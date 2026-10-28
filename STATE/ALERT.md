@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-10-28 23:13:46
+# ⚠ ALERT — 2026-10-28 23:15:52
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://informed-stainless-villages-rarely.trycloudflare.com (ping=0) |
+| TRUSTED | OK | url.txt -> https://informed-stainless-villages-rarely.trycloudflare.com (live, via api-cached) |
 | WORKER | OK | pid 15702 |
 | ADB | OK | 2 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
