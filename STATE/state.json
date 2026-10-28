@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-10-28 16:19:08",
- "taken_ts": 1793175548.434122,
+ "taken_at": "2026-10-28 16:19:32",
+ "taken_ts": 1793175572.600243,
  "lane": "phone",
  "tunnel": "https://053a2a32d6dcc9.lhr.life",
  "tunnel_source": "url.txt(trusted)",
@@ -34,10 +34,10 @@
   }
  ],
  "last_task": {
-  "last_task": "Restore session closed clean. Outstanding work = publish the restore point, which is gated on the `github-zr` deploy key being re-added to limar01/zillion-restore with WRITE access.",
+  "last_task": "Restore and publishing chain are HEALTHY and self-healing: url.txt is trusted-channel live, beacon pushes succeed, snapshot publishes redacted. Next work is optional hardening -- add github-ta key, fix beacon/worker\u2026",
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "d59cf7314034b3a2",
+ "fingerprint": "d0f14e95f610ba2e",
  "redacted": true
 }

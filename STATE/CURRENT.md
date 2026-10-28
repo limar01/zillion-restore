@@ -4,7 +4,7 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-10-28 16:19:08 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 19 hours, 37 minutes
+**Snapshot:** 2026-10-28 16:19:32 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 19 hours, 37 minutes
 
 ## Component state
 | Component | State |
@@ -15,7 +15,7 @@
 | Deploy keys | zr=OK · ta=REJECTED · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
-**Restore session closed clean. Outstanding work = publish the restore point, which is gated on the `github-zr` deploy key being re-added to limar01/zillion-restore with WRITE access.**
+**Restore and publishing chain are HEALTHY and self-healing: url.txt is trusted-channel live, beacon pushes succeed, snapshot publishes redacted. Next work is optional hardening -- add github-ta key, fix beacon/worker…**
 
 _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
 
@@ -27,4 +27,4 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
 1. clone repo → read `MEMORY_CORE.md` per READ MAP → **read this file**
 2. bootstrap key, verify HMAC `/ping` against the tunnel above (it rotates — trust `url.txt` first)
 3. verify worker + adb independently; only claim LIVE what you verified
-4. resume: Restore session closed clean. Outstanding work = publish the restore point, which is gated on the `github-zr` deploy key being re-added to limar01/zillion-restore with WRITE access.
+4. resume: Restore and publishing chain are HEALTHY and self-healing: url.txt is trusted-channel live, beacon pushes succeed, snapshot publishes redacted. Next work is optional hardening -- add github-ta key, fix beacon/worker…
