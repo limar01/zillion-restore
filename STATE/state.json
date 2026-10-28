@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-10-28 17:32:58",
- "taken_ts": 1793179978.1256585,
+ "taken_at": "2026-10-28 17:34:07",
+ "taken_ts": 1793180047.3129184,
  "lane": "phone",
  "tunnel": "https://1ac45a2c939f7a.lhr.life",
  "tunnel_source": "url.txt(trusted)",
@@ -18,7 +18,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 20 hours, 51 minutes",
+  "uptime": "up 20 hours, 52 minutes",
   "adb_count": 2
  },
  "projects": [
@@ -34,10 +34,10 @@
   }
  ],
  "last_task": {
-  "last_task": "Restore, publishing, and monitoring are HEALTHY. url.txt is trusted-channel live and self-healing; beacon pushes succeed; watchdog runs and alerts on state change. Nothing is blocking. Next work is optional\u2026",
+  "last_task": "Core is at doctrine v2.4.0 with the shipped APK verified by hash and the REA MCP surface registered. Nothing is broken and nothing is blocking. Remaining work is optional and Boss-decided: 1. MEMORY_CORE v2.4.1\u2026",
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "91278a0723d592a7",
+ "fingerprint": "294f5ac33cc8bbf5",
  "redacted": true
 }
