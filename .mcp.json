@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "rea": {
+      "command": "npx",
+      "args": ["-y", "rea-agents@6.8.0", "mcp"],
+      "env": {
+        "REA_APKTOOL_COMMAND": "apktool"
+      }
+    }
+  }
+}

@@ -1,7 +1,8 @@
-# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.3.6 (2026-09-26)
+# ⚡ ZILLION MEMORY CORE — CLEAN RESTORE TEMPLATE v2.4.0 (2026-10-28)
 > **SUPREMACY:** This is the ONLY active doctrine file when restoring from this template. On any conflict with older copies: THIS WINS.
 > **TEMPLATE NOTE:** CLEAN — **no project content**. Permanent doctrine + infrastructure only. New project: use the `-new` parameter (see BOSS CONTRACT); Boss declares the project.
 > **v2.3.5 (2026-09-19 Boss):** **zillionOM LANE WORKSPACE DECLARATION.** Boss order: the zillionOM lane's working storage = `/home/limar01/Projects/workspace/project` ON THE PC ITSELF (created + verified drwxr-xr-x, probe written/cleaned 2026-09-19). All PC-lane project files, builds, downloads, and artifacts live there — **never** on the phone SanDisk (`/storage/BDD5-1822` stays the phone-side backup tier per rules 18/24; doctrine phone-first rules unchanged for the phone lane). LIST D item 6 records it. UNCHANGED: security model · gates · FINAL LINES.
+> **v2.4.0 (2026-10-28 Boss):** **SHIPPED-BINARY VERIFICATION + REA/MCP.** (a) The Termux:Boot APK the kit ships is now VERIFIED by hash against F-Droid — the old "(F-Droid, verified)" note was an assertion nobody had checked; see 🔎 SHIPPED-BINARY VERIFICATION. (b) REA (`morluto/rea`) is offered as an optional MCP analysis surface — pinned, read-on-demand, and privileged; see 🧰 MCP. (c) **CORRECTED: the two deploy-key pubkeys in PUSH SETUP did not match the keys on the phone** — a future agent would have handed Boss a key that authenticates nothing. UNCHANGED: security model · gates · FINAL LINES · restore flow.
 > **History:** every older version note (v1.2–v2.3.4) lives VERBATIM in `docs/CHANGELOG.md` — context only, never execute from history.
 
 ## 🪪 GATE 0 — CAPABILITY & AGREEMENT TEST (v2.1.0 — FIRST STAGE, MANDATORY)
@@ -30,7 +31,7 @@
 ## 📖 READ MAP (v2.2.0 — restore fast path)
 - **MANDATORY for every restore:** header + v2.3.3 note → this map → GATE 0 → BOSS CONTRACT → your token's LIST (A/B/C) → your lane's CONSTANTS section → 🔑 KEY DELIVERY → 🛡️ OPERATIVE RULES 1–13 → 📊 QUOTA & CONTEXT GUARD → RULES 14–24 (phone-first + continuity) → 📣 FINAL LINES.
 - **`-new` restores:** same mandatory set; skip the rule-20 resume reads (see BOSS CONTRACT parameters).
-- **READ-ON-DEMAND (only when the lane/topic is invoked):** 📺 TV constants · 🏛️ QWENOM · 🌉 EMBEDDED BRIDGE CLIENTS (offline FALLBACK ONLY — the `bridge/` files in the repo clone are primary and identical; do NOT read embedded code on a normal restore) · 🔁 HARDENING (post-reboot behavior) · docs/CHANGELOG.md (history only).
+- **READ-ON-DEMAND (only when the lane/topic is invoked):** 📺 TV constants · 🏛️ QWENOM · 🌉 EMBEDDED BRIDGE CLIENTS (offline FALLBACK ONLY — the `bridge/` files in the repo clone are primary and identical; do NOT read embedded code on a normal restore) · 🔁 HARDENING (post-reboot behavior) · docs/CHANGELOG.md (history only) · 🔎 SHIPPED-BINARY VERIFICATION · 🧰 MCP (REA — optional, privileged).
 - **Speed rule:** the mandatory set is ~40% of the file. Skip-marked sections exist for offline fallback and lane work — they are not a top-to-bottom read.
 
 ## 🎯 BOSS CONTRACT — restore in 3 steps
@@ -153,6 +154,58 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 
 **TERMS:** this file is the only protocol · reporting in ENGLISH (v1.3.9) · **never prompt Boss for the CF URL or ADB pairing** (one-time pair, done).
 
+## 🔎 SHIPPED-BINARY VERIFICATION (v2.4.0 — measured, not asserted)
+
+The kit ships one binary: `apk/termux-boot_1000.apk`. Its README previously said "(F-Droid, verified)"
+— an assertion with nothing behind it. It is now measured, and the measurement is recorded here so
+any agent can re-check it in one command.
+
+| Fact | Value |
+|---|---|
+| SHA-256 | `6f7cf9b94f539d3efd4af3544ff819947b49395275d8cfa7e5f80de14f3d9cf8` |
+| Size | 26,000 bytes |
+| package / version | `com.termux.boot` · versionName `0.8.1` · versionCode `1000` |
+| Signer | `O=fdroid.org, OU=FDroid, CN=FDroid` · cert SHA-256 `228fb2cfe90831c1499ec3ccaf61e96e8e1ce70766b9474672ce427334d41c42` |
+| Signing schemes | v1 ✓ v2 ✓ v3 ✓ (strongest v3); `v1_signers_match_block_signers=true`; no rotation lineage |
+| Permissions | `RECEIVE_BOOT_COMPLETED`, `WAKE_LOCK` — **no INTERNET** |
+| Components | `BootReceiver` `exported="false"` · `BootJobService` gated by `BIND_JOB_SERVICE` |
+| Provenance | byte-identical to `https://f-droid.org/repo/com.termux.boot_1000.apk` (checked 2026-10-28) |
+
+**Restore-time check (add to the phone lane, one line):**
+```bash
+sha256sum apk/termux-boot_1000.apk    # MUST equal 6f7cf9b9…d9cf8
+```
+Mismatch = STOP, do not install. Report it to Boss.
+
+**Why these details matter:** an app that starts processes at boot needs `RECEIVE_BOOT_COMPLETED` and
+nothing else. The absence of `INTERNET` is the property to preserve — if a future copy gains
+`INTERNET`, a boot receiver, or a re-signed certificate, it is not the artifact this doctrine trusts.
+
+> **Limit (honesty):** hashing proves the bytes match what F-Droid publishes; it does not prove
+> F-Droid's build is safe. REA's `inspect-apk-signature` reports what the APK *declares* and does
+> **not** verify signatures cryptographically. Neither tool executes the APK.
+
+## 🧰 MCP — REA ANALYSIS SURFACE (v2.4.0 — OPTIONAL, read-on-demand)
+
+`morluto/rea` (`rea-agents` on npm, MIT) exposes ~229 MCP tools for inspecting binaries, APK/PE/ELF
+artifacts, JavaScript/Electron apps, pcaps and adb devices. **Optional.** No restore path depends on it.
+
+- **Registration:** repo root `.mcp.json` — `npx -y rea-agents@6.8.0 mcp` (**pinned**; never `@latest`).
+- **Verified 2026-10-28:** stdio initialize ok · 229 tools · protocol `2025-11-25` · catalog digest
+  `fe938a7c6eba3763b22ae2022de76dc4a7812d35d86f1d4efd36b9962b04da0b`.
+- **Needs:** Node ≥ 22.23.4. APK work needs apktool (`REA_APKTOOL_COMMAND`). Deep native
+  decompilation needs Ghidra/Hopper/IDA/Kuna — **absent by default, and `rea analyze` on an APK is the
+  wrong entry point** (archives are not executables; use `decode-android-resources` / `inspect-android-*`).
+- **PRIVILEGED:** `debug-with-gdb`, `debug-with-rizin`, `capture-process`, pcap capture and adb exec are
+  in the toolset. Treat it as a debugger, not a linter. Never point it at a Sacred-Scope target
+  (GCash/DCIM), never at a key-bearing session, and only in a scratch workspace.
+- **Supply chain:** install ONLY from `morluto/rea`, `rea.tools`, or npm `rea-agents`. The project's own
+  README warns about lookalike repos. Pin the version. Star count is adoption, not audit.
+- **Evidence discipline:** every REA result carries `confidence` (`observed` vs inferred) and an
+  explicit `limitations[]`. Quote those when reporting — the same rule this doctrine already applies.
+
+> Read this section only when binary/artifact analysis is actually requested.
+
 ## 📱 PHONE TUNNEL + ADB CONSTANTS (v1.2)
 - **Device:** Galaxy **S10+ SM-G975F** · **LineageOS** (Android 16, `BP4A.251205.006` release-keys; org.lineageos.* in deviceidle whitelist) · clock quirk: wall-time correct, but the TZ label shows "PST".
 - **Origin:** fixed `ZG_PORT=8788`, dir `~/zillion_pw/`, `zg.py` + `cloudflared`; the public URL is DYNAMIC after every reboot — never assume durability (see HARDENING).
@@ -165,8 +218,9 @@ After ANY successful restore in the SAME chat (key + context already exist), Bos
 - **Beacon (`ph_beacon` v3.x → MQTT `arenabridge/<SID>/ph/pres`, retain=True):** publishes a fresh `url` (+ `healthy`, `url_age`, `adb`) on a ~15s cycle + pushes the current healthy URL to the public repo as `url.txt` (deploy key github-zr). **Always check `ts` freshness — stale retained ≠ alive.**
 - **PHONE EXEC CONSTRAINTS (hard rules):** (1) Termux `/bin/sh` = **dash** (POSIX only; beware nested `$()`; traps defer until the current foreground job finishes — use SIGKILL for forced transitions). (2) Keep exec payloads **<90s** — Cloudflare HTTP 524 kills the response but the command KEEPS RUNNING on the phone; for long waits, POLL from the sandbox — never `sleep` inside a payload. (3) Android exec argv limit ≈ **128 KB per argument** — transfer large files base64-encoded ONE PER exec (observed HTTP 500 beyond it). (4) `/tmp` is PROHIBITED (shell-owned) — write under `~/`. (5) **KILL-LOOP SELF-MATCH RULE (mandatory):** any ad-hoc kill/scan loop in exec must use ANCHORED patterns only (`^python3 .*zg\.py$` style — never a `*substring*` case match), exclude self (`[ "$p" != "$$" ]`) + own process group; prefer anchored `pgrep -f` or `/proc/<pid>/cmdline` argv0 scans; never embed the exact target string in the killing script's own text. Phone-side supervisor/cf_retry patterns are already anchored (SAFE).
 - **PUSH SETUP (deploy keys live on the phone):** SSH aliases `github-zr` (→ zillion-restore, write) + `github-ta` (→ tunnel-adb, write), both REGISTERED (verified: `ssh -T` = "Hi limar01/<repo>!"). NEVER embed PATs (operative rule 12). **REMEDIATION (if the keys are lost — public-safe pubkeys for Boss to re-add at Settings → Deploy keys → Allow write access):**
-  - `github-zr`: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbHNVokuTISzCU/KOn8y+745k1PeXTzA0+LaDZtqVty phone-zillion-restore`
-  - `github-ta`: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAl8mUQkcb1J86yJVHDPsQRpcXI/5zyJyuO2vVL3q18y phone-tunnel-adb`
+  - `github-zr` (CORRECTED v2.4.0 — verified against `~/.ssh/github-zr.pub` on the phone 2026-10-28): `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPVgWMOHlwmHJz7KZO88wCalSiudzRam37NiMpq/m5h zillion-zr`
+  - `github-ta` (CORRECTED v2.4.0): `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA/5U0PjWZggiM0cye55JB819xpFBgZj1fcjH9ya/wKK zillion-ta`
+  - **v2.4.0 note:** the previous values here (`…6bHNVokuTISzCU…` / `…Al8mUQkcb1J86y…`) did not match any key on the phone — following them would have made Boss add a key that authenticates nothing. **Trust the phone, not this file:** `cut -d' ' -f2 ~/.ssh/github-zr.pub` is the source of truth.
 - **REDUNDANCY (sync on every core change — rule 24):** public GitHub repo (canonical) · private repo `tunnel-adb` (incl. `key/`) · phone `~/zillion_pw/_pack` · SanDisk SD mirrors (`/storage/BDD5-1822/gitrepo/zillion-restore` public checkout + `/storage/BDD5-1822/gitrepo/tunnel-adb` private file mirror — exFAT = backup/storage ONLY, never executed).
 - **BOOTSTRAP PASSPHRASE:** the phone stores ONLY `sha256(passphrase)` (`~/zillion_pw/_bootstrap.hash`, mode 600). The passphrase itself stays with Boss (restore line). Rotate via an active session if weak/compromised.
 - **Incident reference:** `docs/INCIDENT_20260909.md` (kill-loop self-match postmortem). Phone rebuild manifest: `docs/RESTORE_FILE_MANIFEST.md`.
