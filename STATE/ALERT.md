@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-29 18:56:03
+# ⚠ ALERT — 2026-10-29 18:58:09
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://playstation-significance-omaha-showed.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://paths-boat-palestinian-gzip.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 20374 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
