@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-10-30 01:53:54
+# ⚠ ALERT — 2026-10-30 01:58:10
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | OK | url.txt -> https://london-explaining-schedules-promotions.trycloudflare.com (live, via api-cached) |
 | WORKER | OK | pid 16178 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
