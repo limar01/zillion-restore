@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-10-28 23:45:31
+# ⚠ ALERT — 2026-10-29 18:56:03
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://playstation-significance-omaha-showed.trycloudflare.com (live, via api-cached) |
-| WORKER | OK | pid 15212 |
-| ADB | OK | 1 transport(s) |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://playstation-significance-omaha-showed.trycloudflare.com (ping=0) |
+| WORKER | DOWN | worker.py not running |
+| ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
 _Auto-written by push_watch.py. Cleared on recovery._
