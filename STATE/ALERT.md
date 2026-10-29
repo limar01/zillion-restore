@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-10-30 00:32:35
+# ⚠ ALERT — 2026-10-30 00:34:42
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://4ea9c199f86535.lhr.life (ping=0) |
+| TRUSTED | OK | url.txt -> https://london-explaining-schedules-promotions.trycloudflare.com (live, via api) |
 | WORKER | OK | pid 16178 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
