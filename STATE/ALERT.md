@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-10-30 00:24:16
+# ⚠ ALERT — 2026-10-30 00:30:10
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | OK | url.txt -> https://09055b246981cf.lhr.life (live, via api) |
 | WORKER | OK | pid 16178 |
-| ADB | OK | 1 transport(s) |
+| ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
 _Auto-written by push_watch.py. Cleared on recovery._
