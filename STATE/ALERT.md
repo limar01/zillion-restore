@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-30 04:44:08
+# ⚠ ALERT — 2026-10-30 04:46:15
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://london-explaining-schedules-promotions.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://focusing-usgs-victorian-satin.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 15174 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
