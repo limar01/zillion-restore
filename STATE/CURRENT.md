@@ -4,15 +4,15 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-10-29 22:04:29 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 3 minutes
+**Snapshot:** 2026-10-30 00:23:32 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 2 hours, 22 minutes
 
 ## Component state
 | Component | State |
 |---|---|
 | Tunnel | DOWN — `-` (via none) |
-| Bridge Worker | DOWN (pid -) |
-| adb | DOWN — no devices (0 transport(s)) |
-| Deploy keys | zr=OK · ta=REJECTED · shopee=OK |
+| Bridge Worker | LIVE (pid 16178) |
+| adb | LIVE — <lan-transport:redacted> (1 transport(s)) |
+| Deploy keys | zr=REJECTED · ta=REJECTED · shopee=REJECTED |
 
 ## LAST_TASK (what the next agent resumes)
 **Core is at doctrine v2.4.0 with the shipped APK verified by hash and the REA MCP surface registered. Nothing is broken and nothing is blocking. Remaining work is optional and Boss-decided: 1. MEMORY_CORE v2.4.1…**
