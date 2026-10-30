@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-10-31 04:36:10
+# ⚠ ALERT — 2026-10-31 04:49:29
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://chose-inspiration-occurs-capital.trycloudflare.com (ping=0) |
+| TRUSTED | OK | url.txt -> https://chose-inspiration-occurs-capital.trycloudflare.com (live, via api) |
 | WORKER | OK | pid 17623 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
