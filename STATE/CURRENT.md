@@ -4,13 +4,13 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-10-30 09:38:33 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 4 hours, 56 minutes
+**Snapshot:** 2026-10-30 10:46:00 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 3 minutes
 
 ## Component state
 | Component | State |
 |---|---|
-| Tunnel | LIVE — `https://focusing-usgs-victorian-satin.trycloudflare.com` (via url.txt(trusted)) |
-| Bridge Worker | LIVE (pid 15174) |
+| Tunnel | DOWN — `-` (via none) |
+| Bridge Worker | DOWN (pid -) |
 | adb | DOWN — no devices (0 transport(s)) |
 | Deploy keys | zr=OK · ta=REJECTED · shopee=OK |
 

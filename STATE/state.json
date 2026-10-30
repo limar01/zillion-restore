@@ -1,13 +1,13 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-10-30 09:38:33",
- "taken_ts": 1793324313.401692,
+ "taken_at": "2026-10-30 10:46:00",
+ "taken_ts": 1793328360.0609202,
  "lane": "phone",
- "tunnel": "https://focusing-usgs-victorian-satin.trycloudflare.com",
- "tunnel_source": "url.txt(trusted)",
+ "tunnel": "",
+ "tunnel_source": "none",
  "health": {
-  "worker": "15174",
-  "worker_alive": true,
+  "worker": "",
+  "worker_alive": false,
   "adb_devices": [],
   "adb_alive": false,
   "key_zr": "OK",
@@ -15,7 +15,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 4 hours, 56 minutes",
+  "uptime": "up 3 minutes",
   "adb_count": 0
  },
  "projects": [
@@ -35,6 +35,6 @@
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "f91a794d582ddf32",
+ "fingerprint": "155f0723e89cb9ac",
  "redacted": true
 }
