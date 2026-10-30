@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-30 10:46:12
+# ⚠ ALERT — 2026-10-30 10:48:18
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://focusing-usgs-victorian-satin.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://sie-blink-flux-comfort.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 15682 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
