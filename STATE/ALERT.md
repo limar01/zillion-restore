@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-31 04:21:17
+# ⚠ ALERT — 2026-10-31 04:23:35
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://vpn-embassy-number-con.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://chose-inspiration-occurs-capital.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 17623 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
