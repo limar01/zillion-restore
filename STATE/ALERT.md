@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-30 21:27:46
+# ⚠ ALERT — 2026-10-30 21:29:53
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://ede4041070c3db.lhr.life (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://vpn-embassy-number-con.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 15083 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
