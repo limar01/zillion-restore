@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-30 10:48:18
+# ⚠ ALERT — 2026-10-30 13:43:52
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://sie-blink-flux-comfort.trycloudflare.com (live, via api) |
-| WORKER | OK | pid 15682 |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://sie-blink-flux-comfort.trycloudflare.com (ping=0) |
+| WORKER | DOWN | worker.py not running |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
