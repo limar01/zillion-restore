@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-10-30 13:52:25
+# ⚠ ALERT — 2026-10-30 13:54:32
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://laden-bags-delays-lover.trycloudflare.com (ping=0) |
+| TRUSTED | OK | url.txt -> https://0881819f6faf22.lhr.life (live, via api) |
 | WORKER | OK | pid 15390 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
