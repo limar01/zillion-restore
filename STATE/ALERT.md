@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-30 09:40:52
+# ⚠ ALERT — 2026-10-30 10:46:12
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://focusing-usgs-victorian-satin.trycloudflare.com (live, via api-cached) |
-| WORKER | OK | pid 15174 |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://focusing-usgs-victorian-satin.trycloudflare.com (ping=0) |
+| WORKER | DOWN | worker.py not running |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
