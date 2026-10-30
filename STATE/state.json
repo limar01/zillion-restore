@@ -1,13 +1,13 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-10-30 13:43:36",
- "taken_ts": 1793339016.7754254,
+ "taken_at": "2026-10-30 13:52:11",
+ "taken_ts": 1793339531.5257015,
  "lane": "phone",
  "tunnel": "",
  "tunnel_source": "none",
  "health": {
-  "worker": "",
-  "worker_alive": false,
+  "worker": "15390",
+  "worker_alive": true,
   "adb_devices": [],
   "adb_alive": false,
   "key_zr": "OK",
@@ -15,7 +15,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 2 minutes",
+  "uptime": "up 11 minutes",
   "adb_count": 0
  },
  "projects": [
@@ -35,6 +35,6 @@
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "155f0723e89cb9ac",
+ "fingerprint": "36cb36e20ee48d9e",
  "redacted": true
 }
