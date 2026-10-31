@@ -4,18 +4,18 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-10-31 19:38:34 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 1 hour, 17 minutes
+**Snapshot:** 2026-10-31 20:33:05 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 2 hours, 11 minutes
 
 ## Component state
 | Component | State |
 |---|---|
-| Tunnel | DOWN — `-` (via none) |
-| Bridge Worker | LIVE (pid 17061) |
+| Tunnel | LIVE — `https://see-luke-verse-comm.trycloudflare.com` (via url.txt(trusted)) |
+| Bridge Worker | LIVE (pid 16991) |
 | adb | DOWN — no devices (0 transport(s)) |
 | Deploy keys | zr=OK · ta=REJECTED · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
-**Core is at doctrine v2.4.0 with the shipped APK verified by hash and the REA MCP surface registered. Nothing is broken and nothing is blocking. Remaining work is optional and Boss-decided: 1. MEMORY_CORE v2.4.1…**
+**Completed VECTOR Long 2 (`~/Projects/vector-us-vs-china/output/f47-vs-j36.mp4`, 1920x1080 30fps, 162.80s / 2:43, sha256 `96b78cc5…`, QA ok, -16.2 LUFS) + full packaging (`thumbnail.jpg`, `subtitles.srt`,…**
 
 _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
 
@@ -27,4 +27,4 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
 1. clone repo → read `MEMORY_CORE.md` per READ MAP → **read this file**
 2. bootstrap key, verify HMAC `/ping` against the tunnel above (it rotates — trust `url.txt` first)
 3. verify worker + adb independently; only claim LIVE what you verified
-4. resume: Core is at doctrine v2.4.0 with the shipped APK verified by hash and the REA MCP surface registered. Nothing is broken and nothing is blocking. Remaining work is optional and Boss-decided: 1. MEMORY_CORE v2.4.1…
+4. resume: Completed VECTOR Long 2 (`~/Projects/vector-us-vs-china/output/f47-vs-j36.mp4`, 1920x1080 30fps, 162.80s / 2:43, sha256 `96b78cc5…`, QA ok, -16.2 LUFS) + full packaging (`thumbnail.jpg`, `subtitles.srt`,…
