@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-10-31 18:25:12
+# ⚠ ALERT — 2026-10-31 18:27:19
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://chose-inspiration-occurs-capital.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://thick-pdf-millions-focus.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 17061 |
 | ADB | DOWN | no adb device |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
