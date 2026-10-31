@@ -4,14 +4,14 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-10-31 23:12:31 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 4 hours, 51 minutes
+**Snapshot:** 2026-10-31 23:47:14 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 5 hours, 26 minutes
 
 ## Component state
 | Component | State |
 |---|---|
 | Tunnel | LIVE — `https://see-luke-verse-comm.trycloudflare.com` (via url.txt(trusted)) |
 | Bridge Worker | LIVE (pid 16991) |
-| adb | DOWN — no devices (0 transport(s)) |
+| adb | LIVE — 127.0.0.1:38125 (1 transport(s)) |
 | Deploy keys | zr=OK · ta=REJECTED · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
