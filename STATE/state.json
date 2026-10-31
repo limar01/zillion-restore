@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-10-31 20:33:05",
- "taken_ts": 1793449985.6011457,
+ "taken_at": "2026-10-31 22:41:12",
+ "taken_ts": 1793457672.9137738,
  "lane": "phone",
  "tunnel": "https://see-luke-verse-comm.trycloudflare.com",
  "tunnel_source": "url.txt(trusted)",
@@ -15,7 +15,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 2 hours, 11 minutes",
+  "uptime": "up 4 hours, 20 minutes",
   "adb_count": 0
  },
  "projects": [
@@ -31,10 +31,10 @@
   }
  ],
  "last_task": {
-  "last_task": "Completed VECTOR Long 2 (`~/Projects/vector-us-vs-china/output/f47-vs-j36.mp4`, 1920x1080 30fps, 162.80s / 2:43, sha256 `96b78cc5\u2026`, QA ok, -16.2 LUFS) + full packaging (`thumbnail.jpg`, `subtitles.srt`,\u2026",
+  "last_task": "- Phone: `/data/data/com.termux/files/home/Projects/vector-us-vs-china`",
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "4744e2c15bc07ab3",
+ "fingerprint": "226e5be8fb99fd60",
  "redacted": true
 }
