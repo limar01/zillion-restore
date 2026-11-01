@@ -1,15 +1,15 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-01 06:28:38",
- "taken_ts": 1793485718.577188,
+ "taken_at": "2026-11-01 18:51:47",
+ "taken_ts": 1793530307.06477,
  "lane": "phone",
- "tunnel": "https://conventions-palmer-lab-separate.trycloudflare.com",
- "tunnel_source": "url.txt(trusted)",
+ "tunnel": "",
+ "tunnel_source": "none",
  "health": {
-  "worker": "17063",
-  "worker_alive": true,
+  "worker": "",
+  "worker_alive": false,
   "adb_devices": [
-   "127.0.0.1:35685"
+   "127.0.0.1:46631"
   ],
   "adb_alive": true,
   "key_zr": "OK",
@@ -17,10 +17,24 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 3 hours, 50 minutes",
+  "uptime": "up 4 minutes",
   "adb_count": 1
  },
  "projects": [
+  {
+   "name": "arena-android-client",
+   "git": false,
+   "newest_file": "docs/HANDOFF.md",
+   "newest_at": "2026-11-01 09:09",
+   "last_commit": ""
+  },
+  {
+   "name": "rea-scratch",
+   "git": false,
+   "newest_file": "rea/website/requirements.txt",
+   "newest_at": "2026-11-01 07:45",
+   "last_commit": ""
+  },
   {
    "name": "shopeeaffiliate",
    "git": true,
@@ -33,10 +47,10 @@
   }
  ],
  "last_task": {
-  "last_task": "- Phone: `/data/data/com.termux/files/home/Projects/vector-us-vs-china`",
+  "last_task": "- Phone: `/data/data/com.termux/files/home/Projects/workspace/arena-android-client`",
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "0168b339f007f07f",
+ "fingerprint": "1617539a55300ac4",
  "redacted": true
 }
