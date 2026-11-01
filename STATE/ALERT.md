@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-01 23:41:50
+# ⚠ ALERT — 2026-11-01 23:44:06
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | OK | url.txt -> https://refined-copied-researcher-municipality.trycloudflare.com (live, via api-cached) |
 | WORKER | OK | pid 15587 |
-| ADB | DOWN | no adb device |
+| ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
 _Auto-written by push_watch.py. Cleared on recovery._
