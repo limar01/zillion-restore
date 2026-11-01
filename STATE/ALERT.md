@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-01 04:31:01
+# ⚠ ALERT — 2026-11-01 11:55:13
 
 | Check | State | Detail |
 |---|---|---|
 | TRUSTED | OK | url.txt -> https://conventions-palmer-lab-separate.trycloudflare.com (live, via api-cached) |
 | WORKER | OK | pid 17063 |
-| ADB | OK | 1 transport(s) |
-| REPO | WARN | 2 uncommitted file(s) in urlrepo |
+| ADB | DOWN | no adb device |
+| REPO | WARN | 3 uncommitted file(s) in urlrepo |
 
 _Auto-written by push_watch.py. Cleared on recovery._
