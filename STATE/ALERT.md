@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-11-01 11:57:19
+# ⚠ ALERT — 2026-11-01 18:52:00
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://conventions-palmer-lab-separate.trycloudflare.com (live, via api-cached) |
-| WORKER | OK | pid 17063 |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://conventions-palmer-lab-separate.trycloudflare.com (ping=0) |
+| WORKER | DOWN | worker.py not running |
 | ADB | OK | 1 transport(s) |
 | REPO | WARN | 3 uncommitted file(s) in urlrepo |
 
