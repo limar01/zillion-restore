@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-02 15:03:43
+# ⚠ ALERT — 2026-11-03 07:54:24
 
 | Check | State | Detail |
 |---|---|---|
 | TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
-| WORKER | OK | pid 16672 |
-| ADB | DOWN | no adb device |
+| WORKER | DOWN | worker.py not running |
+| ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
 _Auto-written by push_watch.py. Cleared on recovery._
