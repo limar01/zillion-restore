@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-11-01 23:44:06
+# ⚠ ALERT — 2026-11-02 13:06:08
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://refined-copied-researcher-municipality.trycloudflare.com (live, via api-cached) |
-| WORKER | OK | pid 15587 |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| WORKER | DOWN | worker.py not running |
 | ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
