@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-11-02 13:06:08
+# ⚠ ALERT — 2026-11-02 13:09:21
 
 | Check | State | Detail |
 |---|---|---|
 | TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
-| WORKER | DOWN | worker.py not running |
+| WORKER | OK | pid 16672 |
 | ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
