@@ -1,9 +1,9 @@
-# ⚠ ALERT — 2026-11-03 07:54:24
+# ⚠ ALERT — 2026-11-03 07:58:18
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://63b8ff25de08ce.lhr.life (ping=0) |
+| WORKER | OK | pid 16152 |
 | ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
