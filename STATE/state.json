@@ -1,10 +1,10 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-03 15:40:13",
- "taken_ts": 1793691613.4505956,
+ "taken_at": "2026-11-03 15:43:49",
+ "taken_ts": 1793691829.354985,
  "lane": "phone",
- "tunnel": "https://acbc610fe69902.lhr.life",
- "tunnel_source": "url.txt(trusted)",
+ "tunnel": "",
+ "tunnel_source": "none",
  "health": {
   "worker": "16152",
   "worker_alive": true,
@@ -17,7 +17,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 7 hours, 50 minutes",
+  "uptime": "up 7 hours, 53 minutes",
   "adb_count": 1
  },
  "projects": [
@@ -51,6 +51,6 @@
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "35d4408f11305d27",
+ "fingerprint": "5de790864c2af23f",
  "redacted": true
 }
