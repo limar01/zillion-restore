@@ -4,12 +4,12 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-04 04:13:42 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 2 hours, 4 minutes
+**Snapshot:** 2026-11-04 04:16:06 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 2 hours, 6 minutes
 
 ## Component state
 | Component | State |
 |---|---|
-| Tunnel | DOWN — `-` (via none) |
+| Tunnel | LIVE — `https://d35586e86cc785.lhr.life` (via url.txt(trusted)) |
 | Bridge Worker | LIVE (pid 16574) |
 | adb | LIVE — 127.0.0.1:44969 (1 transport(s)) |
 | Deploy keys | zr=OK · ta=OK · shopee=OK |
