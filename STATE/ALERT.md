@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-11-03 12:38:34
+# ⚠ ALERT — 2026-11-03 12:49:05
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://260b8fda36e078.lhr.life (live, via api) |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://d58193b54b7e17.lhr.life (ping=0) |
 | WORKER | OK | pid 16152 |
 | ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
