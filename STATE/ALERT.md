@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-11-03 14:02:52
+# ⚠ ALERT — 2026-11-03 14:12:54
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://94c482b50ecd7e.lhr.life (live, via api) |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
 | WORKER | OK | pid 16152 |
 | ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
