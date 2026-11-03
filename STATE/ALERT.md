@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-03 20:38:49
+# ⚠ ALERT — 2026-11-03 20:40:56
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://9e4ff8397c963a.lhr.life (ping=0) |
-| WORKER | DOWN | worker.py not running |
-| ADB | DOWN | no adb device |
+| TRUSTED | OK | url.txt -> https://commission-invitation-commercial-slot.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 16887 |
+| ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
 
 _Auto-written by push_watch.py. Cleared on recovery._
