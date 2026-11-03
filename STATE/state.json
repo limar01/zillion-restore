@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-04 03:48:22",
- "taken_ts": 1793735302.6218889,
+ "taken_at": "2026-11-04 04:09:14",
+ "taken_ts": 1793736554.9873023,
  "lane": "phone",
  "tunnel": "",
  "tunnel_source": "none",
@@ -17,7 +17,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 1 hour, 39 minutes",
+  "uptime": "up 2 hours, 0 minute",
   "adb_count": 1
  },
  "projects": [
@@ -38,8 +38,8 @@
   {
    "name": "references",
    "git": false,
-   "newest_file": "elephant-goldfish-model/tests/unit/test_opencode_adapter.py",
-   "newest_at": "2026-11-04 03:38",
+   "newest_file": "elephant-goldfish-model-analysis.md",
+   "newest_at": "2026-11-04 03:50",
    "last_commit": ""
   },
   {
@@ -56,7 +56,7 @@
    "name": "zillion-doctrine",
    "git": false,
    "newest_file": "LAST_CHECKPOINT_RECEIPT.json",
-   "newest_at": "2026-11-04 03:32",
+   "newest_at": "2026-11-04 04:03",
    "last_commit": ""
   }
  ],
@@ -65,6 +65,6 @@
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "a4160b88568a13b5",
+ "fingerprint": "d7c0f4240dd48760",
  "redacted": true
 }
