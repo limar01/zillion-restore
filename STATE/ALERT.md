@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-11-03 20:40:56
+# ⚠ ALERT — 2026-11-03 20:50:03
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://commission-invitation-commercial-slot.trycloudflare.com (live, via api) |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
 | WORKER | OK | pid 16887 |
 | ADB | OK | 1 transport(s) |
 | REPO | WARN | 2 uncommitted file(s) in urlrepo |
