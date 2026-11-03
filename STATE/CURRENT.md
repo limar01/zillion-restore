@@ -4,12 +4,12 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-04 04:16:06 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 2 hours, 6 minutes
+**Snapshot:** 2026-11-04 04:18:27 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 2 hours, 9 minutes
 
 ## Component state
 | Component | State |
 |---|---|
-| Tunnel | LIVE — `https://d35586e86cc785.lhr.life` (via url.txt(trusted)) |
+| Tunnel | DOWN — `-` (via none) |
 | Bridge Worker | LIVE (pid 16574) |
 | adb | LIVE — 127.0.0.1:44969 (1 transport(s)) |
 | Deploy keys | zr=OK · ta=OK · shopee=OK |
@@ -29,7 +29,7 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
 - **shopeeaffiliate** · branch `master` · last `8814eb9 2026-10-17` · dirty 0 · ahead 0
   - newest: `tsconfig.json` (2026-10-17 23:14)
 - **zillion-doctrine** · branch `-` · last `` · dirty 0 · ahead 0
-  - newest: `zillion-restore/url.txt` (2026-11-04 04:13)
+  - newest: `LAST_CHECKPOINT_RECEIPT.json` (2026-11-04 04:17)
 
 ## Restore hint
 1. clone repo → read `MEMORY_CORE.md` per READ MAP → **read this file**
