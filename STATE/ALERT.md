@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-04 23:10:11
+# ⚠ ALERT — 2026-11-04 23:12:43
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://93eeb54eb27ad7.lhr.life (ping=0) |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
 | WORKER | OK | pid 18410 |
 | ADB | OK | 1 transport(s) |
-| REPO | WARN | 1 commit(s) unpushed |
+| REPO | OK | clean, pushed 2 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
