@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-05 21:58:32
+# ⚠ ALERT — 2026-11-06 00:01:29
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | OK | url.txt -> https://d3baec678a9e24.lhr.life (live, via api) |
-| WORKER | OK | pid 20935 |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://d3baec678a9e24.lhr.life (ping=0) |
+| WORKER | DOWN | worker.py not running |
 | ADB | DOWN | no adb device |
-| REPO | OK | clean, pushed 0 min ago |
+| REPO | DOWN | no successful push in 122 min (remote ref stale) |
 
 _Auto-written by push_watch.py. Cleared on recovery._
