@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-08 19:58:23
+# ⚠ ALERT — 2026-11-09 21:17:52
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
-| WORKER | OK | pid 18459 |
-| ADB | OK | 1 transport(s) |
-| REPO | WARN | 1 commit(s) unpushed |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://4e53c96681d352.lhr.life (ping=0) |
+| WORKER | DOWN | worker.py not running |
+| ADB | DOWN | no adb device |
+| REPO | DOWN | no successful push in 1153 min (remote ref stale) |
 
 _Auto-written by push_watch.py. Cleared on recovery._
