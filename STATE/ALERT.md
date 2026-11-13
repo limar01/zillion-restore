@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-13 21:50:02
+# ⚠ ALERT — 2026-11-13 21:55:47
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | OK | url.txt -> https://alleged-routine-symphony-harmony.trycloudflare.com (live, via api-cached) |
 | WORKER | OK | pid 17479 |
 | ADB | OK | 1 transport(s) |
-| REPO | OK | clean, pushed 6 min ago |
+| REPO | WARN | 1 commit(s) unpushed |
 
 _Auto-written by push_watch.py. Cleared on recovery._
