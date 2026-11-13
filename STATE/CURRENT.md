@@ -4,14 +4,14 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-13 16:37:25 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 2 hours, 0 minute
+**Snapshot:** 2026-11-13 20:53:52 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 6 minutes
 
 ## Component state
 | Component | State |
 |---|---|
 | Tunnel | DOWN — `-` (via none) |
-| Bridge Worker | LIVE (pid 17901) |
-| adb | LIVE — 127.0.0.1:46593 (1 transport(s)) |
+| Bridge Worker | LIVE (pid 17479) |
+| adb | DOWN — no devices (0 transport(s)) |
 | Deploy keys | zr=OK · ta=OK · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
