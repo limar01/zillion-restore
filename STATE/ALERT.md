@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-14 14:13:03
+# ⚠ ALERT — 2026-11-14 14:16:16
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://communications-meet-mutual-hammer.trycloudflare.com (ping=0) |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
 | WORKER | OK | pid 16948 |
-| ADB | OK | 1 transport(s) |
-| REPO | WARN | 1 commit(s) unpushed |
+| ADB | DOWN | no adb device |
+| REPO | OK | clean, pushed 2 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
