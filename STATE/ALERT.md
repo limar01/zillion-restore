@@ -1,8 +1,8 @@
-# ⚠ ALERT — 2026-11-15 17:44:22
+# ⚠ ALERT — 2026-11-15 17:46:48
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | OK | url.txt -> https://interact-polls-attached-senators.trycloudflare.com (live, via api-cached) |
 | WORKER | OK | pid 15918 |
 | ADB | DOWN | no adb device |
 | REPO | OK | clean, pushed 2 min ago |
