@@ -4,15 +4,15 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-15 17:44:04 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 10 minutes
+**Snapshot:** 2026-11-15 17:57:15 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 23 minutes
 
 ## Component state
 | Component | State |
 |---|---|
-| Tunnel | LIVE — `https://interact-polls-attached-senators.trycloudflare.com` (via url.txt(trusted)) |
+| Tunnel | DOWN — `-` (via none) |
 | Bridge Worker | LIVE (pid 15918) |
 | adb | DOWN — no devices (0 transport(s)) |
-| Deploy keys | zr=OK · ta=OK · shopee=OK |
+| Deploy keys | zr=REJECTED · ta=REJECTED · shopee=REJECTED |
 
 ## LAST_TASK (what the next agent resumes)
 **- Phone: `/data/data/com.termux/files/home/Projects/workspace/arena-android-client`**
@@ -26,8 +26,8 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
   - newest: `rea/website/requirements.txt` (2026-11-01 07:45)
 - **references** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `rea-review/rea-mcp-analysis.md` (2026-11-04 05:04)
-- **shopeeaffiliate** · branch `master` · last `bdb4663 2026-11-15` · dirty 7 · ahead 28
-  - newest: `tools/mdns_pair.py` (2026-11-15 17:41)
+- **shopeeaffiliate** · branch `master` · last `bdb4663 2026-11-15` · dirty 8 · ahead 28
+  - newest: `tools/adb_raw.py` (2026-11-15 17:54)
 - **zillion-doctrine** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `LAST_CHECKPOINT_RECEIPT.json` (2026-11-04 10:27)
 
