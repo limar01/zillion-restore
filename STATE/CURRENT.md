@@ -4,7 +4,7 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-15 17:57:15 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 23 minutes
+**Snapshot:** 2026-11-15 18:01:40 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 28 minutes
 
 ## Component state
 | Component | State |
@@ -26,8 +26,8 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
   - newest: `rea/website/requirements.txt` (2026-11-01 07:45)
 - **references** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `rea-review/rea-mcp-analysis.md` (2026-11-04 05:04)
-- **shopeeaffiliate** · branch `master` · last `bdb4663 2026-11-15` · dirty 8 · ahead 28
-  - newest: `tools/adb_raw.py` (2026-11-15 17:54)
+- **shopeeaffiliate** · branch `master` · last `bdb4663 2026-11-15` · dirty 9 · ahead 28
+  - newest: `tools/pair_watch.py` (2026-11-15 18:01)
 - **zillion-doctrine** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `LAST_CHECKPOINT_RECEIPT.json` (2026-11-04 10:27)
 
