@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-15 17:39:04
+# ⚠ ALERT — 2026-11-15 17:41:31
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://communications-meet-mutual-hammer.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://interact-polls-attached-senators.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 15918 |
 | ADB | DOWN | no adb device |
-| REPO | WARN | 1 commit(s) unpushed |
+| REPO | OK | clean, pushed 2 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
