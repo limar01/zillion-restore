@@ -4,15 +4,15 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-15 18:01:40 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 28 minutes
+**Snapshot:** 2026-11-17 16:09:56 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 4 minutes
 
 ## Component state
 | Component | State |
 |---|---|
 | Tunnel | DOWN — `-` (via none) |
-| Bridge Worker | LIVE (pid 15918) |
+| Bridge Worker | LIVE (pid 21900) |
 | adb | DOWN — no devices (0 transport(s)) |
-| Deploy keys | zr=REJECTED · ta=REJECTED · shopee=REJECTED |
+| Deploy keys | zr=OK · ta=OK · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
 **- Phone: `/data/data/com.termux/files/home/Projects/workspace/arena-android-client`**
@@ -26,8 +26,8 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
   - newest: `rea/website/requirements.txt` (2026-11-01 07:45)
 - **references** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `rea-review/rea-mcp-analysis.md` (2026-11-04 05:04)
-- **shopeeaffiliate** · branch `master` · last `bdb4663 2026-11-15` · dirty 9 · ahead 28
-  - newest: `tools/pair_watch.py` (2026-11-15 18:01)
+- **shopeeaffiliate** · branch `master` · last `d1b0889 2026-11-15` · dirty 5 · ahead 32
+  - newest: `tools/fb_reel.py` (2026-11-16 00:11)
 - **zillion-doctrine** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `LAST_CHECKPOINT_RECEIPT.json` (2026-11-04 10:27)
 
