@@ -4,7 +4,7 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-18 07:07:50 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 15 hours, 2 minutes
+**Snapshot:** 2026-11-18 07:10:04 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 15 hours, 4 minutes
 
 ## Component state
 | Component | State |
