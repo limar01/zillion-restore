@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-15 18:02:37
+# ⚠ ALERT — 2026-11-17 16:10:12
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
-| WORKER | OK | pid 15918 |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://interact-polls-attached-senators.trycloudflare.com (ping=0) |
+| WORKER | DOWN | worker.py not running |
 | ADB | DOWN | no adb device |
-| REPO | WARN | 2 commit(s) unpushed |
+| REPO | WARN | 4 commit(s) unpushed |
 
 _Auto-written by push_watch.py. Cleared on recovery._
