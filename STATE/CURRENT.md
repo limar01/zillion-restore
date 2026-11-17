@@ -4,7 +4,7 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-18 05:06:07 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 13 hours, 0 minute
+**Snapshot:** 2026-11-18 05:08:29 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 13 hours, 2 minutes
 
 ## Component state
 | Component | State |
@@ -12,7 +12,7 @@
 | Tunnel | DOWN — `-` (via none) |
 | Bridge Worker | LIVE (pid 21900) |
 | adb | LIVE — 127.0.0.1:39529 (1 transport(s)) |
-| Deploy keys | zr=REJECTED · ta=OK · shopee=OK |
+| Deploy keys | zr=OK · ta=OK · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
 **- Phone: `/data/data/com.termux/files/home/Projects/workspace/arena-android-client`**
