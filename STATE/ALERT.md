@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-18 18:44:15
+# ⚠ ALERT — 2026-11-18 19:20:53
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://background-cooked-town-height.trycloudflare.com (ping=0) |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
 | WORKER | OK | pid 21900 |
-| ADB | OK | 1 transport(s) |
-| REPO | OK | clean, pushed 2 min ago |
+| ADB | DOWN | no adb device |
+| REPO | WARN | 1 commit(s) unpushed |
 
 _Auto-written by push_watch.py. Cleared on recovery._
