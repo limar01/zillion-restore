@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-19 22:35:39
+# ⚠ ALERT — 2026-11-19 22:38:03
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://mitsubishi-fishing-thomson-explanation.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
-| ADB | DOWN | no adb device |
-| REPO | WARN | 2 commit(s) unpushed |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://rated-tribes-calendars-officials.trycloudflare.com (ping=0) |
+| WORKER | OK | pid 19469 |
+| ADB | OK | 1 transport(s) |
+| REPO | OK | clean, pushed 1 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
