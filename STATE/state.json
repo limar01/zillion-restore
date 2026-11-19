@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-20 07:14:02",
- "taken_ts": 1795130042.7031832,
+ "taken_at": "2026-11-20 07:16:17",
+ "taken_ts": 1795130177.6843343,
  "lane": "phone",
  "tunnel": "",
  "tunnel_source": "none",
@@ -17,7 +17,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 8 hours, 42 minutes",
+  "uptime": "up 8 hours, 44 minutes",
   "adb_count": 1
  },
  "projects": [
@@ -50,7 +50,7 @@
    "dirty_files": 8,
    "ahead": "32",
    "newest_file": "tools/flash_ad.py",
-   "newest_at": "2026-11-20 07:12"
+   "newest_at": "2026-11-20 07:15"
   },
   {
    "name": "zillion-doctrine",
