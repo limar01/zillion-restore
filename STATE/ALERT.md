@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-19 21:25:53
+# ⚠ ALERT — 2026-11-19 21:52:20
 
 | Check | State | Detail |
 |---|---|---|
 | TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
 | WORKER | OK | pid 19079 |
 | ADB | DOWN | no adb device |
-| REPO | WARN | 1 commit(s) unpushed |
+| REPO | OK | clean, pushed 2 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
