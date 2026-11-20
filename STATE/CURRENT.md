@@ -4,15 +4,15 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-20 14:09:25 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 8 minutes
+**Snapshot:** 2026-11-20 14:15:32 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 14 minutes
 
 ## Component state
 | Component | State |
 |---|---|
-| Tunnel | DOWN — `-` (via none) |
+| Tunnel | LIVE — `https://you-gordon-coral-breed.trycloudflare.com` (via url.txt(trusted)) |
 | Bridge Worker | LIVE (pid 16972) |
 | adb | LIVE — 127.0.0.1:33101 (1 transport(s)) |
-| Deploy keys | zr=REJECTED · ta=REJECTED · shopee=REJECTED |
+| Deploy keys | zr=OK · ta=OK · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
 **- Phone: `/data/data/com.termux/files/home/Projects/workspace/arena-android-client`**
@@ -26,8 +26,8 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
   - newest: `rea/website/requirements.txt` (2026-11-01 07:45)
 - **references** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `rea-review/rea-mcp-analysis.md` (2026-11-04 05:04)
-- **shopeeaffiliate** · branch `master` · last `c88e422 2026-11-20` · dirty 0 · ahead 57
-  - newest: `data/affiliate_links.json` (2026-11-20 13:42)
+- **shopeeaffiliate** · branch `master` · last `97e80f4 2026-11-20` · dirty 0 · ahead 58
+  - newest: `tools/affiliate_auto_pipeline.py` (2026-11-20 14:13)
 - **zillion-doctrine** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `LAST_CHECKPOINT_RECEIPT.json` (2026-11-04 10:27)
 
