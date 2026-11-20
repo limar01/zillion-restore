@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-21 05:41:11
+# ⚠ ALERT — 2026-11-21 05:43:36
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | OK | url.txt -> https://initiated-evanescence-tba-remember.trycloudflare.com (live, via api) |
+| WORKER | OK | pid 17361 |
 | ADB | DOWN | no adb device |
-| REPO | DOWN | no successful push in 199 min (remote ref stale) |
+| REPO | OK | clean, pushed 1 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
