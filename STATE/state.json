@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-20 10:14:04",
- "taken_ts": 1795140844.4473817,
+ "taken_at": "2026-11-20 10:16:19",
+ "taken_ts": 1795140979.3522527,
  "lane": "phone",
  "tunnel": "",
  "tunnel_source": "none",
@@ -17,7 +17,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 11 hours, 42 minutes",
+  "uptime": "up 11 hours, 44 minutes",
   "adb_count": 1
  },
  "projects": [
@@ -47,10 +47,10 @@
    "git": true,
    "branch": "master",
    "last_commit": "3956a60 2026-11-20",
-   "dirty_files": 1,
+   "dirty_files": 2,
    "ahead": "36",
    "newest_file": "tools/flash_ad.py",
-   "newest_at": "2026-11-20 09:56"
+   "newest_at": "2026-11-20 10:15"
   },
   {
    "name": "zillion-doctrine",
@@ -65,6 +65,6 @@
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "a95a13b0dfcfdea7",
+ "fingerprint": "4b2de0a6a851974f",
  "redacted": true
 }
