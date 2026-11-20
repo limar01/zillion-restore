@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-20 14:40:04
+# ⚠ ALERT — 2026-11-20 22:10:32
 
 | Check | State | Detail |
 |---|---|---|
 | TRUSTED | DOWN | url.txt advertises DEAD url https://you-gordon-coral-breed.trycloudflare.com (ping=0) |
-| WORKER | OK | pid 16972 |
-| ADB | OK | 1 transport(s) |
-| REPO | OK | clean, pushed 8 min ago |
+| WORKER | DOWN | worker.py not running |
+| ADB | DOWN | no adb device |
+| REPO | DOWN | no successful push in 447 min (remote ref stale) |
 
 _Auto-written by push_watch.py. Cleared on recovery._
