@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-20 01:17:06
+# ⚠ ALERT — 2026-11-20 14:06:30
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://rated-tribes-calendars-officials.trycloudflare.com (ping=0) |
-| WORKER | OK | pid 19469 |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| WORKER | DOWN | worker.py not running |
 | ADB | OK | 1 transport(s) |
-| REPO | OK | clean, pushed 2 min ago |
+| REPO | DOWN | no successful push in 169 min (remote ref stale) |
 
 _Auto-written by push_watch.py. Cleared on recovery._
