@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-21 02:18:18
+# ⚠ ALERT — 2026-11-21 05:41:11
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://naturals-type-planets-ceiling.trycloudflare.com (ping=0) |
-| WORKER | OK | pid 17725 |
-| ADB | OK | 1 transport(s) |
-| REPO | OK | clean, pushed 2 min ago |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| WORKER | DOWN | worker.py not running |
+| ADB | DOWN | no adb device |
+| REPO | DOWN | no successful push in 199 min (remote ref stale) |
 
 _Auto-written by push_watch.py. Cleared on recovery._
