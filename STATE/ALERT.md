@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-20 22:23:39
+# ⚠ ALERT — 2026-11-20 22:26:00
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | OK | url.txt -> https://naturals-type-planets-ceiling.trycloudflare.com (live, via api-cached) |
 | WORKER | OK | pid 17725 |
-| ADB | DOWN | no adb device |
-| REPO | OK | clean, pushed 10 min ago |
+| ADB | OK | 1 transport(s) |
+| REPO | WARN | 2 commit(s) unpushed |
 
 _Auto-written by push_watch.py. Cleared on recovery._
