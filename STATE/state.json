@@ -1,12 +1,12 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-21 07:26:42",
- "taken_ts": 1795217202.5345218,
+ "taken_at": "2026-11-23 12:45:16",
+ "taken_ts": 1795409116.7819023,
  "lane": "phone",
  "tunnel": "",
  "tunnel_source": "none",
  "health": {
-  "worker": "17361",
+  "worker": "19309",
   "worker_alive": true,
   "adb_devices": [],
   "adb_alive": false,
@@ -15,7 +15,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 1 hour, 50 minutes",
+  "uptime": "up 4 minutes",
   "adb_count": 0
  },
  "projects": [
@@ -44,11 +44,11 @@
    "name": "shopeeaffiliate",
    "git": true,
    "branch": "master",
-   "last_commit": "eaedd79 2026-11-20",
-   "dirty_files": 1,
-   "ahead": "62",
-   "newest_file": "data/posted_products.json",
-   "newest_at": "2026-11-20 20:21"
+   "last_commit": "2910f1f 2026-11-21",
+   "dirty_files": 11,
+   "ahead": "0",
+   "newest_file": "tools/post_product_photos.py",
+   "newest_at": "2026-11-23 11:59"
   },
   {
    "name": "zillion-doctrine",
@@ -63,6 +63,6 @@
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "02dcb00c06d46405",
+ "fingerprint": "05257cf80ba7071f",
  "redacted": true
 }
