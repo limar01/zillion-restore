@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-25 02:55:05",
- "taken_ts": 1795546505.2988753,
+ "taken_at": "2026-11-25 02:57:40",
+ "taken_ts": 1795546660.656922,
  "lane": "phone",
  "tunnel": "",
  "tunnel_source": "none",
@@ -15,7 +15,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 2 hours, 20 minutes",
+  "uptime": "up 2 hours, 22 minutes",
   "adb_count": 0
  },
  "projects": [
