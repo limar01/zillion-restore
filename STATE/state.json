@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-24 11:33:31",
- "taken_ts": 1795491211.6898882,
+ "taken_at": "2026-11-24 11:35:57",
+ "taken_ts": 1795491357.1016672,
  "lane": "phone",
  "tunnel": "",
  "tunnel_source": "none",
@@ -13,11 +13,11 @@
   ],
   "adb_alive": true,
   "key_zr": "OK",
-  "key_ta": "OK",
+  "key_ta": "REJECTED",
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 4 hours, 2 minutes",
+  "uptime": "up 4 hours, 4 minutes",
   "adb_count": 1
  },
  "projects": [
@@ -65,6 +65,6 @@
   "source": "/data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md",
   "explicit": true
  },
- "fingerprint": "9ec04327d70c81ee",
+ "fingerprint": "03d90c38671dbc6d",
  "redacted": true
 }
