@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-24 11:33:45
+# ⚠ ALERT — 2026-11-25 00:39:34
 
 | Check | State | Detail |
 |---|---|---|
 | TRUSTED | DOWN | url.txt advertises DEAD url https://recognized-undergraduate-county-stuck.trycloudflare.com (ping=0) |
-| WORKER | OK | pid 18848 |
-| ADB | OK | 1 transport(s) |
-| REPO | OK | clean, pushed 40 min ago |
+| WORKER | DOWN | worker.py not running |
+| ADB | DOWN | no adb device |
+| REPO | DOWN | no successful push in 768 min (remote ref stale) |
 
 _Auto-written by push_watch.py. Cleared on recovery._
