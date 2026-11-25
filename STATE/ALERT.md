@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-25 09:40:04
+# ⚠ ALERT — 2026-11-25 09:42:55
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://modified-culture-whilst-night.trycloudflare.com (ping=0) |
+| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
 | WORKER | OK | pid 20180 |
-| ADB | DOWN | no adb device |
+| ADB | OK | 1 transport(s) |
 | REPO | OK | clean, pushed 2 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
