@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-25 13:28:35
+# ⚠ ALERT — 2026-11-25 13:46:52
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://modified-culture-whilst-night.trycloudflare.com (ping=0) |
 | WORKER | OK | pid 20180 |
-| ADB | DOWN | no adb device |
-| REPO | WARN | 2 commit(s) unpushed |
+| ADB | OK | 1 transport(s) |
+| REPO | WARN | 11 commit(s) unpushed |
 
 _Auto-written by push_watch.py. Cleared on recovery._
