@@ -4,14 +4,14 @@
 > Read this FIRST on restore (see READ MAP), then continue the last task. Snapshot is scrubbed: no keys, no passphrase.
 > **Redacted for the public repo:** LAN addresses and commit subjects removed.
 
-**Snapshot:** 2026-11-25 16:46:24 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 16 hours, 11 minutes
+**Snapshot:** 2026-11-27 05:47:40 · **lane:** phone · **host:** SM-G975F / Android 16 · **uptime:** up 5 minutes
 
 ## Component state
 | Component | State |
 |---|---|
 | Tunnel | DOWN — `-` (via none) |
-| Bridge Worker | LIVE (pid 20180) |
-| adb | LIVE — 127.0.0.1:44173 (1 transport(s)) |
+| Bridge Worker | DOWN (pid -) |
+| adb | LIVE — 127.0.0.1:45757 (1 transport(s)) |
 | Deploy keys | zr=OK · ta=OK · shopee=OK |
 
 ## LAST_TASK (what the next agent resumes)
@@ -26,8 +26,8 @@ _source: /data/data/com.termux/files/home/zillion_pw/CURRENT_HANDOFF.md_
   - newest: `rea/website/requirements.txt` (2026-11-01 07:45)
 - **references** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `rea-review/rea-mcp-analysis.md` (2026-11-04 05:04)
-- **shopeeaffiliate** · branch `master` · last `2910f1f 2026-11-21` · dirty 12 · ahead 0
-  - newest: `tools/feed_photo_post.py` (2026-11-24 10:33)
+- **shopeeaffiliate** · branch `master` · last `2910f1f 2026-11-21` · dirty 13 · ahead 0
+  - newest: `tools/fb_reel_upload.py` (2026-11-27 02:05)
 - **zillion-doctrine** · branch `-` · last `` · dirty 0 · ahead 0
   - newest: `LAST_CHECKPOINT_RECEIPT.json` (2026-11-04 10:27)
 
