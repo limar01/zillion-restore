@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-27 05:47:55
+# ⚠ ALERT — 2026-11-27 05:50:20
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | url.txt advertises DEAD url https://modified-culture-whilst-night.trycloudflare.com (ping=0) |
-| WORKER | DOWN | worker.py not running |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://serving-safe-helped-kings.trycloudflare.com (ping=0) |
+| WORKER | OK | pid 17665 |
 | ADB | OK | 1 transport(s) |
-| REPO | DOWN | no successful push in 2220 min (remote ref stale) |
+| REPO | OK | clean, pushed 1 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
