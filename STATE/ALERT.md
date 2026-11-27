@@ -1,10 +1,10 @@
-# ⚠ ALERT — 2026-11-27 11:54:43
+# ⚠ ALERT — 2026-11-27 11:57:20
 
 | Check | State | Detail |
 |---|---|---|
-| TRUSTED | DOWN | cannot read url.txt from GitHub (http=0 via api) |
+| TRUSTED | DOWN | url.txt advertises DEAD url https://serving-safe-helped-kings.trycloudflare.com (ping=0) |
 | WORKER | OK | pid 17665 |
 | ADB | OK | 1 transport(s) |
-| REPO | WARN | 1 commit(s) unpushed |
+| REPO | OK | clean, pushed 2 min ago |
 
 _Auto-written by push_watch.py. Cleared on recovery._
