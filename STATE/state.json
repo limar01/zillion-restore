@@ -1,7 +1,7 @@
 {
  "schema": "zillion.state/1",
- "taken_at": "2026-11-27 07:45:38",
- "taken_ts": 1795736738.56522,
+ "taken_at": "2026-11-27 08:02:30",
+ "taken_ts": 1795737750.7399824,
  "lane": "phone",
  "tunnel": "https://serving-safe-helped-kings.trycloudflare.com",
  "tunnel_source": "url.txt(trusted)",
@@ -17,7 +17,7 @@
   "key_shopee": "OK",
   "model": "SM-G975F",
   "android": "16",
-  "uptime": "up 2 hours, 3 minutes",
+  "uptime": "up 2 hours, 19 minutes",
   "adb_count": 1
  },
  "projects": [
